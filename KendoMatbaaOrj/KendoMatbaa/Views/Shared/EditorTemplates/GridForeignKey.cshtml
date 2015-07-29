@@ -1,0 +1,8 @@
+﻿@model object
+@(
+ Html.Kendo().DropDownListFor(m => m)
+     .HtmlAttributes(new { style = "width:250px" })
+     .Animation(true)
+     .BindTo((SelectList)ViewData[ViewData.TemplateInfo.GetFullHtmlFieldName("") + "_Data"])
+     
+)

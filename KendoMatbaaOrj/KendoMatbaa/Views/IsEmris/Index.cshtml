@@ -1,0 +1,183 @@
+﻿@using KendoMatbaa.Controllers
+@using KendoMatbaa.Models
+@using KendoMatbaa.App_Start;
+@model IEnumerable<KendoMatbaa.Models.IsEmri>
+
+@{
+    ViewBag.Title = "İş Emirleri";
+}
+
+<h2>İş Emirleri</h2>
+
+
+<p>
+    @*@Html.ActionLink("Yeni", "Create")*@
+    @Html.ActionLink("Yeni İş Emri", "Create", null, null, new { title = "Yeni  iş emri eklemek için tıklayınız..." })
+</p>
+
+<p style="padding:0 1em 1em; padding-top: 0.7em;background-color:gainsboro;">
+    Aşağıdaki kutucuğa arama için biliyosanız İşin adından,İş numarasından,işin geldiği birimden ya da İş Emri Id'den bildiğiniz bir parçasını yazıp, 'Ara' butonuna tıklayabilirsiniz.
+</p>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        İş Nodan Ara: @Html.TextBox("SearchString")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IsNo)*@
+            İş No
+        </th>
+        <th>
+            Kapak
+        </th>
+        <th style="width:40px;">
+            @Html.DisplayNameFor(model => model.TarihSayi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Personel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefon)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.KabulTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeslimTarihi)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.Silindi)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Birim.BirimAdi)
+        </th>
+        @*<th>
+            Durum
+        </th>*@
+        <th title="Teslimat Oranı">T. Oranı</th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+
+
+        using (matbaaEntities ent = new matbaaEntities())
+        {
+            bool GirisTamammi = ent.spIsEmriBilgiGirisiTamamlanmismi(item.IsEmriId).FirstOrDefault().TamamMi.HasValue ? ent.spIsEmriBilgiGirisiTamamlanmismi(item.IsEmriId).FirstOrDefault().TamamMi.Value : false;
+            //string toolTip = ent.spIsEmriBilgiGirisiTamamlanmismi(item.IsEmriId).FirstOrDefault().Bildirim.HasValue() ? ent.spIsEmriBilgiGirisiTamamlanmismi(item.IsEmriId).FirstOrDefault().Bildirim : "asdas";
+            string toolTip = ent.spIsEmriBilgiGirisiTamamlanmismi(item.IsEmriId).FirstOrDefault().Bildirim.ToString();
+
+            string style = GirisTamammi == false ? "background-color:Yellow" : null;
+            if (ent.spTeslimatOrani(item.IsEmriId).First().TeslimatOrani == "%100.000")
+            {
+                style = "background-color:LightGreen" ;
+            }
+            
+            
+
+            <tr style="@style" title="@toolTip">
+
+                <td class="alert-danger">
+                    @Html.DisplayFor(modelItem => item.IsNo)
+                </td>
+                <td>
+                    @{
+            KendoMatbaa.App_Start.Query q = new KendoMatbaa.App_Start.Query();
+            string Kapak = q.KapakResmininPathiniDon(item.IsEmriId);
+            <img src="~/imgUpload/@Kapak" width="70px" height="70px" alt="@Kapak" />
+                    }
+                </td>
+                <td style="width:40px;">
+                    @Html.DisplayFor(modelItem => item.TarihSayi)
+                </td>
+                <td style="width:80px;">
+                    @Html.DisplayFor(modelItem => item.Adi)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Personel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefon)
+                    </td>*@
+                <td style="width:40px;">
+                    @Html.DisplayFor(modelItem => item.KabulTarihi)
+                </td>
+                <td style="width:40px;">
+                    @Html.DisplayFor(modelItem => item.TeslimTarihi)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Aciklama)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Silindi)
+                    </td>*@
+                <td style="width:80px;">
+                    @Html.DisplayFor(modelItem => item.IKBSBirim.Adi)
+                </td>
+                @*<td>
+                    @Html.Raw(toolTip)
+                </td>*@
+
+
+                <td>
+                    <span>@Html.Raw(ent.spTeslimatOrani(item.IsEmriId).First().TeslimatOrani)</span>
+                    @{
+            using (matbaaEntities entt = new matbaaEntities())
+            {
+              
+                KendoMatbaa.App_Start.Query qq = new KendoMatbaa.App_Start.Query();
+                int IsEmriId = qq.IsNodanIsEmriIdDon(item.IsNo);
+                int ToplamTeslimEdilmesiGereken = entt.spTeslimatOrani(IsEmriId).First().ToplamTeslimEdilmesiGereken;
+                int TeslimEdilen = entt.spTeslimatOrani(IsEmriId).First().ToplamTeslimEdilen;
+                string TeslimatOrani = entt.spTeslimatOrani(IsEmriId).First().TeslimatOrani;
+
+                @Html.Raw(@TeslimEdilen.ToString() + "/" + @ToplamTeslimEdilmesiGereken.ToString())
+              
+  
+            }
+                    }
+                </td>
+                <td>
+                    @*@Html.ActionLink("Düzenle", "Edit", new { id=item.IsEmriId }) |*@
+                    @*@Html.ActionLink("Detaylar", "Details", new { id = item.IsEmriId })*@
+                    @*http://localhost:13717/IsEmri/TabView?IsEmriId=100477739*@
+                    @Html.ActionLink("Detaylar", "TabView", "IsEmri", new { IsEmriId = item.IsEmriId }, null) |
+                    @*@Html.ActionLink("Sil", "Delete", new { id=item.IsEmriId })*@
+                    @Html.ActionLink("Teslimat Yap", "Index", "TeslimatRaporu", new { IsNo = item.IsNo }, null)
+
+                    @{
+                        BaseController bCnt = new BaseController();
+                        //Query q=new Query();
+                        if ((bCnt.PersonelBelirliBirRoleSahipMi("MatbaaSef") || bCnt.PersonelBelirliBirRoleSahipMi("MatbaaAdmin")) && !q.IsEmriOnaylanmisMi(item.IsEmriId))
+                        {
+                          @Html.Raw("| ") 
+                         @Html.ActionLink("Onay Ver", "IsEmriniOnaylaGerc2", "KontrolPaneli", new {id = item.IsEmriId}, null)
+                        }
+
+                    }
+
+
+            
+
+                </td>
+            </tr>
+        }
+    }
+
+</table>

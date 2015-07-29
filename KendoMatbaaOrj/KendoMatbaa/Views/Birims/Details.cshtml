@@ -1,0 +1,36 @@
+﻿@model KendoMatbaa.Models.Birim
+
+@{
+    ViewBag.Title = "Detaylar";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Birim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.BirimAdi)*@
+            Birim Adı
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirimAdi)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.BirimKodu)*@
+            Birim Kodu
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirimKodu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.BirimId }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

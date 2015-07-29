@@ -1,0 +1,42 @@
+﻿@model KendoMatbaa.Models.IsEmriYokIsParcasi
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutMenusuzFooterDaYok.cshtml";
+    //Layout = null;
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>IsEmriYokIsParcasi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YokIsParcasi.YokIsParcasiAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YokIsParcasi.YokIsParcasiAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

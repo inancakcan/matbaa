@@ -1,0 +1,106 @@
+﻿@model IEnumerable<KendoMatbaa.Models.Uretim>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>İş Aşamaları Listesi</h2>
+
+
+<p style="padding:0 1em 1em; padding-top: 0.7em;background-color:gainsboro;">
+    Bu formu kullanarak,<i> daha önce yetkilendirildiğiniz Matbaa İş Emrinin ilgili iş parçasını üzerinize alarak işi tamamlayabilirsiniz.</i>
+    <br/>
+    NOT: İlgili parça uygulama yöneticisi tafafından size atanmadı ise, ilgili iş parçasını üzerinize alamazsınız. Bu durumda lütfen uygulama yöneticisi ile bağlantı kurunuz.
+    <br/><hr/>
+    İlgilendiğiniz iş emrini bulabilemek için, aşağıdaki kutucuğa arama için biliyosanız İşin adından,İş numarasından,işin geldiği birimden ya da İş Emri Id'den bildiğiniz bir parçasını yazıp, 'Ara' butonuna tıklayabilirsiniz.
+</p>
+<br/>
+
+@*Ancak Uretim formuna kayırt yapınca üzerindeki üretimleri görebiliyor..bu saçmalık..adamın üzerindeki işleri görebilmesi gerekli..bunun için view oluşturmak gerekli..
+    bu view üzerinden bir form oluşturulması gerekiyor.*@
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        İş Nodan Ara: @Html.TextBox("SearchString")
+        <input type="submit" value="Ara" />
+    </p>
+}
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UretimeBaslama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UretimiSonlandirma)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AltUretimAsamalari.AltUretimAsamalariAdi)*@
+            Alt Üretim Aşaması
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IsEmri.IsNo)*@
+            İş No
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Personel1.PersonelAdiSoyadi)*@
+            Personel
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UretimeBaslama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UretimiSonlandirma)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltUretimAsamalari.AltUretimAsamalariAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personel1.PersonelAdiSoyadi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.UretimId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.UretimId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.UretimId })
+            
+            
+            
+            @{
+            if (item.UretimeBaslama.ToString() != string.Empty && item.UretimiSonlandirma.ToString() == string.Empty)
+            {
+                @Html.Raw("| ")
+            @Html.ActionLink("İşi Bitirdim", "IsiBitirdim", new { UretimId = item.UretimId })
+
+            }
+
+            if(item.UretimeBaslama.ToString() == string.Empty && item.UretimiSonlandirma.ToString() == string.Empty)
+            {
+                @Html.Raw("| ")
+                @Html.ActionLink("İşe Başlıyorum", "IseSimdiBasladim", new { UretimId =item.UretimId })
+            }
+
+}
+        </td>
+    </tr>
+            }
+    
+
+</table>

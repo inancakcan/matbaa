@@ -1,0 +1,49 @@
+﻿@model KendoMatbaa.Models.BitmisIsBoyutlari
+
+@{
+    ViewBag.Title = "Bitmiş iş boyutu oluşturma";
+    Layout = "~/Views/Shared/Tab.cshtml"; ;
+}
+
+<h2>@*Oluşturma*@</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @*<h4>Bitmiş İs Boyutları</h4>*@
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.BitmisIsBoyutuAdi, "Bitmiş İs Boyutu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BitmisIsBoyutuAdi)
+                @Html.ValidationMessageFor(model => model.BitmisIsBoyutuAdi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Silindi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Silindi)
+                @Html.ValidationMessageFor(model => model.Silindi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Listeye geri dön", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,47 @@
+﻿
+@*<div class="configuration k-widget k-header" style="width: 300px">
+    <span class="infoHead">Information</span>
+    <p>
+        The Upload is able to upload files out-of-band using the
+        HTML5 File API with fallback for legacy browsers.
+    </p>
+    <p>
+        You need to configure save action that will receive
+        the uploaded files.
+        An optional remove action is also available.
+    </p>
+</div>*@
+@{
+    Layout = null;
+}
+@*@ViewBag.IsEmriId*@ 
+<div style="width:45%">
+    <div>Dosya Açıklaması
+        @(Html.Kendo().Upload()
+              .Name("files")
+              .Messages(m => m.Select("Yüklemek istediğiniz dosyayı seçiniz.."))
+              .Async(a => a
+                  .Save("Save", "FileUpload", new { IsEmriId = int.Parse(ViewBag.IsEmriId.ToString()) })
+                  .Remove("Remove", "FileUpload")
+                  .AutoUpload(true)
+              )
+
+
+
+                              //.Events(c => c.Success("onSuccess").Upload("onUpload")
+                              //)
+              
+              
+              
+              )
+    </div>
+</div>
+<script>
+    
+    function onSuccess(e) {
+        $("#details").text("Success (" + e.operation + ") :: " + getFileInfo(e));
+    }
+    function onUpload(e) {
+        alert("Yükleniyor..." );
+    }
+</script>

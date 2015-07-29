@@ -1,0 +1,34 @@
+﻿@model KendoMatbaa.Models.IsEmriKullanilanLaminasyonlar
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Kullanılan Laminasyonlar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltGruplar.AltGrupAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.KullanilanLaminasyonlarId }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

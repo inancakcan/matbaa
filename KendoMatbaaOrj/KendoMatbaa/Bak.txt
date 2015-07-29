@@ -1,0 +1,333 @@
+﻿/*************Window işleri******************/
+
+@(Html.Kendo().Window()
+    .Name("window")
+    .Title("About Alvar Aalto")
+       .LoadContentFrom("OnayBekleyenIsSayisi", "KontrolPaneli")
+    .Draggable()
+    .Resizable()
+    .Width(600)
+    .Visible(false)
+    .Modal(true)
+    .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+    .Events(ev => ev.Close("onClose"))
+)
+
+<span id="undo"  class="k-button">Click here to open the window.</span>
+
+<script>
+    function onClose() {
+        $("#undo").show();
+    }
+
+    $(document).ready(function () {
+        $("#undo").bind("click", function () {
+            $("#window").data("kendoWindow").open();
+            $("#undo").show();
+        });
+    });
+</script>
+
+/*************Window işleri******************/
+
+
+jquery ajax ile ddl e müdahale
+-----------------------------------
+
+/*view kısmı*/
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriId, "IsEmriId", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.DropDownList("IsEmriId", String.Empty)
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UretimId, "UretimId", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.DropDownList("UretimId", String.Empty)
+                @Html.ValidationMessageFor(model => model.UretimId)
+            </div>
+        </div>
+		.
+		.
+		.
+		.
+
+
+
+<script>
+    $(function () {
+        $('select#IsEmriId').change(function () {
+            var vIsEmriId = $(this).val();
+           // alert(districtId)
+
+
+            $.ajax({
+                //url: 'IsEmriIddenUretimIdDon',
+                url: "@Url.Action("IsEmriIddenUretimIdDon", "UretimNotlari")",
+                type: 'POST',
+                data: { IsEmriId: vIsEmriId },
+                dataType: 'json',
+                //contentType: 'application/json',
+                success: function (data) {
+                   
+                    alert(data)
+                    $('select#UretimId').val(data)
+                }
+            });
+
+
+
+
+        });
+    });
+
+</script>
+
+
+/*controler kısmında ise*/
+        
+		[HttpPost]
+        public ActionResult IsEmriIddenUretimIdDon(int IsEmriId)
+        {
+            int  UretimId = 0;
+            using (matbaaEntities db = new matbaaEntities())
+            {
+                UretimId = (from c in db.Uretim
+                               where c.IsEmriId == IsEmriId
+                               select new { c.UretimId }).First().UretimId;
+            }
+            return  Json(UretimId);
+        }
+		
+		
+		
+///////////////////////////////////
+json datasource için aşağıdaki gibi kullanılması gerekli
+
+        public ActionResult StokKritikSeviyeler_Read()
+        {
+            using (var matbaa = new matbaaEntities())
+            {
+                ObjectResult<spKritikSeviyeKontrol_Result> kritikSeviyes = matbaa.spKritikSeviyeKontrol();
+                //return Json(kritikSeviyes);
+                return Json(kritikSeviyes.ToList(),JsonRequestBehavior.AllowGet);
+            }
+        }
+	
+	
+	
+	//////////////////////////////////////////
+	window kullanımı	
+	//////////////////////////////////////////
+	
+@(Html.Kendo().Window()
+    .Name("window")
+    .Title("Deneme")
+    .Content("yükleniyor")
+        .LoadContentFrom("_IsEmrineAitLaminasyonlar", "IsEmriTeknikBilgilers", new { IsEmriId = Model.IsEmriId })
+        .Iframe(true)
+        .Draggable()
+        .Resizable()
+        .Modal(true)
+        .Visible(false)
+        .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+        .Events(ev => ev.Close("onClose"))
+)
+    
+<span id="undo" class="k-button" >Laminasyonlar</span>
+<script>
+    function onClose() {
+        //$("#grid").data("kendoGrid").dataSource.read();
+        //var grid = window.parent.parent.parent.$("#grid").data("kendoGrid");
+        //grid.dataSource.read();
+        //alert("meraha");
+    }
+
+
+    $(document).ready(function () {
+        $("#undo").bind("click", function () {
+            $("#window").data("kendoWindow").open();
+            //$("#undo").show();
+        });
+    });
+
+</script>
+
+	
+	//////////////////////////////////////////
+	window kullanımı	
+	//////////////////////////////////////////
+
+
+
+----------------------------
+mssql kullanımı
+----------------------------
+
+
+CREATE TRIGGER StokGirindeStokHareketeEkle ON dbo.StokGiris AFTER INSERT AS
+BEGIN
+  DECLARE @AltGruplarId INT;
+  DECLARE @Miktar FLOAT;
+  DECLARE @Tarih DATETIME;
+  DECLARE @PersonelTut UNIQUEIDENTIFIER;
+  DECLARE @Personel NVARCHAR(25);
+  DECLARE @AlinanFirma NVARCHAR(150);
+
+  --AltGruplarId
+  SELECT @AltGruplarId = i.AltGruplarId
+  FROM
+    inserted i;
+  --Miktar
+  SELECT @Miktar = i.Miktar
+  FROM
+    inserted i;
+
+  --Tarih
+  SELECT @Tarih = i.Tarih
+  FROM
+    inserted i;
+
+
+  --personel
+  SELECT @PersonelTut = i.StokGirisiniYapan
+  FROM
+    inserted i;
+
+  SELECT @Personel = p.PersonelAdiSoyadi
+  FROM
+    Personel p
+  WHERE
+    PersonelUN = @PersonelTut;
+
+  --AlinanFirma
+  SELECT @AlinanFirma = i.AlindigiFirmaAdi
+  FROM
+    inserted i;
+
+
+
+  INSERT INTO StokHareket(AltGruplarId
+                        , Miktar
+                        , Tarih
+                        , Hareket
+                        , Personel
+                        , Yon
+                        , Silindi
+                        , IsEmriId)
+  VALUES
+    (@AltGruplarId -- AltGruplarId - INT NOT NULL
+    , @Miktar -- Miktar - FLOAT NOT NULL
+    , @Tarih -- 'YYYY-MM-DD hh:mm:ss[.nnn]'-- Tarih - DATETIME
+    , '+' -- Hareket - CHAR(1)
+    , @Personel -- Personel - NVARCHAR(25)
+    , @AlinanFirma -- Yon - NVARCHAR(200) NOT NULL
+    , 0 -- Silindi - BIT
+    , NULL -- IsEmriId - INT
+    )
+END
+GO
+
+
+
+
+
+----------------------------
+mssql kullanımı
+----------------------------
+
+
+-------------------TextAreaForGenişiliği-------------
+@Html.TextAreaFor(model => model.Aciklama,new {rows="6", cols="70"})
+-------------------TextAreaForGenişiliği-------------
+
+-------------Authorization Filter-------------
+[Authorize(Roles="Admin")]
+[Authorize(Users="User1,User2")]
+-------------Authorization Filter-------------
+
+
+
+---Conditional html için-------------------
+				Query q=new Query();
+                if(q.IsEmriOnaylanmisMi(id.Value))
+                {
+                    ViewBag.IsEmriOnaylanmisMi = "E";    
+                }
+
+
+
+				  @if (ViewBag.IsEmriOnaylanmisMi != null)
+                {
+                    <input type="submit"  value="Kaydet" class="btn btn-default" title="İş Emri  onaylanmış durumda" disabled/><br /><br />
+                    @Html.Raw("<font color='red'>İş Emri Onaylanmış durumda oldugu için kayıt üzerinde güncelleme yapamazsınız!</font>")
+                }
+                else
+                {
+                    <input type="submit"  value="Kaydet" class="btn btn-default" title="İş Emri henüz onaylanmamış!" />
+                }
+
+---Conditional html için-------------------
+
+
+
+-----------Olmayan Is Parcalari için------------------
+  CREATE PROCEDURE  uspIsEmriYokISParcasiAdi
+    @IsEmriId int
+  AS
+    --uspIsEmriYokISParcasiAdi 100479867
+  SELECT  
+    --ieyip.Id,
+     --     ieyip.IsEmriId,
+     --     ieyip.YokIsParcasiId,
+          yip.Id,
+          yip.YokIsParcasiAdi FROM IsEmriYokIsParcasi ieyip JOIN YokIsParcasi yip ON ieyip.YokIsParcasiId=yip.Id
+  WHERE ieyip.IsEmriId=@IsEmriId
+
+  *************
+  CREATE PROCEDURE  uspIsEmriYokIsParcalariniSil
+    @IsEmriId int
+  AS
+--exec uspIsEmriYokIsParcalariniSil 100479867
+DELETE FROM IsEmriYokIsParcasi WHERE IsEmriId=@IsEmriId
+
+
+************
+
+CREATE PROCEDURE  uspIsEmriYokIsParcasiEkle
+    @IsEmriId INT,
+    @YokIsParcasiId INT
+  AS
+--exec uspIsEmriYokIsParcasiEkle 100479867,1
+INSERT INTO IsEmriYokIsParcasi (IsEmriId, YokIsParcasiId)
+  VALUES (@IsEmriId, @YokIsParcasiId);
+
+
+
+
+
+-----------Olmayan Is Parcalari için------------------
+
+
+/////////////////////TARİH MESELESİ-------------------
+
+
+ @Html.Kendo().DatePickerFor(model => model.Tarih).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" })
+
+ ****************
+ 
+<script>
+    $(document).ready(function () {
+
+        kendo.culture("tr-TR"); //your culture
+        $.validator.addMethod('date',
+           function (value, element) {
+               return this.optional(element) || kendo.parseDate(value)
+           });
+    });
+</script>

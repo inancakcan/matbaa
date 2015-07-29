@@ -1,0 +1,71 @@
+﻿@*@model IEnumerable<KendoMatbaa.Models.vKagitTuketimi>*@
+@model KendoMatbaa.Models.vKagitTuketimi
+
+
+
+@*@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>title</h2>
+<button id="export" class="k-button k-button-icontext"><span class="k-icon k-i-pdf"></span>Export to PDF</button>
+
+@(Html.Kendo().PivotConfigurator()
+    .Name("configurator")
+    .Height(570)
+)
+
+@(Html.Kendo().PivotGrid<KendoMatbaa.Models.vKagitTuketimi>()
+    .Name("pivotgrid")
+    .Configurator("#configurator")
+    .ColumnWidth(120)
+    .Height(570)
+    .BindTo(Model)
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .Schema(schema => schema
+                        .Model(m => m.Field("KulanilanIcKagitCinsi", typeof(string)).From("vKagitTuketimi.KulanilanIcKagitCinsi"))
+            .Cube(cube => cube
+                .Dimensions(dimensions =>
+                {
+                    dimensions.Add(model => model.KulanilanIcKagitCinsi).Caption("All Products");
+                    dimensions.Add("CategoryName").Caption("All Categories");
+                    dimensions.Add(model => model.KulanilanIcKagitCinsi).Caption("Discontinued");
+                })
+                .Measures(measures =>
+                {
+                    measures.Add("Average").Format("{0:c}").Field(model => model.IcKagitNet).AggregateName("average");
+                    measures.Add("Sum").Format("{0:c}").Field(model => model.kapaknet).AggregateName("sum");
+                })
+            ))
+        .Columns(columns =>
+        {
+            columns.Add("adi").Expand(true);
+            columns.Add("adi");
+        })
+        .Rows(rows => rows.Add("adi").Expand(true))
+        .Measures(measures => measures.Values("Sum"))
+        .Events(e => e.Error("onError"))
+    )
+)
+
+<script>
+    function onError(e) {
+        alert("error: " + kendo.stringify(e.errors[0]));
+    }
+</script>
+
+<style>
+    #pivotgrid {
+        display: inline-block;
+        vertical-align: top;
+        width: 70%;
+    }
+
+    #configurator {
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>*@
+@Html.Action("ChartPartial")

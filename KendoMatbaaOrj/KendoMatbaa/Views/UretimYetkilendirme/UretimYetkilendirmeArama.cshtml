@@ -1,0 +1,138 @@
+﻿@using KendoMatbaa.App_Start
+@using KendoMatbaa.Controllers
+@model System.Collections.Generic.List<KendoMatbaa.Models.uspUretimYetkilendirmeArama_Result>
+
+
+@*@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}*@
+
+<h2>Üretim Yekilendirme Arama</h2>
+
+
+
+<div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Uyarı!</h4>
+    Aşağıdaki kutucuğa arama için, biliyorsanız İşin adından,İş numarasından, işin geldiği birim adından ya da İş Emri Id'den bildiğiniz bir parçasını yazıp, 'Ara' butonuna tıklayabilirsiniz.
+    <br /><br />
+    Not: Arama yapabilmek için bir iş numarası girmeniz zorunludur.
+</div>
+
+
+@using (Html.BeginForm())
+{
+
+
+
+    <table cellpadding="10">
+        <tr>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        @Html.CheckBox("chkBanaAtanmislar")
+                        @*<input id="chkBanaAtanmislarid" name="chkBanaAtanmislar" value="true" type="checkbox" />*@
+                    </span>
+                    <input type="text" class="form-control" value="Sadece bana atanmış işler" disabled>
+                </div><!-- /input-group -->
+            </td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        @Html.CheckBox("chkDevamEdenler")
+                        @*<input id="chkDevamEdenleridd" name="chkDevamEdenler" value="true" type="checkbox" />*@
+                    </span>
+                    <input type="text" class="form-control" value="Sadece devam eden işler" disabled>
+                </div><!-- /input-group -->
+            </td>
+            <td>
+                İş Nodan Ara: @Html.TextBox("IsNo")
+                <input type="submit" value="Ara" />
+            </td>
+        </tr>
+    </table>
+
+    <br />
+}
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AltUretimAsamalari.AltUretimAsamalariAdi)*@
+            Üretim Aşaması
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.)*@
+            İş No
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Personel.PersonelAdiSoyadi)*@
+            Personel
+        </th>
+        <th>
+            Üretime Başlama
+        </th>
+        <th>
+            Üretim Bitiş Tarihi
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AltUretimAsamalariAdi)
+                @*@Html.DisplayFor(modelItem => item.AltUretimAsamalari.AltUretimAsamalariAdi)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonelAdiSoyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UretimeBaslama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UretimiSonlandirma)
+            </td>
+            <td>
+                @Html.ActionLink("Detay", "Details", new { id = item.UretimYetkilendirmeId }) |
+
+                @{
+                    Query q=new Query();
+                    BaseController bCnt=new BaseController();
+                    //if (BaseController.User.KullaniciUN == q.UretimYetkilendirmeIddenOYetkilendirmeninPersonelGuidiniDon(item.UretimYetkilendirmeId) || bCnt.PersonelBelirliBirRoleSahipMi("MatbaaSef") || bCnt.PersonelBelirliBirRoleSahipMi("MatbaaAdmin"))
+                        if (bCnt.PersonelBelirliBirRoleSahipMi("MatbaaSef") || bCnt.PersonelBelirliBirRoleSahipMi("MatbaaAdmin"))
+                    {
+                        @Html.ActionLink("Düzenle", "Edit", new { id = item.UretimYetkilendirmeId}) 
+                    @Html.Raw("|")
+                    @Html.ActionLink("Sil", "Delete", new { id = item.UretimYetkilendirmeId })
+
+                    }
+                    else
+                    {
+                        <text>Düzenle |</text>
+                        <text>Sil</text>
+                    }
+}
+               
+                
+                
+                
+
+               
+            </td>
+        </tr>
+    }
+
+</table>
+    
+    
+    
+    

@@ -1,0 +1,237 @@
+﻿@using KendoMatbaa.App_Start
+@using KendoMatbaa.Controllers
+@model KendoMatbaa.Models.IsEmri
+<table width="100%" >
+<tr>
+    <td>
+
+    @{
+        Layout = "~/Views/Shared/Tab.cshtml";
+    }
+
+    @{
+        ViewBag.Title = "Düzenleme";
+    }
+
+    </td>
+    <td><h2>Düzenleme</h2></td>
+    @*<td><a target="_blank" href="http://localhost:60476/IsEmriRaporu.aspx?IsEmriId=100476729" >Rapor</a></td>*@
+    @*<td><a target="_blank" href="http://localhost:60476/IsEmriRaporu.aspx?IsEmriId= @Model.IsEmriId" >Rapor</a></td>*@
+    <td>
+        @Html.ActionLink("Teslimat Yap", "Index","TeslimatRaporu", new { IsNo = Model.IsNo },null)
+
+    </td>
+    <td>
+        @*<a target="_blank" href="http://bidb-057/MatbaaRapor/IsEmriRaporu.aspx?IsEmriId=@Model.IsEmriId">Rapor</a>*@
+        @*@{
+            ReportController reportController=new ReportController();
+            reportController.IsEmriId = Model.IsEmriId;
+        }*@
+        @Html.ActionLink("Rapor", "Index", "Report", new { IsEmriId = Model.IsEmriId }, new { target = "_blank" })
+    </td>
+    <td>
+        <a target="_blank" href="http://bidb-057/matbaa/UretimFormu/UretimFormu?IsEmriId=@Model.IsEmriId">Üretim Formu</a>
+    </td>
+    <td>
+        @Html.ActionLink("İş emrinin kopyasını oluştur", "IsEmrininKOpyasiniOlustur", "IsEmri", new {IsEmriId = Model.IsEmriId}, new {target = "_blank"})
+    </td>
+    
+    <td>
+        @{
+            BaseController bCnt = new BaseController();
+            Query q = new Query();
+            //Query q=new Query();
+            if ((bCnt.PersonelBelirliBirRoleSahipMi("MatbaaSef") || bCnt.PersonelBelirliBirRoleSahipMi("MatbaaAdmin")) && !q.IsEmriOnaylanmisMi(Model.IsEmriId))
+            {
+                @Html.ActionLink("Onay Ver", "IsEmriniOnaylaGerc2", "KontrolPaneli", new { id = Model.IsEmriId }, null)
+            }
+
+        }
+
+
+    </td>
+</tr>
+</table>
+
+
+@using (Html.BeginForm())
+{
+    
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+    <h4>İş Emri Temel Bilgiler</h4>
+        <hr/>
+        @*@{Html.RenderPartial("_IsEmriYokIsParcasi")}*@
+        @Html.Action("_IsEmriYokIsParcasi",new {IsEmriId=Model.IsEmriId})
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.IsEmriId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsNo, "İş No", new { @class = "control-label col-md-4"})
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.IsNo)*@
+                @Html.TextBoxFor(model => model.IsNo)
+                @Html.HiddenFor(model => model.IsNo)
+                @Html.ValidationMessageFor(model => model.IsNo)
+            </div>
+        </div>
+
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.BitmisIsBoyutlariId, "Bitmiş İş Boyutu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BitmisIsBoyutlariId", "Bitmiş iş boyutunu seçiniz...")
+                @Html.ValidationMessageFor(model => model.BitmisIsBoyutlariId)
+               
+            </div>
+        </div>*@
+
+       
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.TarihSayi,"Tarih-Sayı", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TarihSayi)
+                @Html.ValidationMessageFor(model => model.TarihSayi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adi, "İşin Adı",new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adi)
+                @Html.ValidationMessageFor(model => model.Adi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Personel,"İlgili Personel", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Personel)
+                @Html.ValidationMessageFor(model => model.Personel)
+            </div>
+        </div>
+        
+        
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.IlgiliEPosta, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IlgiliEPosta)
+                @Html.ValidationMessageFor(model => model.IlgiliEPosta)
+            </div>
+        </div>
+        
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefon, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefon)
+                @Html.ValidationMessageFor(model => model.Telefon)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KabulTarihi,"Kabul Tarihi", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.KabulTarihi)*@
+                @Html.Kendo().DatePickerFor(model => model.KabulTarihi).Format("dd.MM.yyyy").ParseFormats(new string[] {"dd.MM.yyyy"})
+               @Html.ValidationMessageFor(model => model.KabulTarihi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeslimTarihi, "Teslim Tarihi", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.TeslimTarihi)*@
+                @Html.Kendo().DatePickerFor(model => model.TeslimTarihi).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" })
+                @Html.ValidationMessageFor(model => model.TeslimTarihi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Aciklama, "Açıklama", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Aciklama)
+                @Html.ValidationMessageFor(model => model.Aciklama)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IKBSBirimUN, "Birim", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.DropDownList("BirimUN", String.Empty)
+                @Html.ValidationMessageFor(model => model.IKBSBirimUN)
+            </div>
+        </div>
+
+        <div class="form-group" id="divSilindiTemel">
+            @Html.LabelFor(model => model.Silindi, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Silindi)
+                @Html.ValidationMessageFor(model => model.Silindi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @*<input type="submit" id="btnSubmit" value="Kaydet" class="btn btn-default" title="İş Emri henüz onaylanmamış" />*@
+                @if (ViewBag.IsEmriOnaylanmisMi != null)
+                {
+                    <input type="submit"  value="Kaydet" class="btn btn-default" title="İş Emri  onaylanmış durumda" disabled/><br /><br />
+                    @Html.Raw("<font color='red'>İş Emri Onaylanmış durumda oldugu için kayıt üzerinde güncelleme yapamazsınız!</font>")
+                }
+                else
+                {
+                    <input type="submit"  value="Kaydet" class="btn btn-default" title="İş Emri henüz onaylanmamış!" />
+                }
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@*<div id="myPartialView">
+    @Ajax.ActionLink("Click here for the Partial View", "_DevamEtmekteOlanIsler",
+        new AjaxOptions
+        {
+            UpdateTargetId = "myPartialView",
+            InsertionMode = InsertionMode.InsertAfter,
+            HttpMethod = "Get"
+        })
+</div>*@
+
+
+
+@*<div>
+    @Html.ActionLink("Liste", "Index")
+</div>*@
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")"></script>
+
+
+
+<script>
+    $(document).ready(function () {
+
+        $("#IsNo").attr("disabled", "disabled"); 
+        $('#Silindi').val('false');
+        $('#divSilindiTemel').hide();
+
+
+        kendo.culture("tr-TR"); //your culture
+        $.validator.addMethod('date',
+           function (value, element) {
+               return this.optional(element) || kendo.parseDate(value)
+           });
+    });
+</script>

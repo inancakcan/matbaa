@@ -1,0 +1,25 @@
+﻿@model KendoMatbaa.Models.spGuncelStokDurumuOzelRev_Result
+@{
+    Layout = "";
+    ViewBag.Title = "GuncelStokDurumu";
+}
+
+<h2>GuncelStokDurumu</h2>
+
+<table>
+    <tr>
+        <td>  @Html.DisplayNameFor(model => model.MalzemeAdi) :</td>
+        <td style="font-weight:bold">@Html.DisplayFor(model => model.MalzemeAdi)</td>
+    </tr>
+
+    <tr>
+        <td> @Html.DisplayNameFor(model => model.KritikSeviye) :</td>
+        <td style="font-weight:bold"> @Html.DisplayFor(model => model.KritikSeviye)</td>
+    </tr>
+
+    <tr>
+        <td>  @Html.DisplayNameFor(model => model.GuncelStok) :</td>
+        <td style="font-weight:bold">@Html.DisplayFor(model => model.GuncelStok)</td>
+    </tr>
+
+</table>       

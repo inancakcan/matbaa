@@ -1,0 +1,45 @@
+﻿@model KendoMatbaa.Models.IsEmriKullanilanLaminasyonlar
+
+@{
+    ViewBag.Title = "Düzenleme";
+}
+
+<h2>Düzenleme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Kullanılan Laminasyonlar</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.KullanilanLaminasyonlarId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriId, "IsEmriId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IsEmriId", String.Empty)
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LaminasyonlarId, "LaminasyonlarId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("LaminasyonlarId", String.Empty)
+                @Html.ValidationMessageFor(model => model.LaminasyonlarId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>

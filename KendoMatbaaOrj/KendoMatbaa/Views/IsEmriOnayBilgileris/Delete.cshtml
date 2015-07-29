@@ -1,0 +1,136 @@
+﻿@model KendoMatbaa.Models.IsEmriOnayBilgileri
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>İş Emri Onay Bilgileri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Otokopi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Otokopi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Onayalindi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Onayalindi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reddedildi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reddedildi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RedNedeni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RedNedeni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdetAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdetAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsTamamlandi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsTamamlandi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OnayGeriAlindi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OnayGeriAlindi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KismiTamam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KismiTamam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YarimKaldi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YarimKaldi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Silindi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri1.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri1.IsNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri2.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri2.IsNo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>

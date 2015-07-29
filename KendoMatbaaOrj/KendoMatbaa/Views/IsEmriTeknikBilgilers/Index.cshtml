@@ -1,0 +1,81 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriTeknikBilgiler>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adedi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SayfaSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcBaskiRenk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KapakBaskiRenk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CiltTipleri.CiltTipiAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCinsi.CinsAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KesimBoyutlari.KesimBoyutlari1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adedi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SayfaSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcBaskiRenk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KapakBaskiRenk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silindi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CiltTipleri.CiltTipiAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCinsi.CinsAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KesimBoyutlari.KesimBoyutlari1)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.IsEmriTeknikBilgilerId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.IsEmriTeknikBilgilerId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.IsEmriTeknikBilgilerId })
+        </td>
+    </tr>
+}
+
+</table>

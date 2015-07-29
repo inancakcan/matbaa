@@ -1,0 +1,11 @@
+@model DateTime?
+
+@{
+    Culture = "tr-TR";
+}           
+
+@(Html.Kendo().DateTimePickerFor(m => m)
+.Culture("tr-TR")
+.Format("dd.MM.yyyy")
+
+)

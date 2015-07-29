@@ -1,0 +1,107 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriKullanilacakKagit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IcKagitNet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IcKagitFire)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KapakNet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KapakFire)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Otokopi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AltGruplar1.AltGrupAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.KesimBoyutlari.KesimBoyutlari1)*@
+            @Html.DisplayNameFor(model => model.BaskiEbatlari.Boyut)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.KesimBoyutlari1.KesimBoyutlari1)*@
+            @Html.DisplayNameFor(model => model.BaskiEbatlari1.Boyut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TabakaKesimleri.TabakaKesimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TabakaKesimleri1.TabakaKesimi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcKagitNet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcKagitFire)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KapakNet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KapakFire)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Otokopi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silindi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltGruplar1.AltGrupAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaskiEbatlari.Boyut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaskiEbatlari1.Boyut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TabakaKesimleri.TabakaKesimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TabakaKesimleri1.TabakaKesimi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.IsEmriKullanilacakKagitId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.IsEmriKullanilacakKagitId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.IsEmriKullanilacakKagitId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,76 @@
+﻿@using Kendo.Mvc.Extensions
+@model IEnumerable<KendoMatbaa.Models.spDevamEdenIsler_Result>
+
+@{
+    Layout = "";
+}
+
+
+@*@{
+    ViewBag.Title = "Üretimi devam eden işler";
+}
+
+<h2>Üretimi devam eden işler</h2>*@
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TarihSayi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirimAdi)
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TarihSayi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personel)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Silindi)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirimAdi)
+            </td>
+            <td>
+                @*@Html.ActionLink("Detay","Details", "IsEmri", new { id = item.IsEmriID },null)*@ 
+                @*@Html.ActionLink("İş Emrini Onayla", "IsEmriniOnaylaGerc2", new { id = item.IsEmriId }) |*@
+                <a href="~/IsEmri/TabView?IsEmriId=@item.IsEmriID.ToString()">Detay</a>
+            </td>
+            
+        </tr>
+    }
+
+</table>

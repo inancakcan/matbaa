@@ -1,0 +1,58 @@
+﻿@model KendoMatbaa.Models.Roller
+
+@{
+    ViewBag.Title = "Düzenleme";
+}
+
+<h2>Düzenleme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Roller</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.RollerId)
+        
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.PersonelUN, "PersonelUN", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PersonelUN", String.Empty)
+                @Html.ValidationMessageFor(model => model.PersonelUN)
+            </div>
+        </div>
+        
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RolAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RolAdi)
+                @Html.ValidationMessageFor(model => model.RolAdi)
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RolAciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.RolAciklama)
+                @Html.ValidationMessageFor(model => model.RolAciklama)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>

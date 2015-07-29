@@ -1,0 +1,666 @@
+﻿@model KendoMatbaa.Models.IsEmriEski
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IsEmriEski</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.isno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarihsayi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarihsayi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kabultarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kabultarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.teslimtarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teslimtarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aciklama1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aciklama1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cinsi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cinsi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ebadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ebadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adedi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adedi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cilt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cilt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sayfasayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sayfasayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.icbaskirenk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.icbaskirenk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapakbaskirenk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapakbaskirenk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.selefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.selefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vernik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vernik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.icfilm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.icfilm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapakfilm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapakfilm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ozosolic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ozosolic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estaticic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estaticic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.masteric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.masteric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTPic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTPic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ozosolkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ozosolkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estatickap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estatickap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.masterkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.masterkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTPkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTPkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ozic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ozic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.esic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.esic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mtic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mtic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ozkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ozkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.eskap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.eskap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mtkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mtkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CTkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CTkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ickagitcins)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ickagitcins)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ickagitgram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ickagitgram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.icebad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.icebad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rexrotaryic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rexrotaryic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gestetneric)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gestetneric)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.abdickic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.abdickic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.multilitic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.multilitic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ryobiic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ryobiic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.canonic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.canonic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rizoic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rizoic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rexrotarykap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rexrotarykap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gestetnerkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gestetnerkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.abdickkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.abdickkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.multilitkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.multilitkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ryobikap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ryobikap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.canonkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.canonkap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rizokap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rizokap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.icknet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.icknet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ickfire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ickfire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ickbaski)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ickbaski)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.icktabaka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.icktabaka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapakcins)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapakcins)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapakgram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapakgram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapakebad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapakebad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapaknet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapaknet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapakfire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapakfire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapakbaski)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapakbaski)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapaktabaka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapaktabaka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.icbaskiebadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.icbaskiebadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapakbaskiebadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapakbaskiebadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.icbaskimiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.icbaskimiktari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kapakbaskimiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kapakbaskimiktari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.otokopi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.otokopi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aciklama2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aciklama2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.onaybekleyen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.onaybekleyen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.onayalinan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.onayalinan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isitamamlanan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isitamamlanan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reddedilen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reddedilen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rednedeni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rednedeni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adetaciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adetaciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsTamamlandi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsTamamlandi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OnayGeriAlindi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OnayGeriAlindi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KismiTamam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KismiTamam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YarimKaldi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YarimKaldi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ObjectID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

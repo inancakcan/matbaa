@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="tr-TR">
+  <Title Text="Aylara Göre Kağıt Tüketimi" />
+  <DataConnections>
+    <DataConnection Name="localhost_Connection" ProviderKey="MSSqlServer">
+      <Parameters>
+        <Parameter Name="server" Value="ANK-0289\SQLEXPRESS" />
+        <Parameter Name="database" Value="matbaa" />
+        <Parameter Name="useIntegratedSecurity" Value="False" />
+        <Parameter Name="read only" Value="1" />
+        <Parameter Name="generateConnectionHelper" Value="false" />
+      </Parameters>
+    </DataConnection>
+  </DataConnections>
+  <DataSources>
+    <DataSource ComponentName="dataSource1" Name="dsKagitTuketimi">
+      <DataProvider DataConnection="localhost_Connection">
+        <Selection>
+          <Table Name="vKagitTuketimi">
+            <Columns>
+              <Column Name="KulanilanIcKagitCinsi" Alias="KulanilanIcKagitCinsi" />
+              <Column Name="IcKagitNet" Alias="IcKagitNet" />
+              <Column Name="IcKagitFire" Alias="IcKagitFire" />
+              <Column Name="IcBaskiBoyutu" Alias="IcBaskiBoyutu" />
+              <Column Name="IcTabakaKesimi" Alias="IcTabakaKesimi" />
+              <Column Name="KulanilanKapakKagitCinsi" Alias="KulanilanKapakKagitCinsi" />
+              <Column Name="KapakBaskiBoyutu" Alias="KapakBaskiBoyutu" />
+              <Column Name="kapaknet" Alias="kapaknet" />
+              <Column Name="KapakTabakaKesimi" Alias="KapakTabakaKesimi" />
+              <Column Name="kapakfire" Alias="kapakfire" />
+              <Column Name="IsEmriId" Alias="IsEmriId" />
+              <Column Name="Isno" Alias="Isno" />
+              <Column Name="tarihsayi" Alias="tarihsayi" />
+              <Column Name="adi" Alias="adi" />
+              <Column Name="KabulTarihi" Alias="KabulTarihi" />
+              <Column Name="teslimtarihi" Alias="teslimtarihi" />
+              <Column Name="Aciklama" Alias="Aciklama" />
+              <Column Name="BirimAdi" Alias="BirimAdi" />
+            </Columns>
+          </Table>
+          <Filters>
+            <Filter TableName="vKagitTuketimi" FilterString="" />
+          </Filters>
+        </Selection>
+      </DataProvider>
+    </DataSource>
+  </DataSources>
+  <Items>
+    <Pivot ComponentName="pivotDashboardItem1" Name="Kağıt Tüketimi" DataSource="dataSource1">
+      <DataItems>
+        <Dimension DataMember="KulanilanKapakKagitCinsi" UniqueName="DataItem1" />
+        <Dimension DataMember="IcKagitNet" UniqueName="DataItem4">
+          <NumericFormat FormatType="Number" Unit="Ones" />
+        </Dimension>
+        <Measure DataMember="IcKagitNet" Name="IcKagitNet (Sum)" UniqueName="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="kapaknet" Name="kapaknet (Sum)" UniqueName="DataItem3">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="IcKagitFire" Name="IcKagitFire (Sum)" UniqueName="DataItem5">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="kapakfire" Name="kapakfire (Sum)" UniqueName="DataItem6">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="kapaknet" UniqueName="DataItem7" />
+        <Dimension DataMember="teslimtarihi" SortOrder="Descending" DateTimeGroupInterval="None" UniqueName="DataItem8">
+          <DateTimeFormat MonthFormat="Numeric" />
+        </Dimension>
+      </DataItems>
+      <Columns>
+        <Column UniqueName="DataItem8" />
+        <Column UniqueName="DataItem4" />
+        <Column UniqueName="DataItem7" />
+      </Columns>
+      <Rows>
+        <Row UniqueName="DataItem1" />
+      </Rows>
+      <Values>
+        <Value UniqueName="DataItem2" />
+        <Value UniqueName="DataItem3" />
+        <Value UniqueName="DataItem5" />
+        <Value UniqueName="DataItem6" />
+      </Values>
+    </Pivot>
+    <RangeFilter ComponentName="rangeFilterDashboardItem1" Name="Range Filter 1" DataSource="dataSource1" FilterString="[DataItem0] Between(#2010-01-01#, [DataItem0])">
+      <DataItems>
+        <Measure DataMember="IcKagitNet" UniqueName="DataItem1" />
+        <Dimension DataMember="teslimtarihi" DateTimeGroupInterval="MonthYear" UniqueName="DataItem0" />
+      </DataItems>
+      <Argument UniqueName="DataItem0" />
+      <Series>
+        <Simple SeriesType="StackedArea">
+          <Value UniqueName="DataItem1" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+    <Chart ComponentName="chartDashboardItem1" Name="Kullanım yerlerine göre kağıt tüketimi" DataSource="dataSource1">
+      <DataItems>
+        <Measure DataMember="IcKagitNet" UniqueName="DataItem0">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="kapaknet" UniqueName="DataItem2">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Measure DataMember="kapakfire" UniqueName="DataItem4">
+          <NumericFormat FormatType="Number" Unit="Ones" IncludeGroupSeparator="true" />
+        </Measure>
+        <Dimension DataMember="teslimtarihi" DateTimeGroupInterval="Month" UniqueName="DataItem3" />
+        <Measure DataMember="IcKagitFire" UniqueName="DataItem5" />
+      </DataItems>
+      <Arguments>
+        <Argument UniqueName="DataItem3" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 3">
+          <Series>
+            <Simple>
+              <Value UniqueName="DataItem0" />
+            </Simple>
+            <Simple>
+              <Value UniqueName="DataItem2" />
+            </Simple>
+            <Simple>
+              <Value UniqueName="DataItem4" />
+            </Simple>
+            <Simple>
+              <Value UniqueName="DataItem5" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Weight="50.033579583613161" Orientation="Vertical">
+        <LayoutItem DashboardItem="rangeFilterDashboardItem1" Weight="14.560770156438027" />
+        <LayoutItem DashboardItem="pivotDashboardItem1" Weight="85.439229843561975" />
+      </LayoutGroup>
+      <LayoutItem DashboardItem="chartDashboardItem1" Weight="49.966420416386839" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

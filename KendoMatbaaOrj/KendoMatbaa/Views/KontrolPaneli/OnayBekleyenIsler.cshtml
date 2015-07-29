@@ -1,0 +1,49 @@
+﻿@using KendoMatbaa.Controllers
+@model IEnumerable<KendoMatbaa.Models.spIsemriOnayBilgileriIleBirlikte_Result>
+
+@*<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>*@
+@{
+    Layout = null;
+}
+<table style="margin-left: 10px;" cellpadding="6" cellspacing="4">
+    <tr>
+        <th>
+            İş No
+        </th>
+        <th>
+            Tarih/Sayı
+        </th>
+        <th>
+            Adı
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TarihSayi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @{
+                    BaseController cnt=new BaseController();
+                    if (cnt.PersonelBelirliBirRoleSahipMi("IsEmriOnaylayıcıları"))
+                    {
+                        @Html.ActionLink("İş Emrini Onayla", "IsEmriniOnaylaGerc2", new {id = item.IsEmriId});
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+

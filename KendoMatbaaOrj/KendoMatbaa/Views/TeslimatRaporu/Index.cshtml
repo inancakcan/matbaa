@@ -1,0 +1,125 @@
+﻿@model IEnumerable<KendoMatbaa.Models.TeslimatRaporu>
+
+@{
+    ViewBag.Title = "Yapılan Teslimatlar";
+}
+
+<h2>Teslimatlar</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create", new { SeciliIsEmriId = ViewBag.IsEmriId })
+</p>
+
+
+
+<div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Uyarı!</h4>
+    Aşağıdaki kutucuğa, teslimat raporu arama için, biliyorsanız İşNo,İşin adından,Teslim Eden Personel ya da Teslim Alan Personel adalarından
+     bir parça yazıp, 'Ara' butonuna tıklayabilirsiniz.
+    <br /><br />
+    <b>Not: Arama yapabilmek için en az bir arama kriteri girmeniz gerekir.</b>
+</div>
+
+@using (Html.BeginForm())
+{
+
+
+
+    <table cellpadding="10">
+        <tr>
+
+            <td>
+                İş Nodan Ara: @Html.TextBox("IsNo")
+                <input type="submit" value="Ara"/>
+            </td>
+
+            <td>
+                <div class="alert alert-info">
+                    Teslimat Durumu:@ViewBag.TeslimatOraniBilgisi
+                </div>
+            </td>
+            <td>
+                <div class="alert alert-info">
+                    @{
+                        if (ViewBag.TumunuTeslimEtGorunecekMi)
+                        {
+                            @Html.ActionLink("Kalanın tümünü teslim et", "TumunuTeslimEt", new {IsEmriId = ViewBag.IsEmriId})
+                        }
+                        else
+                        {
+                            @Html.Raw("<font color='green'>İş emrinin tamamı  ya da bir bölümü teslim edilmiştir!</font>")
+                        }
+                    }
+                    
+                </div>
+            </td>
+
+           
+
+            @*<td>
+                <div class="alert alert-info">
+                    merhaba
+                </div>
+            </td>*@
+        </tr>
+    </table>
+
+    <br />
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IsEmri.IsNo)*@
+            İş No
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TeslimAlan)*@
+            Teslim Alan
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TeslimatMiktari)*@
+            Teslimat Miktarı
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+       
+        <th>
+            @*@Html.DisplayNameFor(model => model.Personel.PersonelAdiSoyadi)*@
+            Teslim Eden
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <span class="alert-danger">
+                @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+            </span>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeslimAlan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeslimatMiktari)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Personel.PersonelAdiSoyadi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.TeslimatRaporuId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.TeslimatRaporuId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.TeslimatRaporuId })
+        </td>
+    </tr>
+}
+
+</table>

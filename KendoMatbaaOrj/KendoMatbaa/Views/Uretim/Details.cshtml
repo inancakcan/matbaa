@@ -1,0 +1,69 @@
+﻿@model KendoMatbaa.Models.Uretim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Uretim</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UretimeBaslama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UretimeBaslama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UretimiSonlandirma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UretimiSonlandirma)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.AltUretimAsamalari.AltUretimAsamalariAdi)*@
+            Üretim Aşaması
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltUretimAsamalari.AltUretimAsamalariAdi)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.IsEmri.IsNo)*@
+            İş No
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Personel1.PersonelAdiSoyadi)*@
+            Personel
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personel1.PersonelAdiSoyadi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.UretimId }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

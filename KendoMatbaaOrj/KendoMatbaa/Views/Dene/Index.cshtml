@@ -1,0 +1,12 @@
+﻿
+@(Html.TelerikReporting().ReportViewer()
+       .Id("reportViewer1")
+       .ServiceUrl("/api/reports/")
+       .TemplateUrl("/ReportViewer/templates/telerikReportViewerTemplate.htmll")
+           .ReportSource(new UriReportSource() { Uri = "Report1.trdx" })
+       .ViewMode(ViewModes.INTERACTIVE)
+       .ScaleMode(ScaleModes.SPECIFIC)
+       .Scale(1.0)
+       .PersistSession(false)
+       .Deferred()
+)

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<KendoMatbaa.Models.UretimYetkilendirme>
+
+
+
+
+<div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>Uyarı!</h4>
+    Aşağıdaki kutucuğa arama için, biliyorsanız İşin adından,İş numarasından, işin geldiği birim adından ya da İş Emri Id'den bildiğiniz bir parçasını yazıp, 'Ara' butonuna tıklayabilirsiniz.
+</div>
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+
+
+
+
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    <table cellpadding="10">
+        <tr>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        @*<input type="checkbox" id="chkBanaAtanmislar"/>*@
+                        @Html.CheckBox("chkBanaAtanmislar")
+                    </span>
+                    <input type="text" class="form-control" value="Sadece bana atanmış işler" disabled>
+                </div><!-- /input-group -->
+            </td>
+            <td>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        @*<input type="checkbox" id="chkDevamEdenler" />*@
+                        @Html.CheckBox("chkDevamEdenler")
+                    </span>
+                    <input type="text" class="form-control" value="Devam etmekte olan işler" disabled>
+                </div><!-- /input-group -->
+            </td>
+            <td>
+                İş Nodan Ara: @Html.TextBox("searchString")
+                <input type="submit" value="Ara" />
+            </td>
+        </tr>
+    </table>
+
+    <br />
+
+    
+
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AltUretimAsamalari.AltUretimAsamalariAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel.PersonelAdiSoyadi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AltUretimAsamalari.AltUretimAsamalariAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personel.PersonelAdiSoyadi)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.UretimYetkilendirmeId }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.UretimYetkilendirmeId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.UretimYetkilendirmeId })
+            </td>
+        </tr>
+    }
+
+</table>

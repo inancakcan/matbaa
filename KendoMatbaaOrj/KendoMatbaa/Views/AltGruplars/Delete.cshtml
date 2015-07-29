@@ -1,0 +1,81 @@
+﻿@model KendoMatbaa.Models.AltGruplar
+
+@{
+    ViewBag.Title = "Stok Kalemi Silme ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Stok Kalemi Silme</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>Stok Kalemleri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AltGrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltGrupAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KritikSeviye)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KritikSeviye)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Otokopi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Otokopi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirimFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirimFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SarfMi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SarfMi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FizikselBirim.Nicelik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FizikselBirim.Nicelik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StokGruplari.StokGrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StokGruplari.StokGrupAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

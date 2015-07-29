@@ -1,0 +1,49 @@
+﻿@model KendoMatbaa.Models.Personel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Personel</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonelAdiSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonelAdiSoyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SicilNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SicilNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Admin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admin)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EPosta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EPosta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.PersonelUN }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

@@ -1,0 +1,122 @@
+﻿@model KendoMatbaa.Models.IsEmriFilmGiderleri
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+
+
+
+@{
+    ViewBag.Title = "Oluşturma";
+}
+
+<h2>Oluştur</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Film</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            
+            @*<input type="hidden" name="option" value="" id="btn-input" />
+            <div class="btn-group" data-toggle="buttons-radio">
+                <button id="btn-one" type="button" data-toggle="button" name="option" value="1" class="btn btn-primary">Film Var</button>
+                <button id="btn-two" type="button" data-toggle="button" name="option" value="2" class="btn btn-primary">Film Yok</button>
+            </div>*@
+
+            <script>
+                var btns = ['btn-one', 'btn-two'];
+                var input = document.getElementById('btn-input');
+                for (var i = 0; i < btns.length; i++) {
+                    document.getElementById(btns[i]).addEventListener('click', function () {
+                        input.value = this.value;
+                        //alert(input.value);
+                        if (input.value == 1) {//film var
+                            $('#divFilmVar').show();
+                        }
+                        else {
+                            $('#divFilmVar').hide();
+                        }
+
+                    });
+                }
+                function bak() {
+                    alert("bak");
+                }
+            </script>
+            
+        </div>
+<hr />
+        <div id="divFilmVar">
+
+
+
+
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IsEmriId, "İş No", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.DropDownList("IsEmriId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.IsEmriId)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.IcFilm, "İç Film", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.IcFilm)
+                    @Html.ValidationMessageFor(model => model.IcFilm)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Kapakfilm, "Kapak Film", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Kapakfilm)
+                    @Html.ValidationMessageFor(model => model.Kapakfilm)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AltGruplarId, "Malzeme", htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.DropDownList("AltGruplarId", String.Empty)
+                    @Html.ValidationMessageFor(model => model.AltGruplarId)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Silindi, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Silindi)
+                    @Html.ValidationMessageFor(model => model.Silindi)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Yeni Kayıt Oluştur" class="btn btn-default" />
+                    @*<input  type="button" value="bak" class="btn btn-default" onclick="bak()" />*@
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+     $(document).ready(function () {
+         $('#divFilmVar').hide();
+        });</script>
+
+
+@*<div>
+    @Html.ActionLink("Liste", "Index")
+</div>*@

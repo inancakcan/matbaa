@@ -1,0 +1,53 @@
+﻿@model IEnumerable<KendoMatbaa.Models.BaskiEbatlari>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Boyut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirimFiyat)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.BaskiMakineleri.MakineAdi)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Boyut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirimFiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaskiMakineleri.MakineAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silindi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.BaskiEbatlariId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.BaskiEbatlariId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.BaskiEbatlariId })
+        </td>
+    </tr>
+}
+
+</table>

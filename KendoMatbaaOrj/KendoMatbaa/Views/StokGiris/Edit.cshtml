@@ -1,0 +1,118 @@
+﻿@model KendoMatbaa.Models.StokGiris
+
+@{
+    ViewBag.Title = "Düzenleme";
+}
+
+<h2>Düzenleme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>StokGiris</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.StokGirisId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tarih, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">@*@Html.EditorFor(model => model.Tarih)*@
+                @Html.Kendo().DatePickerFor(model => model.Tarih).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" })
+                @Html.ValidationMessageFor(model => model.Tarih)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AltGruplarId, "AltGruplarId", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownList("AltGruplarId", String.Empty)
+                @Html.ValidationMessageFor(model => model.AltGruplarId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FizikselBirimId, "FizikselBirimId", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownList("FizikselBirimId", String.Empty)
+                @Html.ValidationMessageFor(model => model.FizikselBirimId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AlindigiFirmaAdi, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.AlindigiFirmaAdi)
+                @Html.ValidationMessageFor(model => model.AlindigiFirmaAdi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FaturaTarihi, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @*@Html.EditorFor(model => model.FaturaTarihi)*@
+                @Html.Kendo().DatePickerFor(model => model.FaturaTarihi).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" })
+                @Html.ValidationMessageFor(model => model.FaturaTarihi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FaturaNo, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.FaturaNo)
+                @Html.ValidationMessageFor(model => model.FaturaNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirimFiyat, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @*@Html.EditorFor(model => model.BirimFiyat)*@
+                @Html.TextBoxFor(model => model.BirimFiyat)
+                @*@Html.Kendo().MaskedTextBoxFor(model => model.BirimFiyat).Mask("")*@
+                @Html.ValidationMessageFor(model => model.BirimFiyat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Miktar, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Miktar)
+                @Html.ValidationMessageFor(model => model.Miktar)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StokGirisiniYapan, "StokGirisiniYapan", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownList("StokGirisiniYapan", String.Empty)
+                @Html.ValidationMessageFor(model => model.StokGirisiniYapan)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+        kendo.culture("tr-TR"); //your culture
+        $.validator.addMethod('date',
+           function (value, element) {
+               return this.optional(element) || kendo.parseDate(value)
+           });
+    });
+</script>

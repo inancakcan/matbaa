@@ -1,0 +1,72 @@
+﻿@model KendoMatbaa.Models.IsEmriKalipMalzemeGiderleri
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>IsEmriKalipMalzemeGiderleri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullanilanKalipSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullanilanKalipSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Silindi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltGruplar.AltGrupAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>

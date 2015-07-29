@@ -1,0 +1,76 @@
+@Html.DevExpress().PivotGrid(settings => {
+    settings.Name = "Kaðýt Tüketimi Analiz";
+    settings.CallbackRouteValues = new { Controller = "KagitTuketimiDashBoard", Action = "KagitTuekitimiPivotGridPartial" };
+    //settings.SettingsExport.
+
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "KulanilanIcKagitCinsi";
+        field.Caption = "Ýçte Kullanýlan Kaðýt";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "IcKagitNet";
+        field.Caption = "Ýç Net";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "IcKagitFire";
+        field.Caption = "Ýç Fire";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "IcBaskiBoyutu";
+        field.Caption = "Ýç Baský Boyutu";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "IcTabakaKesimi";
+        field.Caption = "Ýç Tabaka Kesimi";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "KulanilanKapakKagitCinsi";
+        field.Caption = "Kapakta Kullanýlan ";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "KapakBaskiBoyutu";
+        field.Caption = "KapakBaskiBoyutu";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "kapaknet";
+        field.Caption = "Kapak Net";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "KapakTabakaKesimi";
+        field.Caption = "KapakTabakaKesimi";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "kapakfire";
+        field.Caption = "kapakfire";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "Isno";
+        field.Caption = "Isno";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "adi";
+        field.Caption = "adi";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "teslimtarihi";
+        field.Caption = "teslimtarihi";
+    });
+		settings.Fields.Add(field => {
+        field.Area = PivotArea.FilterArea;
+        field.FieldName = "BirimAdi";
+        field.Caption = "BirimAdi";
+    });
+	}).Bind(Model).GetHtml()

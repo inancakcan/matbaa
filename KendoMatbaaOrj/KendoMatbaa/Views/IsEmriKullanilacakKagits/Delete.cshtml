@@ -1,0 +1,129 @@
+﻿@model KendoMatbaa.Models.IsEmriKullanilacakKagit
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>IsEmriKullanilacakKagit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IcKagitNet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcKagitNet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IcKagitFire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcKagitFire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KapakNet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KapakNet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KapakFire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KapakFire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Otokopi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Otokopi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Silindi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltGruplar.AltGrupAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AltGruplar1.AltGrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltGruplar1.AltGrupAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+        @*
+        <dt>
+            @Html.DisplayNameFor(model => model.KesimBoyutlari.KesimBoyutlari1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KesimBoyutlari.KesimBoyutlari1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KesimBoyutlari1.KesimBoyutlari1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KesimBoyutlari1.KesimBoyutlari1)
+        </dd>*@
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.TabakaKesimleri.TabakaKesimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TabakaKesimleri.TabakaKesimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TabakaKesimleri1.TabakaKesimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TabakaKesimleri1.TabakaKesimi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>

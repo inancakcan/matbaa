@@ -1,0 +1,96 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriKullanilanLaminasyonlar>
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+@*@{
+    ViewBag.IsEmriId = Request["IsEmriID"];
+}*@
+
+@(Html.Kendo().Window()
+    .Name("windowLaminasyon")
+    .Title("Laminasyon Ekleme")
+               .LoadContentFrom("Create", "IsEmriKullanilanLaminasyonlars", new { SeciliIsEmriId = Request["IsEmriId"] })
+    .Draggable()
+    .Resizable()
+    .Width(800)
+    .Visible(false)
+    .Modal(true)
+    .Iframe(false)
+    .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+)
+
+<table class="accordion-inner">
+    <tr>
+        <td><span id="btnLaminasyonEkle" class="k-button">Laminasyon eklemek için tıklayın...</span></td>
+        <td>@using (Html.BeginForm("LaminasyonYok", "IsEmriKullanilanLaminasyonlars", new { IsEmriId = Request["IsEmriId"] }, FormMethod.Post))
+        {
+
+            <input type="submit" value="Laminasyon Yok" />
+        }</td>
+    </tr>
+</table>
+
+
+
+
+<br />
+<br />
+
+<script>
+    $(document).ready(function () {
+        $("#btnLaminasyonEkle").bind("click", function () {
+            $("#windowLaminasyon").data("kendoWindow").open();
+        });
+    });
+</script>
+
+
+@*<p>
+    @Html.ActionLink("Yeniiiii", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IsEmri.IsNo)*@
+            İş No
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)*@
+            Laminasyon
+        </th>
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.KullanilanLaminasyonlarId }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.KullanilanLaminasyonlarId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.KullanilanLaminasyonlarId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+
+

@@ -1,0 +1,94 @@
+﻿@model KendoMatbaa.Models.TeslimatRaporu
+@{
+    Layout = "~/Views/Shared/_LayoutjQueryValYok.cshtml";
+}
+
+@{
+    ViewBag.Title = "Yeni Teslimat Bilgisi";
+}
+
+<h2>Yeni Teslimat Bilgisi</h2>
+
+
+
+
+
+
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Teslimat Raporu</h4>
+        <hr/>
+        <table cellpadding="10">
+            <tr>
+                <td>
+                    <div class="alert alert-info">
+                        Teslimat Durumu:@ViewBag.TeslimatOraniBilgisi
+                    </div>
+                </td>
+                
+            </tr>
+        </table>
+
+        <hr />
+
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriId, "İş No", new { @class = "control-label col-md-6" })
+            <div class="col-md-6">
+                @Html.DropDownList("IsEmriId", String.Empty)
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeslimEdenPersonel, "Teslim Eden Personel", new { @class = "control-label col-md-6" })
+            <div class="col-md-6">
+                @Html.DropDownList("TeslimEdenPersonel", String.Empty)
+                @Html.ValidationMessageFor(model => model.TeslimEdenPersonel)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeslimAlan,"Teslim Alan" ,new { @class = "control-label col-md-6" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.TeslimAlan)
+                @Html.ValidationMessageFor(model => model.TeslimAlan)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeslimatMiktari,"Teslimat Miktari" ,new { @class = "control-label col-md-6" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.TeslimatMiktari)
+                @Html.ValidationMessageFor(model => model.TeslimatMiktari)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tarih, new { @class = "control-label col-md-6" })
+            <div class="col-md-6">
+                @*@Html.EditorFor(model => model.Tarih)*@
+                @Html.Kendo().DatePickerFor(model => model.Tarih).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" }).Value(Convert.ToDateTime(ViewBag.TeslimTarihi))
+                @*@Html.Kendo().DatePickerFor(model => model.Tarih).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" }).*@
+                @Html.ValidationMessageFor(model => model.Tarih)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Yeni Teslimat Bilgisi Oluştur" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>

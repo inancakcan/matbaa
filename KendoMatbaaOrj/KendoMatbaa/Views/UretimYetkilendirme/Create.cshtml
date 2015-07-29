@@ -1,0 +1,64 @@
+﻿@model KendoMatbaa.Models.UretimYetkilendirme
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+<h2>Oluştur</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Üretim Yetkilendirme</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriId,"İş Emri", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IsEmriId", String.Empty)
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PersonelUN,"Personel",  new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PersonelUN", String.Empty)
+                @Html.ValidationMessageFor(model => model.PersonelUN)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AltUretimAsamalariId,"Alt Üretim Aşaması",  new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("AltUretimAsamalariId", String.Empty)
+                @Html.ValidationMessageFor(model => model.AltUretimAsamalariId)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Aciklama, "Açıklama", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Aciklama, new { rows = "6", cols = "70" })
+                @Html.ValidationMessageFor(model => model.Aciklama)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Yeni Kayıt Oluştur" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Liste", "Index")
+</div>*@

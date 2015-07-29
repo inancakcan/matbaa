@@ -1,0 +1,128 @@
+﻿@model KendoMatbaa.Models.IsEmri
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>IsEmri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarihSayi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarihSayi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KabulTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KabulTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Silindi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IlgiliEPosta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlgiliEPosta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birim.BirimAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birim.BirimAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitmisIsBoyutlari.BitmisIsBoyutuAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitmisIsBoyutlari.BitmisIsBoyutuAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IKBSBirim.Adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IKBSBirim.Adi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

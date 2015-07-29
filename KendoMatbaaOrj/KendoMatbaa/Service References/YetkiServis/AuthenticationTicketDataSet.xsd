@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/AuthenticationTicketDataSet.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/AuthenticationTicketDataSet.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/AuthenticationTicketDataSet.xsd" id="AuthenticationTicketDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="AuthenticationTicketDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AuthenticationTicket">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AuthenticationTicket" type="xs:base64Binary" />
+              <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="KullaniciUN" type="xs:string" />
+              <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ProjeUN" type="xs:string" />
+              <xs:element name="TimeOutTime" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="AuthenticationTicket0">
+      <xs:selector xpath=".//mstns:AuthenticationTicket" />
+      <xs:field xpath="mstns:AuthenticationTicket" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

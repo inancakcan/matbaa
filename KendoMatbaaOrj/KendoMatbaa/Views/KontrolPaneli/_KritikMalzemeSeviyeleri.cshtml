@@ -1,0 +1,36 @@
+﻿@model IEnumerable<KendoMatbaa.Models.KritikSeviye>
+
+@{
+    Layout = null;
+}
+
+@{
+    ViewBag.Title = "Kritik Malzeme Seviyeleri";
+}
+
+<h2>Kritik Malzeme Seviyeleri</h2>
+
+
+
+<div class="chart-wrapper" style="width:500px;">
+    @(Html.Kendo().Chart<KendoMatbaa.Models.BarChartsLocalDataViewModel>()
+      .Name("KritikSeviyeChart")
+      .Legend(legend => legend.Position(ChartLegendPosition.Bottom))
+      .DataSource(dataSource => dataSource
+              .Read(read => read.Action("StokKritikSeviyeler_Read", "KontrolPaneli")) // Specify the action method and controller name
+      )
+              .Series(series =>
+              {
+                  series.Bar(d => d.GuncelStok)
+                        .Name("Kritik Seviyeler").Labels(labels => labels.Position(ChartBarLabelsPosition.InsideEnd));
+              })
+                .CategoryAxis(axis => axis
+                         .Categories(model => model.AltGrupAdi).Labels(labels => labels.Font("8px sans-serif")))
+                         .Tooltip(tooltip => tooltip.Visible(true))
+
+
+
+    )
+
+
+

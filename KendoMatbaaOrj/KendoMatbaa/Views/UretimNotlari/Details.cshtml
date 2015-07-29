@@ -1,0 +1,74 @@
+﻿@model KendoMatbaa.Models.UretimNotlari
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UretimNotlari</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TasarimaOnayVeren)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TasarimaOnayVeren)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaskiOncesiHazirlikNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaskiOncesiHazirlikNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaskiNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaskiNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MucellithaneNotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MucellithaneNotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsKesimiProgramNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsKesimiProgramNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaketBilgileri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaketBilgileri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.UretimNotlariId }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

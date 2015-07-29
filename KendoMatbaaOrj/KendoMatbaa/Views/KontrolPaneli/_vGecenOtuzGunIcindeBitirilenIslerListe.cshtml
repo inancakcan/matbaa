@@ -1,0 +1,69 @@
+﻿@model IEnumerable<KendoMatbaa.Models.spGecenOtuzGunIcindeBitirilenIslerListe_Result>
+@{
+    Layout = null;
+}
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IsNo)*@
+            İş No
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TarihSayi)*@
+            Tarih/Sayı
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Adi)*@
+            Adı
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TeslimTarihi)*@
+            Teslim Tarihi
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Aciklama)*@
+            Açıklama
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.BirimAdi)*@
+            Birim adı
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.CinsAdi)*@
+            Cins Adı
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TarihSayi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeslimTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirimAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CinsAdi)
+        </td>
+        @*<td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.IsEmriId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.IsEmriId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.IsEmriId })
+        </td>*@
+    </tr>
+}
+
+</table>

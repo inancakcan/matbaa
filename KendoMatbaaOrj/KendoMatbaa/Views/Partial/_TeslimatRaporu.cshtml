@@ -1,0 +1,37 @@
+﻿@model System.Collections.Generic.IEnumerable<KendoMatbaa.Models.spTeslimatRaporu_Result>
+
+<table class="table" style="text-align: center" border="1">
+    <tr>
+        <th style="text-align: center">
+            Tarih
+        </th>
+        <th style="text-align: center">
+            Teslim Eden
+        </th>
+        <th style="text-align: center">
+            Teslim Alan
+        </th>
+        <th style="text-align: center">
+            Teslimat Miktarı
+        </th>
+    @*</tr>*@
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonelAdiSoyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeslimAlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeslimatMiktari)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,7 @@
+@Html.DevExpress().DocumentViewer(settings => {
+    settings.Name = "TeslimatRaporuViewer";
+    settings.CallbackRouteValues = new { Controller = "Report", Action = "TeslimatRaporuPartial" };
+    settings.ExportRouteValues = new { Controller = "Report", Action = "TeslimatRaporuPartialExport" };
+	settings.Report = (XtraReport)Model;
+	settings.ToolbarMode = DocumentViewerToolbarMode.StandardToolbar;
+}).GetHtml()

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriOnayBilgileri>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Otokopi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Onayalindi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reddedildi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RedNedeni)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdetAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsTamamlandi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnayGeriAlindi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KismiTamam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YarimKaldi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri1.IsNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri2.IsNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Otokopi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Onayalindi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reddedildi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RedNedeni)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdetAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsTamamlandi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnayGeriAlindi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KismiTamam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YarimKaldi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silindi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri1.IsNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri2.IsNo)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.IsEmriBaskiBilgileriId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.IsEmriBaskiBilgileriId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.IsEmriBaskiBilgileriId })
+        </td>
+    </tr>
+}
+
+</table>

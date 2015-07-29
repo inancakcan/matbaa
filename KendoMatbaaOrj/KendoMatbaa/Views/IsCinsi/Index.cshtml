@@ -1,0 +1,39 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsCinsi>
+
+@{
+    ViewBag.Title = "Liste";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CinsAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CinsAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silindi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.IsCinsiId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.IsCinsiId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.IsCinsiId })
+        </td>
+    </tr>
+}
+
+</table>

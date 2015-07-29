@@ -1,0 +1,45 @@
+﻿@model IEnumerable<KendoMatbaa.Models.Roller>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RolAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RolAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel.PersonelAdiSoyadi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RolAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RolAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personel.PersonelAdiSoyadi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.RollerId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.RollerId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.RollerId })
+        </td>
+    </tr>
+}
+
+</table>

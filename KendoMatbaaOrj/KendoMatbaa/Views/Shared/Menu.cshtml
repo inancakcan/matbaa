@@ -1,0 +1,68 @@
+﻿@using System.Data
+@using KendoMatbaa.Controllers
+@using KendoMatbaa.Models
+@using KendoMatbaa.YetkiServis
+@using Kendo.Mvc.UI.Fluent
+
+@*<script src="~/Scripts/jqsimplemenu.js"></script>
+<link href="~/Content/jqsimplemenu.css" rel="stylesheet" />*@
+
+@{
+    List<KendoMatbaa.Models.MenuModel> menuList = ViewBag.Menu;
+}
+<div style="margin-top: 150px;">
+    <ul class="menu">
+
+        @foreach (var mp in menuList.Where(p => p.ParentUN == Guid.Empty))
+        {
+
+            <li>
+                <a href="@mp.MenuUrl">@mp.MenuAdi</a>
+                @if (menuList.Count(p => p.ParentUN == mp.MenuUN) > 0)
+                {
+                    @:<ul>
+            }
+
+                @RenderMenuItem(menuList, mp)
+
+                @if (menuList.Count(p => p.ParentUN == mp.MenuUN) > 0)
+                {
+                    @Html.Raw("</ul>")
+                }
+
+        </li>
+        }
+
+
+    </ul>
+
+
+    @helper RenderMenuItem(List<KendoMatbaa.Models.MenuModel> menuList, KendoMatbaa.Models.MenuModel mi)
+{
+    foreach (var cp in menuList.Where(p => p.ParentUN == mi.MenuUN))
+    {
+
+
+        @:<li>
+            <a href="@cp.MenuUrl">@cp.MenuAdi</a>
+
+        if (menuList.Count(p => p.ParentUN == cp.MenuUN) > 0)
+        {
+            @:<ul>
+        }
+
+        @RenderMenuItem(menuList, cp)
+        if (menuList.Count(p => p.ParentUN == cp.MenuUN) > 0)
+        {
+            @Html.Raw("</ul>")
+        }
+        else
+        {
+            @Html.Raw("</li>")
+        }
+    }
+}
+
+
+
+</div>

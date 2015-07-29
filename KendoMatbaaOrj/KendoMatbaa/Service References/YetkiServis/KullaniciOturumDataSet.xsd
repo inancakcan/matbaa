@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://tempuri.org/KullaniciOturumDataSet.xsd" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/KullaniciOturumDataSet.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/KullaniciOturumDataSet.xsd" id="KullaniciOturumDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="KullaniciOturumDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KullaniciOturum">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="KullaniciOturumUN" type="xs:string" />
+              <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="KullaniciUN" type="xs:string" />
+              <xs:element name="SessionID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ProjeUN" type="xs:string" />
+              <xs:element name="OturumBaslamaTarihi" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="OturumBitisiTarihi" type="xs:dateTime" />
+              <xs:element name="OturumDurumID" type="xs:unsignedByte" />
+              <xs:element minOccurs="0" name="OturumKontrolZamani" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="KullaniciOturum0">
+      <xs:selector xpath=".//mstns:KullaniciOturum" />
+      <xs:field xpath="mstns:KullaniciOturumUN" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

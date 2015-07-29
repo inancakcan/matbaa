@@ -1,0 +1,11 @@
+﻿@model KendoMatbaa.Models.YokIsParcasi
+@*@(Html.Kendo().MultiSelect()
+      .Name("OlmayanIsParcalariMultiSelect") //The name of the multiselect is mandatory. It specifies the "id" attribute of the widget.
+      .DataTextField("YokIsParcasiAdi") //Specifies which property of the Product to be used by the multiselect as a text.
+  .DataValueField("Id") //Specifies which property of the Product to be used by the multiselect as a value.
+  .BindTo(Model) //Pass the list of Products to the multiselect.
+      )*@
+
+
+
+@*@Html.Kendo().MultiSelectFor(model => model.Id).DataTextField("Id").DataValueField("Id")*@

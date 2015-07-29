@@ -1,0 +1,83 @@
+﻿@model IEnumerable<KendoMatbaa.Models.StokGiris>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AlindigiFirmaAdi)*@
+            Alındığı Firma
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.FaturaTarihi)*@Fatura Tarihi
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.FaturaNo)*@ Fatura No
+         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirimFiyat)@Html.Raw(" (TL)")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miktar)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)*@ Stok Adı
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FizikselBirim.Nicelik)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Personel.PersonelAdiSoyadi)*@ Ekleyen
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlindigiFirmaAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FaturaTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FaturaNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirimFiyat)
+            @*@Html.EditorFor(modelItem => item.BirimFiyat)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miktar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FizikselBirim.Nicelik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personel.PersonelAdiSoyadi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.StokGirisId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.StokGirisId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.StokGirisId })
+        </td>
+    </tr>
+}
+
+</table>

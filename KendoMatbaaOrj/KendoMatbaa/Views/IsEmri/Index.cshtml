@@ -1,0 +1,262 @@
+﻿@using KendoMatbaa.App_Start
+@{
+    ViewBag.Title = "İş Emirleri";
+}
+<br />
+<h2>İş Emirleri</h2>
+
+
+<p>
+    @Html.ActionLink("Yeni İş Emri", "Create", null, null, new { title = "Yeni  iş emri eklemek için tıklayınız..." })
+</p>
+
+
+
+<p style="padding:0 1em 1em; padding-top: 0.7em;background-color:gainsboro;">
+    Aşağıdaki kutucuğa arama için biliyosanız İşin adından,İş numarasından ya da İş Emri Id'den bildiğiniz bir parçasını yazıp, 'Ara' butonuna tıklayabilirsiniz.
+</p>
+
+
+@*@using (Html.BeginForm("IsEmri_Read","IsEmri",FormMethod.Post))*@
+@using (Html.BeginForm("IsEmri_Read", "IsEmri"))
+{
+    <p>
+        İş Emri Ara: @Html.TextBox("searchString")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+
+
+
+@(Html.Kendo().Grid<KendoMatbaa.Models.IsEmriViewModel>()
+      .Name("grid")
+      .EnableCustomBinding(false) // Enable custom binding
+      .Columns(columns =>
+      {
+          columns.Bound(IsEmri => IsEmri.IsEmriId).Width(100).Visible(true);
+          columns.Bound(IsEmri => IsEmri.IsNo).Title("İş No").Width(50);
+          columns.Bound(IsEmri => IsEmri.TarihSayi).Width(50);
+          columns.Bound(IsEmri => IsEmri.Adi).Width(200);
+          //columns.Bound(IsEmri => IsEmri.BirimID).Width(25);
+          columns.Bound(IsEmri => IsEmri.Personel).Width(25).Visible(false);
+          columns.Bound(IsEmri => IsEmri.Telefon).Width(25).Visible(false);
+          columns.Bound(IsEmri => IsEmri.KabulTarihi).Width(10).Visible(true);
+          columns.Bound(IsEmri => IsEmri.TeslimTarihi).Width(25).Visible(false);
+          columns.Bound(IsEmri => IsEmri.Aciklama).Width(25).Visible(false);
+          //columns.ForeignKey(c => c.BirimId, (IEnumerable)ViewData["Birimler"], dataFieldText: "BirimAdi", dataFieldValue: "BirimId").Width(150);
+
+          columns.Command(commands =>
+          {
+              //commands.Edit().Text("Düzenle").UpdateText("Kaydet").CancelText("İptal"); // The "edit" command will edit and update data items
+              commands.Destroy().Text("Sil"); // The "destroy" command removes data items
+          }).Title("Komutlar").Width(180);
+
+
+      })
+
+
+             // .ToolBar(toolbar => toolbar.Create().Text("Yeni").HtmlAttributes(new { title = "Yeni iş emri eklemek için tıklayınız" })) // The "create" command adds new data items
+              .DataSource(dataSource => dataSource.Ajax().Sort(sort => sort.Add("IsEmriId").Descending()).PageSize(5).ServerOperation(true).Model(model =>
+              {
+                  model.Id(IsEmri => IsEmri.IsEmriId); // Specify the property which is the unique identifier of the model
+                  model.Field(IsEmri => IsEmri.IsEmriId).Editable(false); // Make the ProductID property not editable
+              })
+                                                .Create(create => create.Action("IsEmri_Create", "IsEmri")) // Action invoked when the user saves a new data item
+                  //.Read(read => read.Action("IsEmri_Read", "IsEmri")) // Action invoked when the grid needs data
+                                                                .Read(read => read.Action("IsEmri_Read", "IsEmri").Data("additionalInfo")) // Action invoked when the grid needs data
+                                                    .Update(update => update.Action("IsEmri_Update", "IsEmri")) // Action invoked when the user saves an updated data item
+                                                    .Destroy(destroy => destroy.Action("IsEmri_Delete", "IsEmri")) // Action invoked when the user removes a data item
+                                                    .Filter(
+
+                                                        filters =>
+                                                        {
+                                                            //filters.Add(IsEmri => IsEmri.IsEmriId).IsEqualTo(100224001);
+                                                            filters.Add(IsEmri => IsEmri.Silindi).IsEqualTo(false);
+                                                        }
+                  )
+
+              )
+              .Editable(editable => editable.Mode(GridEditMode.PopUp).Window(w => w.Width(900)).Window(w => w.Title("İş Emri Düzenleme")))
+              .Filterable(filterable => filterable.Messages(messages =>
+              {
+                  messages.Info("Filtreleme"); // sets the text on top of the filter menu
+                  messages.And("Ve"); // sets the text on top of the filter menu
+                  messages.Or("Ya da"); // sets the text on top of the filter menu
+                  messages.Filter("Filtrele"); // sets the text for the "Filter" button
+                  messages.Clear("Filtre Kaldır"); // sets the text for the "Clear" button
+                  messages.Cancel("İptal");
+                  messages.Equals("Eşit olacak");
+                  messages.IsTrue("Doğru");
+                  messages.IsFalse("Yanlış");
+              }))
+      .Pageable() // Enable paging
+      .Sortable() // Enable sorting
+      .ClientDetailTemplateId("DetailTemplate")
+
+)
+
+
+
+
+
+<script id="DetailTemplate" type="text/kendo-tmpl">
+    @*#=IsEmriId#*@
+
+    @(Html.Kendo().TabStrip()
+          .Name("TabStrip_#=IsEmriId#")
+          .SelectedIndex(0)
+                  .Animation(animation => animation.Open(open => open.Fade(FadeDirection.In)))
+                            .Events(events => events
+                                .ContentLoad("onContentLoad")
+                                .Error("onError")
+                            )
+                .Items(items => items.Add().Text("Temel").LoadContentFrom("Edit", "IsEmri", new { id = "#=IsEmriId#" }).Selected(true))
+                .Items(items => items.Add().Text("Teknik").LoadContentFrom("Edit", "IsEmriTeknikBilgilers", new { id = "#=IsEmriId#" }))
+                .Items(items => items.Add().Text("Onay").LoadContentFrom("Edit", "IsEmriOnayBilgileris", new { id = "#=IsEmriId#" }))
+                                .Items(items => items.Add().Text("Kullanılacak Kağıt").LoadContentFrom("_BelirliIsEmrininKullanilanKagitlari", "IsEmriKullanilacakKagits", new { IsEmriId = "#=IsEmriId#" }))
+                .Items(items => items.Add().Text("Laminasyon").LoadContentFrom("_BelirliIsEmrininLaminasyonlari", "IsEmriKullanilanLaminasyonlars", new { IsEmriId = "#=IsEmriId#" }))
+                .Items(items => items.Add().Text("Film").LoadContentFrom("_BelirliIsEmrininFilmGiderleri", "IsEmriFilmGiderleris", new { IsEmriId = "#=IsEmriId#" }))
+                .Items(items => items.Add().Text("Kalıp ve Malzeme").LoadContentFrom("_BelirliIsEmrininKalipMalzemeGiderleri", "IsEmriKalipMalzemeGiderleris", new { IsEmriId = "#=IsEmriId#" }))
+                .Items(items => items.Add().Text("İç Baskı").LoadContentFrom("_BelirliIsEmrininBaskiBilgileri", "IsEmriBaskiMakineleris", new { IsEmriId = "#=IsEmriId#", IcMi = true }))
+                .Items(items => items.Add().Text("Kapak Baskı").LoadContentFrom("_BelirliIsEmrininBaskiBilgileri", "IsEmriBaskiMakineleris", new { IsEmriId = "#=IsEmriId#", IcMi = false }))
+                .Items(items => items.Add().Text("Dosyalar").LoadContentFrom("_BelirliIsEmrininDosyalariniDon", "IsEmriUploadDosyalaris", new { IsEmriId = "#=IsEmriId#" }))
+
+            .ToClientTemplate()
+
+    )
+</script>
+
+
+@*@UserManager.User.KullaniciUN
+    <br />
+    @UserManager.User.Username (@UserManager.User.Age)
+    <br />
+    @UserManager.User.Roller[0]
+    <br />*@
+
+@*@UserManager.User.Roller[1]*@
+
+@*<input id="btnRefresh" type="button" value="dene"/>*@
+<script>
+    
+    //$('#btnRefresh').click(function (e) {
+    //    var grid = $("#grid").data("kendoGrid");
+    //    grid.dataSource.page(1);
+    //    grid.dataSource.read();
+    //});
+
+    //function additionalInfo() {
+    //    return {
+
+    //        searchString: "ankara"//,
+    //        //id: 2
+    //    }
+    //}
+    
+
+    function additionalInfo() {
+        return {
+            searchString: $("#searchString").val(),
+            ItemManufacturer: $("#ItemManufacturer").val(),
+            ItemCategory: $("#ItemCategory").val(),
+            DataAreaID: "mdsi",
+        };
+    }
+
+
+
+    //function additionalInfo() {
+    //    var bak = this.SearchString.value;
+    //    alert(bak);
+    //    return {
+            
+    //        searchString: "belge"//,
+    //        //id: 2
+    //    }
+    //}
+
+
+   
+
+    function onContentLoad(e) {
+        // alert('#=IsEmriId#');
+    }
+    function onError(e) {
+        //kendoConsole.error("Loading failed with " + e.xhr.statusText + " " + e.xhr.status);
+    }
+</script>
+
+
+
+<div id="myPartialView">
+    @Ajax.ActionLink("Click here for the Partial Viewvvvvvvvvvvv", "_DevamEtmekteOlanIsler",
+        new AjaxOptions
+        {
+            UpdateTargetId = "myPartialView",
+            InsertionMode = InsertionMode.InsertAfter,
+            HttpMethod = "Get"
+        })
+</div>
+
+@*@UserManager.User.KullaniciUN
+    <br />
+    @UserManager.User.Username (@UserManager.User.Age)
+    <br />
+    @UserManager.User.EPosta*@
+
+
+@(Html.Kendo().Window()
+    .Name("windowe")
+    .Title("About Alvar Aalto")
+        //.LoadContentFrom("OnayBekleyenIsSayisi", "KontrolPaneli")
+           .Content("yükleniyor")
+    .Draggable()
+    .Resizable()
+    .Width(600)
+    .Visible(false)
+    .Modal(true)
+    .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+    .Events(ev => ev.Close("onClose"))
+)
+
+<span id="undo" class="k-button">Click here to open the window.</span>
+
+<script>
+    function onClose() {
+        $("#undo").show();
+        alert("kapandı");
+    }
+
+    $(document).ready(function () {
+        $("#undo").bind("click", function () {
+            $("#windowe").data("kendoWindow").open();
+            $("#undo").show();
+        });
+    });
+</script>
+
+
+
+@Html.ActionLink("link text", "MyPartialView", "IsEmri", new { @class = "popupLink" })
+
+<script type=”text/javascript”>
+    $(function () {
+    $(‘.popupLink’).click(function () {
+    $(‘<div id=”popupfooterdiv”/>’).appendTo(‘body’).dialog({
+    close: function (event, ui) {
+    dialog.remove();
+    },
+    modal: false,
+    draggable: false,
+    width: 500,
+    height: 400,
+    resizable: false,
+    //open: function (event, ui) {
+    //    $(‘.ui-dialog-title’).remove();
+    //}
+    }).load(this.href, {});
+    return false;
+    });
+    });
+</script>

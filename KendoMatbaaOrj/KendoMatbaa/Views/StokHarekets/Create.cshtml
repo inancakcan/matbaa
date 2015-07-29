@@ -1,0 +1,112 @@
+﻿@model KendoMatbaa.Models.StokHareket
+
+@{
+    ViewBag.Title = "Yeni Stok Hareketi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Stok Hareketi</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Yeni Stok Hareketi</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.AltGruplarId, "Stok Kalemi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("AltGruplarId", String.Empty)
+                @Html.ValidationMessageFor(model => model.AltGruplarId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Miktar, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Miktar)
+                @Html.ValidationMessageFor(model => model.Miktar)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tarih, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Tarih)*@
+                @Html.Kendo().DatePickerFor(model => model.Tarih).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" })
+                @Html.ValidationMessageFor(model => model.Tarih)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Hareket, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.Hareket)*@
+                @*@Html.DropDownListFor(model => model.Hareket,"ArtiEksi","Seçiniz..")*@
+                @Html.DropDownListFor(model => model.Hareket, new SelectList(new List<Object>{new { value = "Seçiniz..", text = "Seçiniz.."  },
+                new { value = "-" , text = "-" },new { value = "+" , text = "+"}
+                    },
+                  "value",
+                  "text",
+                   0))
+
+                @Html.ValidationMessageFor(model => model.Hareket)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Personel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Personel)
+                @Html.ValidationMessageFor(model => model.Personel)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Yon,"Açıklama", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Yon,new {style="width: 500px"})
+                @Html.ValidationMessageFor(model => model.Yon)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Silindi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Silindi)
+                @Html.ValidationMessageFor(model => model.Silindi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsEmriId)
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Stok Hareketleri Listesi", "Index")
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        kendo.culture("tr-TR"); //your culture
+        $.validator.addMethod('date',
+           function (value, element) {
+               return this.optional(element) || kendo.parseDate(value)
+           });
+    });
+</script>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<KendoMatbaa.Models.spIcBaskiyiYapanlariDon_Result>
+
+<table class="table" style="text-align: center">
+    <tr>
+        <th style="text-align: center">
+            Personel
+        </th>
+        <th style="text-align: center">
+            Tarih
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonelAdiSoyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarih)
+            </td>
+        </tr>
+    }
+
+</table>

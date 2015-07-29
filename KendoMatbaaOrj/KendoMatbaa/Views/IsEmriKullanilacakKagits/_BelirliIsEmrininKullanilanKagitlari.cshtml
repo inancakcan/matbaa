@@ -1,0 +1,149 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriKullanilacakKagit>
+
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+@(Html.Kendo().Window()
+    .Name("windowKagit")
+    .Title("Kağıt Ekleme")
+                   .LoadContentFrom("Create", "IsEmriKullanilacakKagits", new { SeciliIsEmriId = Request["IsEmriId"] })
+    .Draggable()
+    .Resizable()
+    .Width(800)
+    .Visible(false)
+    .Modal(true)
+    .Iframe(false)
+    .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+)
+
+<span id="btnKagitEkle" class="k-button">Kağıt eklemek için tıklayın...</span>
+
+<script>
+     $(document).ready(function () {
+        $("#btnKagitEkle").bind("click", function () {
+            $("#windowKagit").data("kendoWindow").open();
+        });
+    });
+</script>
+
+
+
+
+@*<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IcKagitNet)*@
+            İ.Net
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IcKagitFire)*@
+            İ.Fire
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.KapakNet)*@
+            K.Net
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.KapakFire)*@
+            K.Fire
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Otokopi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>*@
+        <th>
+            İç Kağıt
+        </th>
+        <th>
+            Kapak Kağıt
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>*@
+        <th>
+            İ.B.Boyutu
+        </th>
+        <th>
+            K.B.Boyutu
+        </th>
+        <th>
+            İ.T. Kesimi
+        </th>
+                <th>
+            K.T. Kesimi
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width:80px;">
+                @Html.DisplayFor(modelItem => item.IcKagitNet)
+            </td>
+            <td style="width:80px;">
+                @Html.DisplayFor(modelItem => item.IcKagitFire)
+            </td>
+            <td style="width:80px;">
+                @Html.DisplayFor(modelItem => item.KapakNet)
+            </td>
+            <td style="width:80px;">
+                @Html.DisplayFor(modelItem => item.KapakFire)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Otokopi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Silindi)
+            </td>*@
+            <td style="width:80px;">
+                @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+            </td>
+            <td style="width:80px;">
+                @Html.DisplayFor(modelItem => item.AltGruplar1.AltGrupAdi)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+            </td>*@
+            <td style="width:80px;">
+                @*@Html.DisplayFor(modelItem => item.KesimBoyutlari1.KesimBoyutlari1)*@
+                @Html.DisplayFor(modelItem => item.BaskiEbatlari.Boyut)
+            </td>
+            <td style="width:80px;">
+                
+                @*@Html.DisplayFor(modelItem => item.KesimBoyutlari.KesimBoyutlari1)*@
+                @Html.DisplayFor(modelItem => item.BaskiEbatlari1.Boyut)
+            </td>
+            <td style="width:80px;">
+                @Html.DisplayFor(modelItem => item.TabakaKesimleri.TabakaKesimi)
+            </td>
+            <td style="width:80px;">
+                @Html.DisplayFor(modelItem => item.TabakaKesimleri1.TabakaKesimi)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.IsEmriKullanilacakKagitId }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.IsEmriKullanilacakKagitId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.IsEmriKullanilacakKagitId })
+            </td>
+        </tr>
+    }
+
+</table>
+

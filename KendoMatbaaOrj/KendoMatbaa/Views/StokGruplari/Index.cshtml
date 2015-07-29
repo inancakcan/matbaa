@@ -1,0 +1,44 @@
+﻿@model IEnumerable<KendoMatbaa.Models.StokGruplari>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br/>
+<h2>Stok grupları</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create", null, null, new { title = "Yeni bir stok grubu eklemek için tıklayınız." })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StokGrupAdi)
+        </th>
+        @*<th>
+        @Html.DisplayNameFor(model => model.Silindi)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StokGrupAdi)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Silindi)
+                </td>*@
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.StokGruplariId }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.StokGruplariId }) |
+                @*@Html.ActionLink("Sil", "Delete", new { id = item.StokGruplariId }) |*@
+                @Html.ActionLink("Alt gruplar", "StokGrubununAltGruplari", new { id = item.StokGruplariId })
+            </td>
+        </tr>
+    }
+
+</table>
+@*<div>
+    @{Html.RenderAction("_Async", "FileUpload");}
+</div>*@

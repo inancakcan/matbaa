@@ -1,0 +1,1919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:import namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/MenuDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/YetkiDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/ProjeDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/AuthenticationTicketDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/KullaniciRolDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/BirimDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/GlobalLogDataSet.xsd" />
+      <s:import namespace="http://tempuri.org/KullaniciOturumDataSet.xsd" />
+      <s:import schemaLocation="https://yetki.tse.org.tr/yetkiservis.asmx?schema=BirimDataSet" namespace="http://tempuri.org/BirimDataSet.xsd" />
+      <s:import schemaLocation="https://yetki.tse.org.tr/yetkiservis.asmx?schema=KullaniciOturumDataSet" namespace="http://tempuri.org/KullaniciOturumDataSet.xsd" />
+      <s:import schemaLocation="https://yetki.tse.org.tr/yetkiservis.asmx?schema=MenuDataSet" namespace="http://tempuri.org/MenuDataSet.xsd" />
+      <s:import schemaLocation="https://yetki.tse.org.tr/yetkiservis.asmx?schema=KullaniciDataSet" namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+      <s:import schemaLocation="https://yetki.tse.org.tr/yetkiservis.asmx?schema=ProjeDataSet" namespace="http://tempuri.org/ProjeDataSet.xsd" />
+      <s:import schemaLocation="https://yetki.tse.org.tr/yetkiservis.asmx?schema=GlobalLogDataSet" namespace="http://tempuri.org/GlobalLogDataSet.xsd" />
+      <s:import schemaLocation="https://yetki.tse.org.tr/yetkiservis.asmx?schema=KullaniciRolDataSet" namespace="http://tempuri.org/KullaniciRolDataSet.xsd" />
+      <s:import schemaLocation="https://yetki.tse.org.tr/yetkiservis.asmx?schema=YetkiDataSet" namespace="http://tempuri.org/YetkiDataSet.xsd" />
+      <s:import schemaLocation="https://yetki.tse.org.tr/yetkiservis.asmx?schema=AuthenticationTicketDataSet" namespace="http://tempuri.org/AuthenticationTicketDataSet.xsd" />
+      <s:element name="KullaniciGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YetkiProjeUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciBirimGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="kullaniciUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciBirimGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciBirimGetirResult">
+              <s:complexType>
+                <s:annotation>
+                  <s:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </s:appinfo>
+                </s:annotation>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciGiris">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciAdi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sifre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciGirisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciGirisResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciGetirEposta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="eposta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciGetirEpostaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciGetirEpostaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciGetirAktivationKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciGetirAktivationKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciGetirAktivationKeyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciSifreGuncelle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sifre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciSifreGuncelleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciSifreGuncelleResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProjeKullanicilariniGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YetkiProjeUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProjeKullanicilariniGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProjeKullanicilariniGetirResult">
+              <s:complexType>
+                <s:annotation>
+                  <s:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </s:appinfo>
+                </s:annotation>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YetkiliKullanicilarGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YetkiUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YetkiliKullanicilarGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YetkiliKullanicilarGetirResult">
+              <s:complexType>
+                <s:annotation>
+                  <s:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </s:appinfo>
+                </s:annotation>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KayitliOlmayanProjeKullanicilariniGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YetkiProjeUN" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="UzmanUN" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="VeritabaniAdi" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KayitliOlmayanProjeKullanicilariniGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KayitliOlmayanProjeKullanicilariniGetirResult">
+              <s:complexType>
+                <s:annotation>
+                  <s:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </s:appinfo>
+                </s:annotation>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkiliMenulerGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciUN" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProjeUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkiliMenulerGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciYetkiliMenulerGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/MenuDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkilerGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciUN" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProjeUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkilerGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciYetkilerGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/YetkiDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProjeYetkilerGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProjeUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProjeYetkilerGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProjeYetkilerGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/YetkiDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkiliProjelerGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciYetkiliProjelerGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciYetkiliProjelerGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/ProjeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrupYetkiliMenulerGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GrupUN" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProjeUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrupYetkiliMenulerGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GrupYetkiliMenulerGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/MenuDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrupYetkilerGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GrupUN" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProjeUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrupYetkilerGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GrupYetkilerGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/YetkiDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrupYetkiliProjelerGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GrupUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrupYetkiliProjelerGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GrupYetkiliProjelerGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/ProjeDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketGetirPHP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ticket" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketGetirPHPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TicketGetirPHPResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bTicket" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TicketGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciBirimAdiGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BirimUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciBirimAdiGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciBirimAdiGetirResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketKaydet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsTicket">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/AuthenticationTicketDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TicketKaydetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TicketKaydetResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BirimGetir">
+        <s:complexType />
+      </s:element>
+      <s:element name="BirimGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BirimGetirResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VekaletDurumKaydet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="vekaletUN" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="durumId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VekaletDurumKaydetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="KullaniciRolleriGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciRolleriGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciRolleriGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciRolDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BirimGetirbyBirimUN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="BirimUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BirimGetirbyBirimUNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BirimGetirbyBirimUNResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/BirimDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GlobalLogKaydet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GlobalLogDs">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/GlobalLogDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GlobalLogKaydetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GlobalLogKaydetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciRolSifirla">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="kullaniciUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciRolSifirlaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciRolSifirlaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VekaletAlanKullaniciBilgisiGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VekaletAlanKullaniciBilgisiGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VekaletAlanKullaniciBilgisiGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TumBirimlerGetir">
+        <s:complexType />
+      </s:element>
+      <s:element name="TumBirimlerGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TumBirimlerGetirResult">
+              <s:complexType>
+                <s:annotation>
+                  <s:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </s:appinfo>
+                </s:annotation>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TumKullaniciGetir">
+        <s:complexType />
+      </s:element>
+      <s:element name="TumKullaniciGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TumKullaniciGetirResult">
+              <s:complexType>
+                <s:annotation>
+                  <s:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </s:appinfo>
+                </s:annotation>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BirimMudurGetirByBirimUN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BirimUN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BirimMudurGetirByBirimUNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BirimMudurGetirByBirimUNResult">
+              <s:complexType>
+                <s:annotation>
+                  <s:appinfo>
+                    <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+                  </s:appinfo>
+                </s:annotation>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumDurumuGuncelle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciOturumUN" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="durum" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumDurumuGuncelleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciOturumDurumuGuncelleResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumGetir">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciUN" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="ProjeUN" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="Durum" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumGetirResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciOturumGetirResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciOturumDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumGetirByKullaniciOturumUN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciOturumUN" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumGetirByKullaniciOturumUNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciOturumGetirByKullaniciOturumUNResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciOturumDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumKaydet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dsKullaniciOturum">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciOturumDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumKaydetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciOturumKaydetResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumKontrolZamaniGuncelle">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciOturumUN" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciOturumKontrolZamaniGuncelleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciOturumKontrolZamaniGuncelleResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="HataVar" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AktifRolGetirByKullaniciUN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AktifRolGetirByKullaniciUNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AktifRolGetirByKullaniciUNResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciRolDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciRolAktifYap">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciRolUN" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciRolAktifYapResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KullaniciRolAktifYapResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MesajKaydet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Tip" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="kime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="zaman" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="mesaj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="baslik" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MesajKaydetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MesajKaydetResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciGetirByYetkiID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="YetkiID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KullaniciGetirByYetkiIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KullaniciGetirByYetkiIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/KullaniciDataSet.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="KullaniciGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciGetir" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciBirimGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciBirimGetir" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciBirimGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciBirimGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciGirisSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciGiris" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciGirisSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciGirisResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciGetirEpostaSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciGetirEposta" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciGetirEpostaSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciGetirEpostaResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciGetirAktivationKeySoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciGetirAktivationKey" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciGetirAktivationKeySoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciGetirAktivationKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciSifreGuncelleSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciSifreGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciSifreGuncelleSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciSifreGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProjeKullanicilariniGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:ProjeKullanicilariniGetir" />
+  </wsdl:message>
+  <wsdl:message name="ProjeKullanicilariniGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:ProjeKullanicilariniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="YetkiliKullanicilarGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:YetkiliKullanicilarGetir" />
+  </wsdl:message>
+  <wsdl:message name="YetkiliKullanicilarGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:YetkiliKullanicilarGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="KayitliOlmayanProjeKullanicilariniGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KayitliOlmayanProjeKullanicilariniGetir" />
+  </wsdl:message>
+  <wsdl:message name="KayitliOlmayanProjeKullanicilariniGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KayitliOlmayanProjeKullanicilariniGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkiliMenulerGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkiliMenulerGetir" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkiliMenulerGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkiliMenulerGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkilerGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkilerGetir" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkilerGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkilerGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProjeYetkilerGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:ProjeYetkilerGetir" />
+  </wsdl:message>
+  <wsdl:message name="ProjeYetkilerGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:ProjeYetkilerGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkiliProjelerGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkiliProjelerGetir" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciYetkiliProjelerGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciYetkiliProjelerGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="GrupYetkiliMenulerGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:GrupYetkiliMenulerGetir" />
+  </wsdl:message>
+  <wsdl:message name="GrupYetkiliMenulerGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:GrupYetkiliMenulerGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="GrupYetkilerGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:GrupYetkilerGetir" />
+  </wsdl:message>
+  <wsdl:message name="GrupYetkilerGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:GrupYetkilerGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="GrupYetkiliProjelerGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:GrupYetkiliProjelerGetir" />
+  </wsdl:message>
+  <wsdl:message name="GrupYetkiliProjelerGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:GrupYetkiliProjelerGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="TicketGetirPHPSoapIn">
+    <wsdl:part name="parameters" element="tns:TicketGetirPHP" />
+  </wsdl:message>
+  <wsdl:message name="TicketGetirPHPSoapOut">
+    <wsdl:part name="parameters" element="tns:TicketGetirPHPResponse" />
+  </wsdl:message>
+  <wsdl:message name="TicketGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:TicketGetir" />
+  </wsdl:message>
+  <wsdl:message name="TicketGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:TicketGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciBirimAdiGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciBirimAdiGetir" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciBirimAdiGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciBirimAdiGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="TicketKaydetSoapIn">
+    <wsdl:part name="parameters" element="tns:TicketKaydet" />
+  </wsdl:message>
+  <wsdl:message name="TicketKaydetSoapOut">
+    <wsdl:part name="parameters" element="tns:TicketKaydetResponse" />
+  </wsdl:message>
+  <wsdl:message name="BirimGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:BirimGetir" />
+  </wsdl:message>
+  <wsdl:message name="BirimGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:BirimGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="VekaletDurumKaydetSoapIn">
+    <wsdl:part name="parameters" element="tns:VekaletDurumKaydet" />
+  </wsdl:message>
+  <wsdl:message name="VekaletDurumKaydetSoapOut">
+    <wsdl:part name="parameters" element="tns:VekaletDurumKaydetResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciRolleriGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciRolleriGetir" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciRolleriGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciRolleriGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="BirimGetirbyBirimUNSoapIn">
+    <wsdl:part name="parameters" element="tns:BirimGetirbyBirimUN" />
+  </wsdl:message>
+  <wsdl:message name="BirimGetirbyBirimUNSoapOut">
+    <wsdl:part name="parameters" element="tns:BirimGetirbyBirimUNResponse" />
+  </wsdl:message>
+  <wsdl:message name="GlobalLogKaydetSoapIn">
+    <wsdl:part name="parameters" element="tns:GlobalLogKaydet" />
+  </wsdl:message>
+  <wsdl:message name="GlobalLogKaydetSoapOut">
+    <wsdl:part name="parameters" element="tns:GlobalLogKaydetResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciRolSifirlaSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciRolSifirla" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciRolSifirlaSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciRolSifirlaResponse" />
+  </wsdl:message>
+  <wsdl:message name="VekaletAlanKullaniciBilgisiGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:VekaletAlanKullaniciBilgisiGetir" />
+  </wsdl:message>
+  <wsdl:message name="VekaletAlanKullaniciBilgisiGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:VekaletAlanKullaniciBilgisiGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="TumBirimlerGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:TumBirimlerGetir" />
+  </wsdl:message>
+  <wsdl:message name="TumBirimlerGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:TumBirimlerGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="TumKullaniciGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:TumKullaniciGetir" />
+  </wsdl:message>
+  <wsdl:message name="TumKullaniciGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:TumKullaniciGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="BirimMudurGetirByBirimUNSoapIn">
+    <wsdl:part name="parameters" element="tns:BirimMudurGetirByBirimUN" />
+  </wsdl:message>
+  <wsdl:message name="BirimMudurGetirByBirimUNSoapOut">
+    <wsdl:part name="parameters" element="tns:BirimMudurGetirByBirimUNResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumDurumuGuncelleSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumDurumuGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumDurumuGuncelleSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumDurumuGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumGetirSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumGetir" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumGetirSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumGetirResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumGetirByKullaniciOturumUNSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumGetirByKullaniciOturumUN" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumGetirByKullaniciOturumUNSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumGetirByKullaniciOturumUNResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumKaydetSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumKaydet" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumKaydetSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumKaydetResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumKontrolZamaniGuncelleSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumKontrolZamaniGuncelle" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciOturumKontrolZamaniGuncelleSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciOturumKontrolZamaniGuncelleResponse" />
+  </wsdl:message>
+  <wsdl:message name="AktifRolGetirByKullaniciUNSoapIn">
+    <wsdl:part name="parameters" element="tns:AktifRolGetirByKullaniciUN" />
+  </wsdl:message>
+  <wsdl:message name="AktifRolGetirByKullaniciUNSoapOut">
+    <wsdl:part name="parameters" element="tns:AktifRolGetirByKullaniciUNResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciRolAktifYapSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciRolAktifYap" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciRolAktifYapSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciRolAktifYapResponse" />
+  </wsdl:message>
+  <wsdl:message name="MesajKaydetSoapIn">
+    <wsdl:part name="parameters" element="tns:MesajKaydet" />
+  </wsdl:message>
+  <wsdl:message name="MesajKaydetSoapOut">
+    <wsdl:part name="parameters" element="tns:MesajKaydetResponse" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciGetirByYetkiIDSoapIn">
+    <wsdl:part name="parameters" element="tns:KullaniciGetirByYetkiID" />
+  </wsdl:message>
+  <wsdl:message name="KullaniciGetirByYetkiIDSoapOut">
+    <wsdl:part name="parameters" element="tns:KullaniciGetirByYetkiIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="YetkiServisSoap">
+    <wsdl:operation name="KullaniciGetir">
+      <wsdl:input message="tns:KullaniciGetirSoapIn" />
+      <wsdl:output message="tns:KullaniciGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciBirimGetir">
+      <wsdl:input message="tns:KullaniciBirimGetirSoapIn" />
+      <wsdl:output message="tns:KullaniciBirimGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGiris">
+      <wsdl:input message="tns:KullaniciGirisSoapIn" />
+      <wsdl:output message="tns:KullaniciGirisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetirEposta">
+      <wsdl:input message="tns:KullaniciGetirEpostaSoapIn" />
+      <wsdl:output message="tns:KullaniciGetirEpostaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetirAktivationKey">
+      <wsdl:input message="tns:KullaniciGetirAktivationKeySoapIn" />
+      <wsdl:output message="tns:KullaniciGetirAktivationKeySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciSifreGuncelle">
+      <wsdl:input message="tns:KullaniciSifreGuncelleSoapIn" />
+      <wsdl:output message="tns:KullaniciSifreGuncelleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProjeKullanicilariniGetir">
+      <wsdl:input message="tns:ProjeKullanicilariniGetirSoapIn" />
+      <wsdl:output message="tns:ProjeKullanicilariniGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="YetkiliKullanicilarGetir">
+      <wsdl:input message="tns:YetkiliKullanicilarGetirSoapIn" />
+      <wsdl:output message="tns:YetkiliKullanicilarGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KayitliOlmayanProjeKullanicilariniGetir">
+      <wsdl:input message="tns:KayitliOlmayanProjeKullanicilariniGetirSoapIn" />
+      <wsdl:output message="tns:KayitliOlmayanProjeKullanicilariniGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkiliMenulerGetir">
+      <wsdl:input message="tns:KullaniciYetkiliMenulerGetirSoapIn" />
+      <wsdl:output message="tns:KullaniciYetkiliMenulerGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkilerGetir">
+      <wsdl:input message="tns:KullaniciYetkilerGetirSoapIn" />
+      <wsdl:output message="tns:KullaniciYetkilerGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProjeYetkilerGetir">
+      <wsdl:input message="tns:ProjeYetkilerGetirSoapIn" />
+      <wsdl:output message="tns:ProjeYetkilerGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkiliProjelerGetir">
+      <wsdl:input message="tns:KullaniciYetkiliProjelerGetirSoapIn" />
+      <wsdl:output message="tns:KullaniciYetkiliProjelerGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrupYetkiliMenulerGetir">
+      <wsdl:input message="tns:GrupYetkiliMenulerGetirSoapIn" />
+      <wsdl:output message="tns:GrupYetkiliMenulerGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrupYetkilerGetir">
+      <wsdl:input message="tns:GrupYetkilerGetirSoapIn" />
+      <wsdl:output message="tns:GrupYetkilerGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrupYetkiliProjelerGetir">
+      <wsdl:input message="tns:GrupYetkiliProjelerGetirSoapIn" />
+      <wsdl:output message="tns:GrupYetkiliProjelerGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TicketGetirPHP">
+      <wsdl:input message="tns:TicketGetirPHPSoapIn" />
+      <wsdl:output message="tns:TicketGetirPHPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TicketGetir">
+      <wsdl:input message="tns:TicketGetirSoapIn" />
+      <wsdl:output message="tns:TicketGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciBirimAdiGetir">
+      <wsdl:input message="tns:KullaniciBirimAdiGetirSoapIn" />
+      <wsdl:output message="tns:KullaniciBirimAdiGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TicketKaydet">
+      <wsdl:input message="tns:TicketKaydetSoapIn" />
+      <wsdl:output message="tns:TicketKaydetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BirimGetir">
+      <wsdl:input message="tns:BirimGetirSoapIn" />
+      <wsdl:output message="tns:BirimGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VekaletDurumKaydet">
+      <wsdl:input message="tns:VekaletDurumKaydetSoapIn" />
+      <wsdl:output message="tns:VekaletDurumKaydetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciRolleriGetir">
+      <wsdl:input message="tns:KullaniciRolleriGetirSoapIn" />
+      <wsdl:output message="tns:KullaniciRolleriGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BirimGetirbyBirimUN">
+      <wsdl:input message="tns:BirimGetirbyBirimUNSoapIn" />
+      <wsdl:output message="tns:BirimGetirbyBirimUNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GlobalLogKaydet">
+      <wsdl:input message="tns:GlobalLogKaydetSoapIn" />
+      <wsdl:output message="tns:GlobalLogKaydetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciRolSifirla">
+      <wsdl:input message="tns:KullaniciRolSifirlaSoapIn" />
+      <wsdl:output message="tns:KullaniciRolSifirlaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VekaletAlanKullaniciBilgisiGetir">
+      <wsdl:input message="tns:VekaletAlanKullaniciBilgisiGetirSoapIn" />
+      <wsdl:output message="tns:VekaletAlanKullaniciBilgisiGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TumBirimlerGetir">
+      <wsdl:input message="tns:TumBirimlerGetirSoapIn" />
+      <wsdl:output message="tns:TumBirimlerGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TumKullaniciGetir">
+      <wsdl:input message="tns:TumKullaniciGetirSoapIn" />
+      <wsdl:output message="tns:TumKullaniciGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BirimMudurGetirByBirimUN">
+      <wsdl:input message="tns:BirimMudurGetirByBirimUNSoapIn" />
+      <wsdl:output message="tns:BirimMudurGetirByBirimUNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumDurumuGuncelle">
+      <wsdl:input message="tns:KullaniciOturumDurumuGuncelleSoapIn" />
+      <wsdl:output message="tns:KullaniciOturumDurumuGuncelleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumGetir">
+      <wsdl:input message="tns:KullaniciOturumGetirSoapIn" />
+      <wsdl:output message="tns:KullaniciOturumGetirSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumGetirByKullaniciOturumUN">
+      <wsdl:input message="tns:KullaniciOturumGetirByKullaniciOturumUNSoapIn" />
+      <wsdl:output message="tns:KullaniciOturumGetirByKullaniciOturumUNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumKaydet">
+      <wsdl:input message="tns:KullaniciOturumKaydetSoapIn" />
+      <wsdl:output message="tns:KullaniciOturumKaydetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumKontrolZamaniGuncelle">
+      <wsdl:input message="tns:KullaniciOturumKontrolZamaniGuncelleSoapIn" />
+      <wsdl:output message="tns:KullaniciOturumKontrolZamaniGuncelleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AktifRolGetirByKullaniciUN">
+      <wsdl:input message="tns:AktifRolGetirByKullaniciUNSoapIn" />
+      <wsdl:output message="tns:AktifRolGetirByKullaniciUNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciRolAktifYap">
+      <wsdl:input message="tns:KullaniciRolAktifYapSoapIn" />
+      <wsdl:output message="tns:KullaniciRolAktifYapSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MesajKaydet">
+      <wsdl:input message="tns:MesajKaydetSoapIn" />
+      <wsdl:output message="tns:MesajKaydetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetirByYetkiID">
+      <wsdl:input message="tns:KullaniciGetirByYetkiIDSoapIn" />
+      <wsdl:output message="tns:KullaniciGetirByYetkiIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="YetkiServisSoap" type="tns:YetkiServisSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KullaniciGetir">
+      <soap:operation soapAction="http://tempuri.org/KullaniciGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciBirimGetir">
+      <soap:operation soapAction="http://tempuri.org/KullaniciBirimGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGiris">
+      <soap:operation soapAction="http://tempuri.org/KullaniciGiris" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetirEposta">
+      <soap:operation soapAction="http://tempuri.org/KullaniciGetirEposta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetirAktivationKey">
+      <soap:operation soapAction="http://tempuri.org/KullaniciGetirAktivationKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciSifreGuncelle">
+      <soap:operation soapAction="http://tempuri.org/KullaniciSifreGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProjeKullanicilariniGetir">
+      <soap:operation soapAction="http://tempuri.org/ProjeKullanicilariniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YetkiliKullanicilarGetir">
+      <soap:operation soapAction="http://tempuri.org/YetkiliKullanicilarGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KayitliOlmayanProjeKullanicilariniGetir">
+      <soap:operation soapAction="http://tempuri.org/KayitliOlmayanProjeKullanicilariniGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkiliMenulerGetir">
+      <soap:operation soapAction="http://tempuri.org/KullaniciYetkiliMenulerGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkilerGetir">
+      <soap:operation soapAction="http://tempuri.org/KullaniciYetkilerGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProjeYetkilerGetir">
+      <soap:operation soapAction="http://tempuri.org/ProjeYetkilerGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkiliProjelerGetir">
+      <soap:operation soapAction="http://tempuri.org/KullaniciYetkiliProjelerGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrupYetkiliMenulerGetir">
+      <soap:operation soapAction="http://tempuri.org/GrupYetkiliMenulerGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrupYetkilerGetir">
+      <soap:operation soapAction="http://tempuri.org/GrupYetkilerGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrupYetkiliProjelerGetir">
+      <soap:operation soapAction="http://tempuri.org/GrupYetkiliProjelerGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketGetirPHP">
+      <soap:operation soapAction="http://tempuri.org/TicketGetirPHP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketGetir">
+      <soap:operation soapAction="http://tempuri.org/TicketGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciBirimAdiGetir">
+      <soap:operation soapAction="http://tempuri.org/KullaniciBirimAdiGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketKaydet">
+      <soap:operation soapAction="http://tempuri.org/TicketKaydet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BirimGetir">
+      <soap:operation soapAction="http://tempuri.org/BirimGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VekaletDurumKaydet">
+      <soap:operation soapAction="http://tempuri.org/VekaletDurumKaydet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciRolleriGetir">
+      <soap:operation soapAction="http://tempuri.org/KullaniciRolleriGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BirimGetirbyBirimUN">
+      <soap:operation soapAction="http://tempuri.org/BirimGetirbyBirimUN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GlobalLogKaydet">
+      <soap:operation soapAction="http://tempuri.org/GlobalLogKaydet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciRolSifirla">
+      <soap:operation soapAction="http://tempuri.org/KullaniciRolSifirla" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VekaletAlanKullaniciBilgisiGetir">
+      <soap:operation soapAction="http://tempuri.org/VekaletAlanKullaniciBilgisiGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TumBirimlerGetir">
+      <soap:operation soapAction="http://tempuri.org/TumBirimlerGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TumKullaniciGetir">
+      <soap:operation soapAction="http://tempuri.org/TumKullaniciGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BirimMudurGetirByBirimUN">
+      <soap:operation soapAction="http://tempuri.org/BirimMudurGetirByBirimUN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumDurumuGuncelle">
+      <soap:operation soapAction="http://tempuri.org/KullaniciOturumDurumuGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumGetir">
+      <soap:operation soapAction="http://tempuri.org/KullaniciOturumGetir" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumGetirByKullaniciOturumUN">
+      <soap:operation soapAction="http://tempuri.org/KullaniciOturumGetirByKullaniciOturumUN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumKaydet">
+      <soap:operation soapAction="http://tempuri.org/KullaniciOturumKaydet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumKontrolZamaniGuncelle">
+      <soap:operation soapAction="http://tempuri.org/KullaniciOturumKontrolZamaniGuncelle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AktifRolGetirByKullaniciUN">
+      <soap:operation soapAction="http://tempuri.org/AktifRolGetirByKullaniciUN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciRolAktifYap">
+      <soap:operation soapAction="http://tempuri.org/KullaniciRolAktifYap" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MesajKaydet">
+      <soap:operation soapAction="http://tempuri.org/MesajKaydet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetirByYetkiID">
+      <soap:operation soapAction="http://tempuri.org/KullaniciGetirByYetkiID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="YetkiServisSoap12" type="tns:YetkiServisSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KullaniciGetir">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciBirimGetir">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciBirimGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGiris">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciGiris" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetirEposta">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciGetirEposta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetirAktivationKey">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciGetirAktivationKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciSifreGuncelle">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciSifreGuncelle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProjeKullanicilariniGetir">
+      <soap12:operation soapAction="http://tempuri.org/ProjeKullanicilariniGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="YetkiliKullanicilarGetir">
+      <soap12:operation soapAction="http://tempuri.org/YetkiliKullanicilarGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KayitliOlmayanProjeKullanicilariniGetir">
+      <soap12:operation soapAction="http://tempuri.org/KayitliOlmayanProjeKullanicilariniGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkiliMenulerGetir">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciYetkiliMenulerGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkilerGetir">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciYetkilerGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProjeYetkilerGetir">
+      <soap12:operation soapAction="http://tempuri.org/ProjeYetkilerGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciYetkiliProjelerGetir">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciYetkiliProjelerGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrupYetkiliMenulerGetir">
+      <soap12:operation soapAction="http://tempuri.org/GrupYetkiliMenulerGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrupYetkilerGetir">
+      <soap12:operation soapAction="http://tempuri.org/GrupYetkilerGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrupYetkiliProjelerGetir">
+      <soap12:operation soapAction="http://tempuri.org/GrupYetkiliProjelerGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketGetirPHP">
+      <soap12:operation soapAction="http://tempuri.org/TicketGetirPHP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketGetir">
+      <soap12:operation soapAction="http://tempuri.org/TicketGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciBirimAdiGetir">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciBirimAdiGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TicketKaydet">
+      <soap12:operation soapAction="http://tempuri.org/TicketKaydet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BirimGetir">
+      <soap12:operation soapAction="http://tempuri.org/BirimGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VekaletDurumKaydet">
+      <soap12:operation soapAction="http://tempuri.org/VekaletDurumKaydet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciRolleriGetir">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciRolleriGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BirimGetirbyBirimUN">
+      <soap12:operation soapAction="http://tempuri.org/BirimGetirbyBirimUN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GlobalLogKaydet">
+      <soap12:operation soapAction="http://tempuri.org/GlobalLogKaydet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciRolSifirla">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciRolSifirla" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VekaletAlanKullaniciBilgisiGetir">
+      <soap12:operation soapAction="http://tempuri.org/VekaletAlanKullaniciBilgisiGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TumBirimlerGetir">
+      <soap12:operation soapAction="http://tempuri.org/TumBirimlerGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TumKullaniciGetir">
+      <soap12:operation soapAction="http://tempuri.org/TumKullaniciGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BirimMudurGetirByBirimUN">
+      <soap12:operation soapAction="http://tempuri.org/BirimMudurGetirByBirimUN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumDurumuGuncelle">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciOturumDurumuGuncelle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumGetir">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciOturumGetir" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumGetirByKullaniciOturumUN">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciOturumGetirByKullaniciOturumUN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumKaydet">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciOturumKaydet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciOturumKontrolZamaniGuncelle">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciOturumKontrolZamaniGuncelle" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AktifRolGetirByKullaniciUN">
+      <soap12:operation soapAction="http://tempuri.org/AktifRolGetirByKullaniciUN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciRolAktifYap">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciRolAktifYap" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MesajKaydet">
+      <soap12:operation soapAction="http://tempuri.org/MesajKaydet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KullaniciGetirByYetkiID">
+      <soap12:operation soapAction="http://tempuri.org/KullaniciGetirByYetkiID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="YetkiServis">
+    <wsdl:port name="YetkiServisSoap" binding="tns:YetkiServisSoap">
+      <soap:address location="https://yetki.tse.org.tr/yetkiservis.asmx" />
+    </wsdl:port>
+    <wsdl:port name="YetkiServisSoap12" binding="tns:YetkiServisSoap12">
+      <soap12:address location="https://yetki.tse.org.tr/yetkiservis.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

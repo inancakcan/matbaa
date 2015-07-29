@@ -1,0 +1,178 @@
+﻿@using KendoMatbaa.App_Start
+@model KendoMatbaa.Models.IsEmriBaskiMakineleri
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+<h2>Oluştur</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+
+        @{
+            Query q = new Query();
+            bool kapakVarMi = q.IsEmriOlmayanIsParcasiniIceriyorMu(1, Convert.ToInt32(ViewBag.SeciliIsEmriId));//KApak
+            if (kapakVarMi)
+            {
+                <input type="hidden" id="kapakVarMiBaskiHdn" value="yok" />
+            }
+        }
+
+
+
+
+
+
+        <h4>Baskı Makineleri</h4>
+        <hr/>
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+
+
+
+
+
+            @Html.LabelFor(model => model.IsEmriId, "İş No", htmlAttributes: new {@class = "control-label col-md-4"})
+            <div class="col-md-10">
+                @Html.DropDownList("IsEmriId", String.Empty)
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+
+
+        <div class="form-group" id="divMakineninKullanildigiYer">
+            @Html.LabelFor(model => model.MakineninKullanildigiYer, "Makinenin Kullanıldığı Yer", htmlAttributes: new {@class = "control-label col-md-4"})
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.MakineninKullanildigiYer)*@
+                @Html.DropDownListFor(model => model.MakineninKullanildigiYer, new List<SelectListItem>
+                {
+                    new SelectListItem {Text = "İç", Value = "Ic"},
+                    new SelectListItem {Text = "Kapak", Value = "Kapak"},
+                }, "Seçiniz...")
+                @Html.ValidationMessageFor(model => model.MakineninKullanildigiYer)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BaskiMakineleriId, "Baskı Makinesi", htmlAttributes: new {@class = "control-label col-md-4"})
+            <div class="col-md-10">
+                @Html.DropDownList("BaskiMakineleriId", String.Empty)
+                @Html.ValidationMessageFor(model => model.BaskiMakineleriId)
+            </div>
+        </div>
+
+        <div class="form-group" id="divIcBaskiMiktari">
+            @Html.LabelFor(model => model.IcBaskiMiktari, "İç Baskı Miktarı", htmlAttributes: new {@class = "control-label col-md-4"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.IcBaskiMiktari, new {@id = "objIcBaskiMiktari"})
+                @Html.ValidationMessageFor(model => model.IcBaskiMiktari)
+            </div>
+        </div>
+
+        <div class="form-group" id="divKapakBaskiMiktari">
+            @Html.LabelFor(model => model.KapakBaskiMiktari, "Kapak Baskı Miktarı", htmlAttributes: new {@class = "control-label col-md-4"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.KapakBaskiMiktari, new {@id = "objKapakBaskiMiktari"})
+                @Html.ValidationMessageFor(model => model.KapakBaskiMiktari)
+            </div>
+        </div>
+
+        <div class="form-group" id="divIcBaskiBoyutu">
+            @Html.LabelFor(model => model.IcBaskiEbadi, "İç Baskı Boyutu", htmlAttributes: new {@class = "control-label col-md-4"})
+            <div class="col-md-10">
+                @Html.DropDownList("IcBaskiEbadi", "-")
+                @Html.ValidationMessageFor(model => model.IcBaskiEbadi)
+            </div>
+        </div>
+
+        <div class="form-group" id="divKapakBaskiBoyutu">
+            @Html.LabelFor(model => model.KapakBaskiEbadi, "Kapak Baskı Boyutu", htmlAttributes: new {@class = "control-label col-md-4"})
+            <div class="col-md-10">
+                @Html.DropDownList("KapakBaskiEbadi", "-")
+                @Html.ValidationMessageFor(model => model.KapakBaskiEbadi)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Yeni Kayıt Oluştur" class="btn btn-default"/>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+
+        $(document).ready(function () {
+
+            //var valkapakVArMiHdn = $('#kapakVarMiHdn').val();
+            if ($('#kapakVarMiBaskiHdn').val() == "yok") {
+                //alert($('#kapakVarMiBaskiHdn').val());
+
+                
+                $('#MakineninKullanildigiYer').val("Ic");
+                $('#divMakineninKullanildigiYer').hide();
+                $("#objKapakBaskiMiktari").val("0");
+                $('#divKapakBaskiMiktari').hide();
+                $('#divKapakBaskiBoyutu').hide();
+                
+
+
+            }
+            else {
+                $('#divMakineninKullanildigiYer').show();
+                $('#divKapakBaskiMiktari').show();
+                $('#divKapakBaskiBoyutu').show();
+            }
+        });
+    $(function () {
+      $("#MakineninKullanildigiYer").change(function () {
+          //$('#TheForm').submit();
+          //alert("değişti");
+          
+          if (this.value == "Kapak") {
+             
+              $('#divKapakBaskiMiktari').show();
+              $('#divKapakBaskiBoyutu').show();
+
+              $("#objIcBaskiMiktari").val("0");
+              //$("#objKapakBaskiMiktari").val("0");
+              
+              $('#IcBaskiEbadi').val('11');//veritabanında '-' anlamına geliyor
+
+
+
+              $('#divIcBaskiMiktari').hide();
+              $('#divIcBaskiBoyutu').hide();
+     
+              
+          }
+          else {//Ic Yani
+              $('#divIcBaskiMiktari').show();
+              $('#divIcBaskiBoyutu').show();
+
+              $('#objKapakBaskiMiktari').val("0");
+              $('#KapakBaskiEbadi').val('11');//veritabanında '-' anlamına geliyor
+
+              $('#divKapakBaskiMiktari').hide();
+              $('#divKapakBaskiBoyutu').hide();
+              
+         }
+
+    });
+  });
+
+</script>
+
+
+
+@*<div>
+    @Html.ActionLink("Liste", "Index")
+</div>*@

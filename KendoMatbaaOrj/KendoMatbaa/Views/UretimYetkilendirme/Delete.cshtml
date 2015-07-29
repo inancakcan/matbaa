@@ -1,0 +1,48 @@
+﻿@model KendoMatbaa.Models.UretimYetkilendirme
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>Üretim Yetkilendirme</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AltUretimAsamalari.AltUretimAsamalariAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltUretimAsamalari.AltUretimAsamalariAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personel.PersonelAdiSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personel.PersonelAdiSoyadi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>

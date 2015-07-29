@@ -1,0 +1,83 @@
+﻿@model KendoMatbaa.Models.StokHareket
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StokHareket</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Miktar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Miktar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hareket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hareket)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Silindi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmriId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmriId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltGruplar.AltGrupAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StokHareketId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

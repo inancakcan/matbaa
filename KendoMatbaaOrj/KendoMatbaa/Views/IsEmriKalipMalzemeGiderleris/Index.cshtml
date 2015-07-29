@@ -1,0 +1,63 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriKalipMalzemeGiderleri>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KullanilanKalipSayisi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KullanilanKalipSayisi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silindi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.IsEmriKalipMalzemeGiderleriId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.IsEmriKalipMalzemeGiderleriId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.IsEmriKalipMalzemeGiderleriId })
+        </td>
+    </tr>
+}
+
+</table>

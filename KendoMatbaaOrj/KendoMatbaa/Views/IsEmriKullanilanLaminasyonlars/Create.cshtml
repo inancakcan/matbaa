@@ -1,0 +1,130 @@
+﻿@model KendoMatbaa.Models.IsEmriKullanilanLaminasyonlar
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+@{
+    ViewBag.Title = "Oluşturma";
+}
+
+<h2>Laminasyon Ekleme</h2>
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Kullanılan Laminasyonlar</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriId, "İş No", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IsEmriId", "Seçiniz..")
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LaminasyonlarId, "Laminasyon", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("LaminasyonlarId", String.Empty)
+                @Html.ValidationMessageFor(model => model.LaminasyonlarId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Yeni Kayıt Oluştur" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+@*@Html.ActionLink("link text", "MyPartialView", "IsEmri", new { @class = "k-popup-message" })
+
+<script type=”text/javascript”>
+    $(function () {
+    $(‘.popupLink’).click(function () {
+    $(‘<div id=”popupfooterdiv”/>’).appendTo(‘body’).dialog({
+    close: function (event, ui) {
+    dialog.remove();
+    },
+    modal: false,
+    draggable: false,
+    width: 500,
+    height: 400,
+    resizable: false,
+    //open: function (event, ui) {
+    //    $(‘.ui-dialog-title’).remove();
+    //}
+    }).load(this.href, {});
+    return false;
+    });
+    });
+</script>*@
+
+
+
+
+
+
+
+
+@Ajax.ActionLink("Click here for the Partial View", "MyPartialView", "IsEmri",
+        new AjaxOptions
+        {
+            UpdateTargetId = "myPartialView",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "Get",
+            OnSuccess = "onSuccess"
+            
+        })
+<span id="undo" class="k-button">Click here to close the window.</span>
+<div id="myPartialView">
+   
+    
+
+  
+</div>
+
+
+<script>
+    function onSuccess() {
+        $("#undo").show();
+        alert("başarıyla yükelndi");
+    }
+    $(document).ready(function () {
+        $("#undo").bind("click", function () {
+           
+            $("#myPartialView").hide();
+        });
+    });
+</script>
+
+@*<span id="undo" class="k-button"></span>
+
+<script>
+        function onClose() {
+            $("#undo").show();
+            alert("kapandı");
+        }
+
+        $(document).ready(function () {
+            $("#undo").bind("click", function () {
+                $("#windowe").data("kendoWindow").open();
+                $("#undo").show();
+            });
+        });
+</script>*@
+
+
+
+@*<div>
+    @Html.ActionLink("Liste", "Index")
+</div>*@

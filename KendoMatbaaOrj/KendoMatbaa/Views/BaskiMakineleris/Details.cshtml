@@ -1,0 +1,26 @@
+﻿@model KendoMatbaa.Models.BaskiMakineleri
+
+@{
+    ViewBag.Title = "Baskı Makinesi Detayları";
+}
+
+<h2>Baskı Makinesi Detayları</h2>
+
+<div>
+    <h4>Baskı Makinesi Detayları</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MakineAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakineAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.BaskiMakineleriId }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

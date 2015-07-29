@@ -1,0 +1,76 @@
+﻿@*@model System.Collections.Generic.List<KendoMatbaa.Models.IsEmriUploadDosyalari>*@
+
+
+    @model IEnumerable<KendoMatbaa.Models.IsEmriUploadDosyalari>
+
+    @{
+        Layout = null;
+    }
+
+    <h2>Liste</h2>
+
+
+    <div>
+        @{Html.RenderAction("_Async", "FileUpload", new { IsEmriId = ViewBag.IsEmriId });}
+    </div>
+
+
+
+    @*<p>
+            @Html.ActionLink("Yeni", "Create")
+        </p>*@
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DosyaAdi)*@
+                Dosya Adı
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DosyaAciklamasi)*@
+                Dosya Açıklaması
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.DosyaKonumu)
+                </th>*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.IsEmri.IsNo)*@
+                İş No
+            </th>
+            <th>
+                Resim
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DosyaAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DosyaAciklamasi)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.DosyaKonumu)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+                </td>
+               
+                <td>
+                    <img src="~/imgUpload/@item.DosyaAdi" width="70px" height="70px" alt="@item.DosyaAdi" />
+                </td>
+                <td>
+                    @*@Html.ActionLink("Düzenle", "Edit", new { id = item.IsEmriUploadDosyalariId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.IsEmriUploadDosyalariId }) |*@
+                    @Html.ActionLink("Dosyayı Sil", "DosyayiSil", new { filePath = item.DosyaKonumu, isEmriUploadDosyalariId = item.IsEmriUploadDosyalariId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+

@@ -1,0 +1,222 @@
+﻿@using System.Configuration
+@using System.Drawing
+@using System.Web.UI.WebControls
+@using KendoMatbaa.Models
+@model KendoMatbaa.Models.IsEmri
+
+@{
+    Layout = "~/Views/Shared/_LayoutjQueryValYok.cshtml";
+        //Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+
+@{
+    ViewBag.Title = "Yeni İş Emri Oluşturma";
+}
+
+@*@ConfigurationManager.AppSettings["YeniIsEmrindeMailGonderilecekler"]*@
+
+<h2>Yeni İş Emri Oluşturma</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>İş Emri</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="alert-heading">
+            <p class="alert-info">
+                İş emrinin içermediği iş parçalarını bu bölümden işaretlerseniz, sonraki aşamalarda bilgi girerken, içerilmeyen iş parçaları hakkında soru sorulmayacaktır.
+                İş emrine ilişkin bilgileri girmeniz hızlanacaktır.
+            </p>
+            <div class="form-group">
+                <h4>İş Emrinin içermediği iş parçaları</h4>
+                @(Html.Kendo().MultiSelect()
+                      .Name("OlmayanIsParcalariMultiSelect")
+                      .Placeholder("Olmayan iş parçalarını seçiniz ...")
+
+                      .BindTo(new List<string>()
+                      {
+                          "Kapak",
+                          "Film",
+                          "Laminasyon",
+                      })
+                      .Value(new string[] {"Kapak", "Film", "Laminasyon"})
+                      )
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.IsNo)*@
+                @Html.TextBoxFor(model => model.IsNo, new { @Value = @ViewBag.OtomatikAlinmisIsNo, @class = "k-textbox", disabled = "disabled" })
+                @Html.ValidationMessageFor(model => model.IsNo)
+            </div>
+        </div>
+
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.BitmisIsBoyutlariId, "Bitmiş İş Boyutu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BitmisIsBoyutlariId", "Bitmiş iş boyutunu seçiniz...")
+                @Html.ValidationMessageFor(model => model.BitmisIsBoyutlariId)
+
+            </div>
+        </div>*@
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TarihSayi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TarihSayi)
+                @Html.ValidationMessageFor(model => model.TarihSayi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adi)
+                @Html.ValidationMessageFor(model => model.Adi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Personel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Personel)
+                @Html.ValidationMessageFor(model => model.Personel)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IlgiliEPosta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IlgiliEPosta)
+                @Html.ValidationMessageFor(model => model.IlgiliEPosta)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefon)
+                @Html.ValidationMessageFor(model => model.Telefon)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KabulTarihi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.KabulTarihi)*@
+                @(Html.Kendo().DatePickerFor(model => model.KabulTarihi).Format("dd.MM.yyyy").Culture("tr-TR"))
+                @Html.ValidationMessageFor(model => model.KabulTarihi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeslimTarihi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.TeslimTarihi)*@
+                @(Html.Kendo().DatePickerFor(model => model.TeslimTarihi).Format("dd.MM.yyyy"))
+                @Html.ValidationMessageFor(model => model.TeslimTarihi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Aciklama, new { rows = "6", cols = "70" })
+                @Html.ValidationMessageFor(model => model.Aciklama)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IKBSBirimUN, "Birim", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BirimUN", "Lütfen birim seçiniz...")
+                @Html.ValidationMessageFor(model => model.BirimId)
+            </div>
+        </div>
+
+        <div class="form-group" style="visibility: hidden;">
+            @Html.LabelFor(model => model.Silindi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Silindi)
+                @Html.ValidationMessageFor(model => model.Silindi)
+            </div>
+        </div>
+
+
+
+       
+
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.IKBSBirimUN, "Olmayan", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @(Html.Kendo().MultiSelectFor(model => model.IsEmriYokIsParcasi.First().YokIsParcasi.YokIsParcasiAdi))
+            </div>
+        </div>*@
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" id="btnSubmit" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>
+
+
+<script>
+    
+    $('#btnSubmit').click(function () {
+        $(this).attr("disabled", true);
+        $(this).val('Lütfen bekleyiniz...');
+        // Write your Code
+        //$(this).attr("disabled", false);
+        //$(this).val('Lütfen bekleyiniz..');
+
+    })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

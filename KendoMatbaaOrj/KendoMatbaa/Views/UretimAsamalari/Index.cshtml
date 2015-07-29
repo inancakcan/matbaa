@@ -1,0 +1,33 @@
+﻿@model IEnumerable<KendoMatbaa.Models.UretimAsamalari>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UretimAsamasiAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UretimAsamasiAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.UretimAsamalariId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.UretimAsamalariId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.UretimAsamalariId })
+        </td>
+    </tr>
+}
+
+</table>

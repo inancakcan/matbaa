@@ -1,0 +1,89 @@
+﻿@using System.Activities.Statements
+@using KendoMatbaa.App_Start;
+@{
+    Layout = "~/Views/Shared/_LayoutjQueryValYok.cshtml";
+}
+
+@{
+    ViewBag.Title = "İş Emri Düzenleme";
+}
+<br /><br /><br /><br /><br /><br /><br /><br />
+<h2>İş Emri Düzenleme</h2>
+
+@{Html.RenderAction("Details", "IsEmri", new { id = ViewBag.IsEmriId });}
+<br />
+
+<table class="table">
+    <tr>
+        <td>
+@{
+    bool laminasyonVisible = true;
+    bool filmVisible = true;
+    bool kapakVisible = true;
+    Query q=new Query();
+    if (q.IsEmriOlmayanIsParcasiniIceriyorMu(3, ViewBag.IsEmriId))
+    {
+        laminasyonVisible = false;
+    }
+    if (q.IsEmriOlmayanIsParcasiniIceriyorMu(2, ViewBag.IsEmriId))
+    {
+        filmVisible = false;
+    }
+    if (q.IsEmriOlmayanIsParcasiniIceriyorMu(3, ViewBag.IsEmriId))
+    {
+        kapakVisible = false;
+    }
+    
+}
+
+
+            @(Html.Kendo().TabStrip()
+          .Name("TabStrip")
+                    //.SelectedIndex(0)
+                    .Animation(animation => animation.Open(open => open.SlideIn(SlideDirection.Left)))
+                    
+                    //.Events(events => events
+                    //    .ContentLoad("onContentLoad")
+                    //    .Error("onError")
+                    //)
+
+                    
+                    
+                    //if(ViewBag.IsEmriTeknikBilglerGirilmisMi)
+                    //{
+                    //    .Items(items => items.Add().Text("Teknik").ImageUrl("~/images/button_ok.png").LoadContentFrom("Edit", "IsEmriTeknikBilgilers", new { id = ViewBag.IsEmriId }))
+                    //}
+                    //else
+                    //{
+                    //    .Items(items => items.Add().Text("Teknik").ImageUrl("~/images/attention.png").LoadContentFrom("Edit", "IsEmriTeknikBilgilers", new { id = ViewBag.IsEmriId }))
+                    //}
+                    .Items(items => items.Add().Text("Temel").LoadContentFrom("Edit", "IsEmri", new { id = ViewBag.IsEmriId }))
+                    .Items(items => items.Add().Text("Teknik").LoadContentFrom("Edit", "IsEmriTeknikBilgilers", new { id = ViewBag.IsEmriId }))
+                    .Items(items => items.Add().Visible(laminasyonVisible).Text("Laminasyon").LoadContentFrom("_BelirliIsEmrininLaminasyonlari", "IsEmriKullanilanLaminasyonlars", new {IsEmriId = ViewBag.IsEmriId}))
+                    .Items(items => items.Add().Visible(filmVisible).Text("Film").LoadContentFrom("_BelirliIsEmrininFilmGiderleri", "IsEmriFilmGiderleris", new { IsEmriId = ViewBag.IsEmriId }))
+                    .Items(items => items.Add().Text("Kullanılacak Kağıt").LoadContentFrom("_BelirliIsEmrininKullanilanKagitlari", "IsEmriKullanilacakKagits", new { IsEmriId = ViewBag.IsEmriId }))
+                    .Items(items => items.Add().Text("Kalıp ve Malzeme").LoadContentFrom("_BelirliIsEmrininKalipMalzemeGiderleri", "IsEmriKalipMalzemeGiderleris", new { IsEmriId = ViewBag.IsEmriId }))
+                    .Items(items => items.Add().Text("Baskı").LoadContentFrom("_BelirliIsEmrininBaskiBilgileri", "IsEmriBaskiMakineleris", new { IsEmriId = ViewBag.IsEmriId, IcMi = true }))
+                    // .Items(items => items.Add().Text("Kapak Baskı").LoadContentFrom("_BelirliIsEmrininBaskiBilgileri", "IsEmriBaskiMakineleris", new { IsEmriId = ViewBag.IsEmriId, IcMi = false }))
+                    .Items(items => items.Add().Text("Dosyalar").LoadContentFrom("_BelirliIsEmrininDosyalariniDon", "IsEmriUploadDosyalaris", new { IsEmriId = ViewBag.IsEmriId }))
+                    .Items(items => items.Add().Text("Yetki").LoadContentFrom("_BelirliIsEmrininYetkilendirmeleri", "UretimYetkilendirme", new { IsEmriId = ViewBag.IsEmriId }))
+
+            .SelectedIndex(ViewBag.index)
+
+            )
+
+
+
+
+
+
+
+
+
+
+        </td>
+    </tr>
+
+
+</table>
+

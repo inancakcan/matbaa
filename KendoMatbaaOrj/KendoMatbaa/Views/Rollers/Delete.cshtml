@@ -1,0 +1,48 @@
+﻿@model KendoMatbaa.Models.Roller
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>Roller</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RolAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RolAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RolAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RolAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personel.PersonelAdiSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personel.PersonelAdiSoyadi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>

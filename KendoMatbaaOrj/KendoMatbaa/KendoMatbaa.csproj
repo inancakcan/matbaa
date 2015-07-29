@@ -1,0 +1,1789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0810DF89-FF41-427A-ADC9-1B0F00015C4B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KendoMatbaa</RootNamespace>
+    <AssemblyName>KendoMatbaa</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v15.1.Web, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v15.1.Web.Mvc5, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.SpellChecker.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Spreadsheet.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxGauges.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxHtmlEditor.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxRichEdit.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxScheduler.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxSpellChecker.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxSpreadsheet.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.ASPxTreeList.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.Mvc5.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Web.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v15.1.Web, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v15.1.Presets, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.1.Web, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc, Version=2015.1.408.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\KENDOUIMVC\2015.1.408.545\Kendo.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.0.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.1\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=9.1.15.624, Culture=neutral, PublicKeyToken=a9d7983dfcc261be" />
+    <Reference Include="Telerik.ReportViewer.Html5.WebForms, Version=9.1.15.624, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.ReportViewer.Mvc, Version=9.1.15.624, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Services.WebApi, Version=9.1.15.624, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\MyResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\ExtensionMethods.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FlashMessageExtensions.cs" />
+    <Compile Include="App_Start\MyPrincipal.cs" />
+    <Compile Include="App_Start\Query.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\TSEMembershipProvider.cs" />
+    <Compile Include="App_Start\User.cs" />
+    <Compile Include="App_Start\UserManager.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AltGrupIcinGuncelStokDurumuController.cs" />
+    <Compile Include="Controllers\AltGruplarsController.cs" />
+    <Compile Include="Controllers\AltUretimAsamalariController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BaskiEbatlarisController.cs" />
+    <Compile Include="Controllers\BaskiMakineleriAnalizController.cs" />
+    <Compile Include="Controllers\BaskiMakinelerisController.cs" />
+    <Compile Include="Controllers\BirimsController.cs" />
+    <Compile Include="Controllers\BitmisIsBoyutlarisController.cs" />
+    <Compile Include="Controllers\DeneController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IsCinsiController.cs" />
+    <Compile Include="Controllers\IsEmirleriController.cs" />
+    <Compile Include="Controllers\IsEmriBaskiMakinelerisController.cs" />
+    <Compile Include="Controllers\IsEmriController.cs" />
+    <Compile Include="Controllers\IsEmriEskiController.cs" />
+    <Compile Include="Controllers\IsEmriFilmGiderlerisController.cs" />
+    <Compile Include="Controllers\IsEmriKalipMalzemeGiderlerisController.cs" />
+    <Compile Include="Controllers\IsEmriKullanilacakKagitsController.cs" />
+    <Compile Include="Controllers\IsEmriKullanilanLaminasyonlarsController.cs" />
+    <Compile Include="Controllers\IsEmriOnayBilgilerisController.cs" />
+    <Compile Include="Controllers\IsEmrisController.cs" />
+    <Compile Include="Controllers\IsEmriTeknikBilgilersController.cs" />
+    <Compile Include="Controllers\IsEmriUploadDosyalarisController.cs" />
+    <Compile Include="Controllers\IsEmriYokIsParcasiController.cs" />
+    <Compile Include="Controllers\KagitTuketimiController.cs" />
+    <Compile Include="Controllers\KagitTuketimiDashBoardController.cs" />
+    <Compile Include="Controllers\KontrolPaneliController.cs" />
+    <Compile Include="Controllers\MucellithaneProgramNoPaketBilgileriController.cs" />
+    <Compile Include="Controllers\PartialController.cs" />
+    <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\RollersController.cs" />
+    <Compile Include="Controllers\StokGirisController.cs" />
+    <Compile Include="Controllers\StokGruplariController.cs" />
+    <Compile Include="Controllers\StokHareketsController.cs" />
+    <Compile Include="Controllers\TeslimatRaporuController.cs" />
+    <Compile Include="Controllers\UretimAsamalariController.cs" />
+    <Compile Include="Controllers\UretimController.cs" />
+    <Compile Include="Controllers\UretimFormuController.cs" />
+    <Compile Include="Controllers\UretimNotlariController.cs" />
+    <Compile Include="Controllers\UretimYetkilendirmeController.cs" />
+    <Compile Include="Controllers\YokIsParcasiController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\IsEmriRaporu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsEmriRaporu.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AktiviteAdlari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AktiviteSahipleri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AltGruplar.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AltGruplarSilmeTarihce.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AltGruplarViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\AltUretimAsamalari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AsamaAdlari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AsamaAyrinti.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AsamaTarihce.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BarChartsLocalDataViewModel.cs" />
+    <Compile Include="Models\BaskiEbatlari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BaskiMakineleri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Birim.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BitmisIsBoyutlari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CiltTipleri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FizikselBirim.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GelenIsYogunlugu.cs" />
+    <Compile Include="Models\IKBSBirim.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsAsamasi.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsCinsi.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsDurumAdlari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriBaskiMakineleri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriEski.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriFilmGiderleri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriKalipMalzemeGiderleri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriKullanilacakKagit.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriKullanilanLaminasyonlar.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriOnayBilgileri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriOtokopi.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriTeknikBilgiler.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriUploadDosyalari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IsEmriViewModel.cs" />
+    <Compile Include="Models\IsEmriYokIsParcasi.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KagitGramajlari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KritikSeviye.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KullanilanKagitlar.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LargeDatabase.cs" />
+    <Compile Include="Models\Logon.cs" />
+    <Compile Include="Models\Maliyet.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MatbaaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatbaaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MatbaaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MatbaaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MatbaaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\MucellithaneProgramNoPaketBilgileri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OtokopiRenk.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Personel.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Roller.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spAltUretimAsamasiAltUretimAsamasiIdden_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spAylaraGoreKagitHarcamasi_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spDevamEdenIsler_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGecenOtuzGunIcindeBitirilenIslerListe_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGelenIsYogunlugu_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spGuncelStokDurumuOzelRev_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spIcBaskiMakineleriAnaliz_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spIcBaskiyiYapanlariDon_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spIcFireTuketimiAnaliz_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spIcKagitTuketimiAnaliz_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spIsEmriBilgiGirisiTamamlanmismi_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spIsEmriDosyalariniDon_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spIsemriOnayBilgileriIleBirlikte_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spIsEmriRaporu_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spKagitTuketimi_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spKapakBaskiMakineleriAnaliz_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spKapakBaskisiniYapanlariDon_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spKapakFireTuketimiAnaliz_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spKapakKagitTuketimiAnaliz_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spKritikSeviyeKontrol_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spStokCikan_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spStokGiren_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spTabakaKesimleriniYapanlariDon_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spTeslimatOrani_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spTeslimatRaporu_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\spUretimTakipFormu_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StokGiris.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StokGruplari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StokGruplariSilmeTarihce.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StokHareket.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StokHareketSilmeTarihce.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StokHareketViewModel.cs" />
+    <Compile Include="Models\TabakaKesimleri.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TeslimatRaporu.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TicariKagitBoyutlari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Uretim.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UretimAsamalari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UretimNotlari.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UretimYetkilendirme.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspIsEmriYokISParcasiAdi_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\uspUretimYetkilendirmeArama_Result.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vKagitTuketimi.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vUretimTam.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\YokIsParcasi.cs">
+      <DependentUpon>MatbaaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\YokIsParcasiViewModel.cs" />
+    <Compile Include="Models\ZamanaGoreGelenIsYogunluguModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\IsEmriRaporu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IsEmriRaporu.Designer.cs">
+      <DependentUpon>IsEmriRaporu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IcKagitTuketimi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\IcKagitTuketimi.Designer.cs">
+      <DependentUpon>IcKagitTuketimi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\subBaskiBilgileriIc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\subBaskiBilgileriIc.Designer.cs">
+      <DependentUpon>subBaskiBilgileriIc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\subBaskiBilgileriKapak.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\subBaskiBilgileriKapak.Designer.cs">
+      <DependentUpon>subBaskiBilgileriKapak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\subFilmMaliyeti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\subFilmMaliyeti.Designer.cs">
+      <DependentUpon>subFilmMaliyeti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SubIsEmriBaskiMakineleri.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\SubIsEmriBaskiMakineleri.Designer.cs">
+      <DependentUpon>SubIsEmriBaskiMakineleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\subIsEmriLaminasyonlari.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\subIsEmriLaminasyonlari.Designer.cs">
+      <DependentUpon>subIsEmriLaminasyonlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\subKagitMaliyeti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\subKagitMaliyeti.Designer.cs">
+      <DependentUpon>subKagitMaliyeti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\subKalipMaliyeti.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\subKalipMaliyeti.Designer.cs">
+      <DependentUpon>subKalipMaliyeti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Teslimat Raporu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Teslimat Raporu.Designer.cs">
+      <DependentUpon>Teslimat Raporu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\IKBSServis\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\YetkiServis\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\100477736_secondarytile.png" />
+    <Content Include="App_Data\SideMenu.xml" />
+    <Content Include="App_Data\TopMenu.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bak.txt" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap_responsive\charts.html" />
+    <Content Include="Content\bootstrap_responsive\css\base-admin-responsive.css" />
+    <Content Include="Content\bootstrap_responsive\css\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap_responsive\css\bootstrap.css" />
+    <Content Include="Content\bootstrap_responsive\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap_responsive\css\font-awesome-ie7.css" />
+    <Content Include="Content\bootstrap_responsive\css\font-awesome-ie7.min.css" />
+    <Content Include="Content\bootstrap_responsive\css\font-awesome.css" />
+    <Content Include="Content\bootstrap_responsive\css\font-awesome.min.css" />
+    <Content Include="Content\bootstrap_responsive\css\pages\dashboard.css" />
+    <Content Include="Content\bootstrap_responsive\css\pages\faq.css" />
+    <Content Include="Content\bootstrap_responsive\css\pages\plans.css" />
+    <Content Include="Content\bootstrap_responsive\css\pages\reports.css" />
+    <Content Include="Content\bootstrap_responsive\css\pages\signin.css" />
+    <Content Include="Content\bootstrap_responsive\css\style.css" />
+    <Content Include="Content\bootstrap_responsive\error.html" />
+    <Content Include="Content\bootstrap_responsive\faq.html" />
+    <Content Include="Content\bootstrap_responsive\font\fontawesome-webfont.svg" />
+    <Content Include="Content\bootstrap_responsive\guidely.html" />
+    <Content Include="Content\bootstrap_responsive\icons.html" />
+    <Content Include="Content\bootstrap_responsive\img\body-bg.png" />
+    <Content Include="Content\bootstrap_responsive\img\glyphicons-halflings-white.html" />
+    <Content Include="Content\bootstrap_responsive\img\glyphicons-halflings.html" />
+    <Content Include="Content\bootstrap_responsive\img\icons-sa7c41345d9.png" />
+    <Content Include="Content\bootstrap_responsive\img\message_avatar1.png" />
+    <Content Include="Content\bootstrap_responsive\img\message_avatar2.png" />
+    <Content Include="Content\bootstrap_responsive\img\signin\check.png" />
+    <Content Include="Content\bootstrap_responsive\img\signin\fb_btn.png" />
+    <Content Include="Content\bootstrap_responsive\img\signin\password.png" />
+    <Content Include="Content\bootstrap_responsive\img\signin\twitter_btn.png" />
+    <Content Include="Content\bootstrap_responsive\img\signin\user.png" />
+    <Content Include="Content\bootstrap_responsive\index.html" />
+    <Content Include="Content\bootstrap_responsive\js\base.js" />
+    <Content Include="Content\bootstrap_responsive\js\bootstrap.js" />
+    <Content Include="Content\bootstrap_responsive\js\chart.min.js" />
+    <Content Include="Content\bootstrap_responsive\js\charts\area.js" />
+    <Content Include="Content\bootstrap_responsive\js\charts\bar.js" />
+    <Content Include="Content\bootstrap_responsive\js\charts\donut.js" />
+    <Content Include="Content\bootstrap_responsive\js\charts\line.js" />
+    <Content Include="Content\bootstrap_responsive\js\charts\pie.js" />
+    <Content Include="Content\bootstrap_responsive\js\excanvas.min.js" />
+    <Content Include="Content\bootstrap_responsive\js\faq.js" />
+    <Content Include="Content\bootstrap_responsive\js\full-calendar\fullcalendar.css" />
+    <Content Include="Content\bootstrap_responsive\js\full-calendar\fullcalendar.min.js" />
+    <Content Include="Content\bootstrap_responsive\js\guidely\guidely-number.png" />
+    <Content Include="Content\bootstrap_responsive\js\guidely\guidely.css" />
+    <Content Include="Content\bootstrap_responsive\js\guidely\guidely.min.js" />
+    <Content Include="Content\bootstrap_responsive\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\bootstrap_responsive\js\signin.js" />
+    <Content Include="Content\bootstrap_responsive\login.html" />
+    <Content Include="Content\bootstrap_responsive\pricing.html" />
+    <Content Include="Content\bootstrap_responsive\reports.html" />
+    <Content Include="Content\bootstrap_responsive\shortcodes.html" />
+    <Content Include="Content\bootstrap_responsive\signup.html" />
+    <Content Include="Content\globalize.culture.tr-TR.js" />
+    <Content Include="Content\globalize.culture.tr.js" />
+    <Content Include="Content\Images\AquaHeader.jpg" />
+    <Content Include="Content\Images\BlackGlassHeader.jpg" />
+    <Content Include="Content\Images\GlassHeader.jpg" />
+    <Content Include="Content\Images\PlasticBlueHeader.jpg" />
+    <Content Include="Content\Images\RedWineHeader.jpg" />
+    <Content Include="Content\jqsimplemenu.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\kendo\2015.1.408\Black\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Black\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Black\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Black\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Black\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Black\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Black\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\Black\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Black\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Black\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Black\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Black\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Black\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Black\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\BlueOpal\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Default\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Default\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Default\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Default\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Default\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Default\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Default\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\Default\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Default\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Default\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Default\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Default\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Default\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Default\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Fiori\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Flat\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Flat\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Flat\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Flat\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Flat\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Flat\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Flat\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\Flat\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Flat\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Flat\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Flat\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Flat\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Flat\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Flat\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\HighContrast\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\images\back.png" />
+    <Content Include="Content\kendo\2015.1.408\images\kendoui.svg" />
+    <Content Include="Content\kendo\2015.1.408\images\wp8_icons.png" />
+    <Content Include="Content\kendo\2015.1.408\images\wp8_inverseicons.png" />
+    <Content Include="Content\kendo\2015.1.408\kendo.black.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.black.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.blueopal.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.blueopal.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.bootstrap.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.bootstrap.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.common-bootstrap.core.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.common-bootstrap.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.common-fiori.core.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.common-fiori.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.common-material.core.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.common-material.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.common.core.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.common.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.black.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.blueopal.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.default.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.fiori.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.flat.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.highcontrast.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.material.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.materialblack.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.metro.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.metroblack.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.moonlight.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.silver.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.dataviz.uniform.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.default.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.default.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.fiori.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.fiori.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.flat.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.flat.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.highcontrast.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.highcontrast.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.material.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.material.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.materialblack.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.materialblack.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.metro.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.metro.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.metroblack.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.metroblack.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.all.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.android.dark.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.android.light.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.blackberry.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.common.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.fiori.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.flat.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.ios.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.material.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.meego.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.mobile.wp8.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.moonlight.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.moonlight.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.rtl.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.rtl.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.silver.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.silver.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.uniform.min.css" />
+    <Content Include="Content\kendo\2015.1.408\kendo.uniform.mobile.min.css" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\MaterialBlack\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Material\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Material\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Material\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Material\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Material\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Material\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Material\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Material\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Material\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Material\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Material\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Material\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\MetroBlack\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Metro\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Metro\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Metro\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Metro\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Metro\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Metro\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Metro\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\Metro\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Metro\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Metro\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Metro\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Metro\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Metro\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Metro\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Moonlight\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Silver\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Silver\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Silver\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Silver\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Silver\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Silver\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Silver\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\Silver\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Silver\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Silver\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Silver\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Silver\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Silver\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Silver\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\brushed-metal.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots1.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots10.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots11.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots12.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots13.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots2.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots3.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots4.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots5.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots6.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots7.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots8.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\dots9.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\glass-lighter.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\glass.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\highlight.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\hsv-gradient.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\hue.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\leather1.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\leather2.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\noise.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\stripe1.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\stripe2.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\stripe3.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\stripe4.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\stripe5.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\stripe6.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\transparency.png" />
+    <Content Include="Content\kendo\2015.1.408\textures\transtexture.png" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\editor.png" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\imagebrowser.png" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\indeterminate.gif" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\loading-image.gif" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\loading.gif" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\loading_2x.gif" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\markers.png" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\markers_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\slider-h.gif" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\slider-v.gif" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\sprite.png" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\sprite_2x.png" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\sprite_kpi.png" />
+    <Content Include="Content\kendo\2015.1.408\Uniform\sprite_kpi_2x.png" />
+    <Content Include="Content\Site1.css" />
+    <Content Include="Dashboards\matbaa.xml" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\attention.png" />
+    <Content Include="images\button_ok.png" />
+    <Content Include="images\darrow.png" />
+    <Content Include="images\rarrow.png" />
+    <Content Include="imgUpload\100477736_15224.png" />
+    <Content Include="imgUpload\100477736_28000.png" />
+    <Content Include="imgUpload\100477736_secondarytile.png" />
+    <Content Include="imgUpload\100477740_IMG_20141005_141324.jpg" />
+    <Content Include="imgUpload\NoImage.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\MatbaaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MatbaaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MatbaaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MatbaaModel.edmx</DependentUpon>
+      <LastGenOutput>MatbaaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MatbaaModel.edmx.diagram">
+      <DependentUpon>MatbaaModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MatbaaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MatbaaModel.edmx</DependentUpon>
+      <LastGenOutput>MatbaaModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Content\bootstrap_responsive\font\fontawesome-webfont.eot" />
+    <Content Include="Content\bootstrap_responsive\font\fontawesome-webfont.svgz" />
+    <Content Include="Content\bootstrap_responsive\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\bootstrap_responsive\font\fontawesome-webfont.woff" />
+    <Content Include="Content\bootstrap_responsive\font\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\bootstrap_responsive\font\FontAwesome.otf" />
+    <Content Include="DataSets\IsEmriRaporu.xsc">
+      <DependentUpon>IsEmriRaporu.xsd</DependentUpon>
+    </Content>
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Content\kendo\2015.1.408\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Content\kendo\2015.1.408\images\kendoui.ttf" />
+    <Content Include="Content\kendo\2015.1.408\images\kendoui.woff" />
+    <None Include="DataSets\IsEmriRaporu.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IsEmriRaporu.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DataSets\IsEmriRaporu.xss">
+      <DependentUpon>IsEmriRaporu.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\matbaaPublish.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\globalize.cultures.js" />
+    <Content Include="Scripts\globalize.js" />
+    <Content Include="Scripts\jqsimplemenu.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery-ui.min.css" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jQuery.flashMessage.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kendo.modernizr.custom.js" />
+    <Content Include="Scripts\kendo\2015.1.408\angular.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\jquery.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\jszip.min.js" />
+    <None Include="Scripts\kendo\2015.1.408\kendo.all-vsdoc.js" />
+    <None Include="Scripts\kendo\2015.1.408\kendo.all.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.angular.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.autocomplete.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.binder.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.button.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.calendar.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.color.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.colorpicker.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.columnmenu.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.columnsorter.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.combobox.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.core.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.data.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.data.odata.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.data.signalr.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.data.xml.min.js" />
+    <None Include="Scripts\kendo\2015.1.408\kendo.dataviz-vsdoc.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.barcode.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.chart.funnel.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.chart.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.chart.polar.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.core.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.diagram.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.gauge.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.map.min.js" />
+    <None Include="Scripts\kendo\2015.1.408\kendo.dataviz.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.mobile.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.qrcode.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.sparkline.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.stock.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.themes.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.treemap.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.datepicker.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.datetimepicker.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dom.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.draganddrop.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.drawing.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dropdownlist.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.editable.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.editor.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.excel.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.filebrowser.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.filtercell.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.filtermenu.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.fx.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.gantt.list.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.gantt.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.gantt.timeline.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.grid.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.groupable.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.imagebrowser.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.list.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.listview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.maskedtextbox.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.menu.min.js" />
+    <None Include="Scripts\kendo\2015.1.408\kendo.mobile-vsdoc.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.actionsheet.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.application.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.button.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.buttongroup.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.collapsible.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.drawer.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.listview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.loader.min.js" />
+    <None Include="Scripts\kendo\2015.1.408\kendo.mobile.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.modalview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.navbar.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.pane.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.popover.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.scroller.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.scrollview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.shim.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.splitview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.switch.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.view.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.multiselect.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.notification.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.numerictextbox.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.ooxml.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pager.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.panelbar.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pdf.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pivot.configurator.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pivot.fieldmenu.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pivotgrid.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.popup.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.progressbar.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.reorderable.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.resizable.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.responsivepanel.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.router.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.agendaview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.dayview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.monthview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.recurrence.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.timelineview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.view.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.selectable.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.slider.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.sortable.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.splitter.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.timepicker.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.timezones.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.toolbar.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.tooltip.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.touch.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.treelist.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.treeview.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.upload.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.userevents.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.validator.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.view.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.virtuallist.min.js" />
+    <None Include="Scripts\kendo\2015.1.408\kendo.web-vsdoc.js" />
+    <None Include="Scripts\kendo\2015.1.408\kendo.web.min.intellisense.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.web.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.window.min.js" />
+    <Content Include="Scripts\kendo\2015.1.408\pako_deflate.min.js" />
+    <Content Include="Scripts\kendo\cultures\kendo.culture.tr.min.js" />
+    <Content Include="Scripts\knockout-3.0.0.debug.js" />
+    <Content Include="Scripts\knockout-3.0.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\kendo\2015.1.408\jquery.min.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.all.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.angular.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.autocomplete.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.binder.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.button.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.calendar.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.color.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.colorpicker.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.columnmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.columnsorter.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.combobox.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.core.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.data.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.data.odata.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.data.signalr.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.data.xml.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.barcode.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.chart.funnel.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.chart.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.chart.polar.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.core.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.diagram.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.gauge.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.map.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.mobile.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.qrcode.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.sparkline.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.stock.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.themes.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dataviz.treemap.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.datepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.datetimepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dom.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.draganddrop.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.drawing.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.dropdownlist.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.editable.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.editor.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.excel.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.filebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.filtercell.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.filtermenu.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.fx.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.gantt.list.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.gantt.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.gantt.timeline.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.grid.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.groupable.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.imagebrowser.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.list.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.maskedtextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.menu.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.actionsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.application.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.button.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.buttongroup.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.collapsible.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.drawer.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.loader.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.modalview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.navbar.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.pane.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.popover.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.scroller.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.scrollview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.shim.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.splitview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.switch.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.mobile.view.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.multiselect.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.notification.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.numerictextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.ooxml.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pager.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.panelbar.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pdf.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pivot.configurator.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pivot.fieldmenu.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.pivotgrid.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.popup.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.progressbar.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.reorderable.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.resizable.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.responsivepanel.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.router.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.agendaview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.dayview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.monthview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.recurrence.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.timelineview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.scheduler.view.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.selectable.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.slider.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.sortable.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.splitter.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.timepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.toolbar.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.tooltip.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.touch.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.treelist.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.treeview.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.upload.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.userevents.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.validator.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.view.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.virtuallist.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.web.min.js.map" />
+    <Content Include="Scripts\kendo\2015.1.408\kendo.window.min.js.map" />
+    <None Include="Service References\IKBSServis\ikbs.wsdl" />
+    <Content Include="Service References\IKBSServis\KendoMatbaa.IKBSServis.PersonelVekaletDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IKBSServis\KendoMatbaa.IKBSServis.TetkikciKategoriDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\IKBSServis\KendoMatbaa.IKBSServis.TetkikciNaceDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\IKBSServis\PersonelVekaletDataSet.xsd" />
+    <None Include="Service References\IKBSServis\TetkikciKategoriDataSet.xsd" />
+    <None Include="Service References\IKBSServis\TetkikciNaceDataSet.xsd" />
+    <None Include="Service References\YetkiServis\AuthenticationTicketDataSet.xsd" />
+    <None Include="Service References\YetkiServis\BirimDataSet.xsd" />
+    <None Include="Service References\YetkiServis\GlobalLogDataSet.xsd" />
+    <None Include="Service References\IKBSServis\ikbs.disco" />
+    <None Include="Service References\IKBSServis\configuration91.svcinfo" />
+    <None Include="Service References\IKBSServis\configuration.svcinfo" />
+    <None Include="Service References\IKBSServis\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.AuthenticationTicketDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.BirimDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.GlobalLogDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.KullaniciDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.KullaniciOturumDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.KullaniciOturumDurumuGuncelleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.KullaniciOturumGetirByKullaniciOturumUNResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.KullaniciOturumGetirResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.KullaniciOturumKaydetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.KullaniciOturumKontrolZamaniGuncelleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.KullaniciRolDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.MenuDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.ProjeDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.TicketGetirResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\YetkiServis\KendoMatbaa.YetkiServis.YetkiDataSet.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\YetkiServis\KullaniciDataSet.xsd" />
+    <None Include="Service References\YetkiServis\KullaniciOturumDataSet.xsd" />
+    <None Include="Service References\YetkiServis\KullaniciRolDataSet.xsd" />
+    <None Include="Service References\YetkiServis\MenuDataSet.xsd" />
+    <None Include="Service References\YetkiServis\ProjeDataSet.xsd" />
+    <None Include="Service References\YetkiServis\YetkiDataSet.xsd" />
+    <None Include="Service References\YetkiServis\yetkiservis.disco" />
+    <None Include="Service References\YetkiServis\configuration91.svcinfo" />
+    <None Include="Service References\YetkiServis\configuration.svcinfo" />
+    <None Include="Service References\YetkiServis\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Views\Account\Login.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\EditorTemplates\Currency.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Email.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Integer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Number.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Views\IsEmri\Create.cshtml" />
+    <Content Include="Views\IsEmri\Delete.cshtml" />
+    <Content Include="Views\IsEmri\Details.cshtml" />
+    <Content Include="Views\IsEmri\Edit.cshtml" />
+    <Content Include="Views\IsEmri\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutPartial.cshtml" />
+    <Content Include="Views\Shared\_Flash.cshtml" />
+    <Content Include="Views\KontrolPaneli\Create.cshtml" />
+    <Content Include="Views\KontrolPaneli\Dashboard.cshtml" />
+    <Content Include="Views\KontrolPaneli\Delete.cshtml" />
+    <Content Include="Views\KontrolPaneli\Details.cshtml" />
+    <Content Include="Views\KontrolPaneli\Edit.cshtml" />
+    <Content Include="Views\KontrolPaneli\Index.cshtml" />
+    <Content Include="Views\KontrolPaneli\OnayBekleyenIsler.cshtml" />
+    <Content Include="Views\KontrolPaneli\_KritikMalzemeSeviyeleri.cshtml" />
+    <Content Include="Views\KontrolPaneli\_OnayBekleyenIsSayisi.cshtml" />
+    <Content Include="Views\KontrolPaneli\_spGelenIsYogunlugu.cshtml" />
+    <Content Include="Views\KontrolPaneli\_vGecenOtuzGunIcindeBitirilenIslerListe.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\KendoMenu.cshtml" />
+    <Content Include="Views\StokGruplari\AltGtupStokCikislar.cshtml" />
+    <Content Include="Views\StokGruplari\AltGtupStokCikislari.cshtml" />
+    <Content Include="Views\StokGruplari\AltGtupStokGirisleri.cshtml" />
+    <Content Include="Views\StokGruplari\Create.cshtml" />
+    <Content Include="Views\StokGruplari\Delete.cshtml" />
+    <Content Include="Views\StokGruplari\Details.cshtml" />
+    <Content Include="Views\StokGruplari\Edit.cshtml" />
+    <Content Include="Views\StokGruplari\Index.cshtml" />
+    <Content Include="Views\StokGruplari\StokGrubununAltGruplari.cshtml" />
+    <Content Include="Views\FileUpload\_Async.cshtml" />
+    <Content Include="Views\AltUretimAsamalari\Create.cshtml" />
+    <Content Include="Views\AltUretimAsamalari\Delete.cshtml" />
+    <Content Include="Views\AltUretimAsamalari\Details.cshtml" />
+    <Content Include="Views\AltUretimAsamalari\Edit.cshtml" />
+    <Content Include="Views\AltUretimAsamalari\Index.cshtml" />
+    <Content Include="Views\Personel\Create.cshtml" />
+    <Content Include="Views\Personel\Delete.cshtml" />
+    <Content Include="Views\Personel\Details.cshtml" />
+    <Content Include="Views\Personel\Edit.cshtml" />
+    <Content Include="Views\Personel\Index.cshtml" />
+    <Content Include="Views\UretimAsamalari\Create.cshtml" />
+    <Content Include="Views\UretimAsamalari\Delete.cshtml" />
+    <Content Include="Views\UretimAsamalari\Details.cshtml" />
+    <Content Include="Views\UretimAsamalari\Edit.cshtml" />
+    <Content Include="Views\UretimAsamalari\Index.cshtml" />
+    <Content Include="Views\UretimYetkilendirme\Create.cshtml" />
+    <Content Include="Views\UretimYetkilendirme\Delete.cshtml" />
+    <Content Include="Views\UretimYetkilendirme\Details.cshtml" />
+    <Content Include="Views\UretimYetkilendirme\Edit.cshtml" />
+    <Content Include="Views\UretimYetkilendirme\Index.cshtml" />
+    <Content Include="Views\Uretim\Create.cshtml" />
+    <Content Include="Views\Uretim\Delete.cshtml" />
+    <Content Include="Views\Uretim\Details.cshtml" />
+    <Content Include="Views\Uretim\Edit.cshtml" />
+    <Content Include="Views\Uretim\Index.cshtml" />
+    <Content Include="Views\UretimNotlari\Create.cshtml" />
+    <Content Include="Views\UretimNotlari\Delete.cshtml" />
+    <Content Include="Views\UretimNotlari\Details.cshtml" />
+    <Content Include="Views\UretimNotlari\Edit.cshtml" />
+    <Content Include="Views\UretimNotlari\Index.cshtml" />
+    <Content Include="Views\AltGrupIcinGuncelStokDurumu\GuncelStokDurumu.cshtml" />
+    <Content Include="Views\UretimFormu\UretimFormu.cshtml" />
+    <Content Include="Views\Partial\BaskiOncesiHazirlikNotunuDon.cshtml" />
+    <Content Include="Views\Partial\_HerhangiBirUretimNotunuDon.cshtml" />
+    <Content Include="Views\Partial\_IcBaskiyiYapanlariDon.cshtml" />
+    <Content Include="Views\MucellithaneProgramNoPaketBilgileri\Create.cshtml" />
+    <Content Include="Views\MucellithaneProgramNoPaketBilgileri\Delete.cshtml" />
+    <Content Include="Views\MucellithaneProgramNoPaketBilgileri\Details.cshtml" />
+    <Content Include="Views\MucellithaneProgramNoPaketBilgileri\Edit.cshtml" />
+    <Content Include="Views\MucellithaneProgramNoPaketBilgileri\Index.cshtml" />
+    <Content Include="Views\Partial\_KapakBaskisiniYapanlariDon.cshtml" />
+    <Content Include="Views\Partial\_TabakaKesiminiYapanlariDon.cshtml" />
+    <Content Include="Views\Partial\_MucellithaneProgramNoPaketBilgisiDon.cshtml" />
+    <Content Include="Views\Partial\_MucellithaneBaskiSonrasiAsama.cshtml" />
+    <Content Include="Views\Partial\_TeslimatRaporu.cshtml" />
+    <Content Include="Views\TeslimatRaporu\Create.cshtml" />
+    <Content Include="Views\TeslimatRaporu\Delete.cshtml" />
+    <Content Include="Views\TeslimatRaporu\Details.cshtml" />
+    <Content Include="Views\TeslimatRaporu\Edit.cshtml" />
+    <Content Include="Views\TeslimatRaporu\Index.cshtml" />
+    <Content Include="Views\IsEmriTeknikBilgilers\Create.cshtml" />
+    <Content Include="Views\IsEmriTeknikBilgilers\Delete.cshtml" />
+    <Content Include="Views\IsEmriTeknikBilgilers\Details.cshtml" />
+    <Content Include="Views\IsEmriTeknikBilgilers\Edit.cshtml" />
+    <Content Include="Views\IsEmriTeknikBilgilers\Index.cshtml" />
+    <Content Include="Views\IsEmriTeknikBilgilers\_IsEmrineAitLaminasyonlar.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\IsActive.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Bool.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EvetHayirddl.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\tmpEditIsEmri.cshtml" />
+    <Content Include="Views\IsEmriOnayBilgileris\Create.cshtml" />
+    <Content Include="Views\IsEmriOnayBilgileris\Delete.cshtml" />
+    <Content Include="Views\IsEmriOnayBilgileris\Details.cshtml" />
+    <Content Include="Views\IsEmriOnayBilgileris\Edit.cshtml" />
+    <Content Include="Views\IsEmriOnayBilgileris\Index.cshtml" />
+    <Content Include="Views\BaskiEbatlaris\Create.cshtml" />
+    <Content Include="Views\BaskiEbatlaris\Delete.cshtml" />
+    <Content Include="Views\BaskiEbatlaris\Details.cshtml" />
+    <Content Include="Views\BaskiEbatlaris\Edit.cshtml" />
+    <Content Include="Views\BaskiEbatlaris\Index.cshtml" />
+    <Content Include="Views\IsEmriBaskiMakineleris\Create.cshtml" />
+    <Content Include="Views\IsEmriBaskiMakineleris\Delete.cshtml" />
+    <Content Include="Views\IsEmriBaskiMakineleris\Details.cshtml" />
+    <Content Include="Views\IsEmriBaskiMakineleris\Edit.cshtml" />
+    <Content Include="Views\IsEmriBaskiMakineleris\Index.cshtml" />
+    <Content Include="Views\IsEmriBaskiMakineleris\_BelirliIsEmrininBaskiBilgileri.cshtml" />
+    <Content Include="Views\StokGiris\Create.cshtml" />
+    <Content Include="Views\StokGiris\Delete.cshtml" />
+    <Content Include="Views\StokGiris\Details.cshtml" />
+    <Content Include="Views\StokGiris\Edit.cshtml" />
+    <Content Include="Views\StokGiris\Index.cshtml" />
+    <Content Include="Views\IsEmriKullanilanLaminasyonlars\Create.cshtml" />
+    <Content Include="Views\IsEmriKullanilanLaminasyonlars\Delete.cshtml" />
+    <Content Include="Views\IsEmriKullanilanLaminasyonlars\Details.cshtml" />
+    <Content Include="Views\IsEmriKullanilanLaminasyonlars\Edit.cshtml" />
+    <Content Include="Views\IsEmriKullanilanLaminasyonlars\Index.cshtml" />
+    <Content Include="Views\IsEmriKullanilanLaminasyonlars\_BelirliIsEmrininLaminasyonlari.cshtml" />
+    <Content Include="Views\IsEmriKalipMalzemeGiderleris\Create.cshtml" />
+    <Content Include="Views\IsEmriKalipMalzemeGiderleris\Delete.cshtml" />
+    <Content Include="Views\IsEmriKalipMalzemeGiderleris\Details.cshtml" />
+    <Content Include="Views\IsEmriKalipMalzemeGiderleris\Edit.cshtml" />
+    <Content Include="Views\IsEmriKalipMalzemeGiderleris\Index.cshtml" />
+    <Content Include="Views\IsEmriFilmGiderleris\Create.cshtml" />
+    <Content Include="Views\IsEmriFilmGiderleris\Delete.cshtml" />
+    <Content Include="Views\IsEmriFilmGiderleris\Details.cshtml" />
+    <Content Include="Views\IsEmriFilmGiderleris\Edit.cshtml" />
+    <Content Include="Views\IsEmriFilmGiderleris\Index.cshtml" />
+    <Content Include="Views\IsEmriKalipMalzemeGiderleris\_BelirliIsEmrininKalipMalzemeGiderleri.cshtml" />
+    <Content Include="Views\IsEmriFilmGiderleris\_BelirliIsEmrininFilmGiderleri.cshtml" />
+    <Content Include="Views\IsEmriKullanilacakKagits\Create.cshtml" />
+    <Content Include="Views\IsEmriKullanilacakKagits\Delete.cshtml" />
+    <Content Include="Views\IsEmriKullanilacakKagits\Details.cshtml" />
+    <Content Include="Views\IsEmriKullanilacakKagits\Edit.cshtml" />
+    <Content Include="Views\IsEmriKullanilacakKagits\Index.cshtml" />
+    <Content Include="Views\IsEmriKullanilacakKagits\_BelirliIsEmrininKullanilanKagitlari.cshtml" />
+    <Content Include="Views\IsEmri\_DevamEtmekteOlanIsler.cshtml" />
+    <Content Include="Views\Rollers\Create.cshtml" />
+    <Content Include="Views\Rollers\Delete.cshtml" />
+    <Content Include="Views\Rollers\Details.cshtml" />
+    <Content Include="Views\Rollers\Edit.cshtml" />
+    <Content Include="Views\Rollers\Index.cshtml" />
+    <Content Include="Views\KontrolPaneli\_spAylaraGoreKagitHarcamasi.cshtml" />
+    <Content Include="Views\IsEmriUploadDosyalaris\Create.cshtml" />
+    <Content Include="Views\IsEmriUploadDosyalaris\Delete.cshtml" />
+    <Content Include="Views\IsEmriUploadDosyalaris\Details.cshtml" />
+    <Content Include="Views\IsEmriUploadDosyalaris\Edit.cshtml" />
+    <Content Include="Views\IsEmriUploadDosyalaris\Index.cshtml" />
+    <Content Include="Views\IsEmriUploadDosyalaris\_BelirliIsEmrininDosyalariniDon.cshtml" />
+    <Content Include="Views\Shared\Tab.cshtml" />
+    <Content Include="Views\IsEmri\TabView.cshtml" />
+    <Content Include="Views\Shared\_LayoutMenusuz.cshtml" />
+    <Content Include="Views\IsEmris\Create.cshtml" />
+    <Content Include="Views\IsEmris\Delete.cshtml" />
+    <Content Include="Views\IsEmris\Details.cshtml" />
+    <Content Include="Views\IsEmris\Edit.cshtml" />
+    <Content Include="Views\IsEmris\Index.cshtml" />
+    <Content Include="Views\UretimYetkilendirme\_BelirliIsEmrininYetkilendirmeleri.cshtml" />
+    <Content Include="Views\IsEmri\MyPartialView.cshtml" />
+    <Content Include="Views\Shared\_LayoutjQueryValYok.cshtml" />
+    <Content Include="Views\IsCinsi\Create.cshtml" />
+    <Content Include="Views\IsCinsi\Delete.cshtml" />
+    <Content Include="Views\IsCinsi\Details.cshtml" />
+    <Content Include="Views\IsCinsi\Edit.cshtml" />
+    <Content Include="Views\IsCinsi\Index.cshtml" />
+    <None Include="Service References\YetkiServis\yetkiservis.wsdl" />
+    <Content Include="Views\IsEmriEski\Create.cshtml" />
+    <Content Include="Views\IsEmriEski\Delete.cshtml" />
+    <Content Include="Views\IsEmriEski\Details.cshtml" />
+    <Content Include="Views\IsEmriEski\Edit.cshtml" />
+    <Content Include="Views\IsEmriEski\Index.cshtml" />
+    <Content Include="Views\BaskiMakineleris\Create.cshtml" />
+    <Content Include="Views\BaskiMakineleris\Delete.cshtml" />
+    <Content Include="Views\BaskiMakineleris\Details.cshtml" />
+    <Content Include="Views\BaskiMakineleris\Edit.cshtml" />
+    <Content Include="Views\BaskiMakineleris\Index.cshtml" />
+    <Content Include="Views\Birims\Create.cshtml" />
+    <Content Include="Views\Birims\Delete.cshtml" />
+    <Content Include="Views\Birims\Details.cshtml" />
+    <Content Include="Views\Birims\Edit.cshtml" />
+    <Content Include="Views\Birims\Index.cshtml" />
+    <Content Include="Views\UretimYetkilendirme\UretimYetkilendirmeArama.cshtml" />
+    <Content Include="Views\KontrolPaneli\_PersonelUzerindekiIsler.cshtml" />
+    <Content Include="Views\IsEmriKullanilanLaminasyonlars\_DevamEtmekteOlanIsler.cshtml" />
+    <Content Include="Views\IsEmriKullanilanLaminasyonlars\MyPartialView.cshtml" />
+    <Content Include="Views\BaskiEbatlaris\_PartialCreate.cshtml" />
+    <Content Include="Views\Shared\_LayoutMenusuzFooterDaYok.cshtml" />
+    <Content Include="Views\Shared\_lightLayout.cshtml" />
+    <Content Include="Views\Shared\_mainLayout.cshtml" />
+    <Content Include="Views\Shared\_rootLayout.cshtml" />
+    <Content Include="Views\Shared\ContentLeftPartialView.cshtml" />
+    <Content Include="Views\Shared\FooterPartialView.cshtml" />
+    <Content Include="Views\Shared\HeaderPartialView.cshtml" />
+    <Content Include="Views\Report\DocumentViewerPartial.cshtml" />
+    <Content Include="Views\Dene\Index.cshtml" />
+    <Content Include="Views\Dene\_GridView1Partial.cshtml" />
+    <Content Include="Views\Dene\DataBindingToLargeDatabasePartial.cshtml" />
+    <Content Include="Views\Home\_IsEmriGridPartial.cshtml" />
+    <Content Include="Views\Home\IsEmriDetayDuzenleme.cshtml" />
+    <Content Include="Views\Home\IsEmirleri.cshtml" />
+    <Content Include="Views\IsEmriYokIsParcasi\Create.cshtml" />
+    <Content Include="Views\IsEmriYokIsParcasi\Delete.cshtml" />
+    <Content Include="Views\IsEmriYokIsParcasi\Details.cshtml" />
+    <Content Include="Views\IsEmriYokIsParcasi\Edit.cshtml" />
+    <Content Include="Views\IsEmriYokIsParcasi\Index.cshtml" />
+    <Content Include="Views\IsEmris\_YokIsParcalari.cshtml" />
+    <Content Include="Views\IsEmri\_IsEmriYokIsParcasi.cshtml" />
+    <Content Include="Views\IsEmirleri\Create.cshtml" />
+    <Content Include="Views\IsEmirleri\Delete.cshtml" />
+    <Content Include="Views\IsEmirleri\Details.cshtml" />
+    <Content Include="Views\IsEmirleri\Edit.cshtml" />
+    <Content Include="Views\IsEmirleri\Index.cshtml" />
+    <Content Include="Views\BitmisIsBoyutlaris\Create.cshtml" />
+    <Content Include="Views\BitmisIsBoyutlaris\Delete.cshtml" />
+    <Content Include="Views\BitmisIsBoyutlaris\Details.cshtml" />
+    <Content Include="Views\BitmisIsBoyutlaris\Edit.cshtml" />
+    <Content Include="Views\BitmisIsBoyutlaris\Index.cshtml" />
+    <Content Include="Views\KagitTuketimiDashBoard\Index.cshtml" />
+    <Content Include="Views\KagitTuketimiDashBoard\_KagitTuketimiDashboardViewerPartial.cshtml" />
+    <Content Include="Views\KagitTuketimiDashBoard\KagitTuekitimiPivot.cshtml" />
+    <Content Include="Views\KagitTuketimiDashBoard\_KagitTuekitimiPivotGridPartial.cshtml" />
+    <Content Include="Views\KagitTuketimi\Index.cshtml" />
+    <Content Include="Views\AltGruplars\Create.cshtml" />
+    <Content Include="Views\AltGruplars\Delete.cshtml" />
+    <Content Include="Views\AltGruplars\Details.cshtml" />
+    <Content Include="Views\AltGruplars\Edit.cshtml" />
+    <Content Include="Views\AltGruplars\Index.cshtml" />
+    <Content Include="Views\KagitTuketimi\_ChartPartial.cshtml" />
+    <Content Include="Views\KagitTuketimi\_Ic.cshtml" />
+    <Content Include="Views\KagitTuketimi\KagitTuketimiAnaliz.cshtml" />
+    <Content Include="Views\KagitTuketimi\_Kapak.cshtml" />
+    <Content Include="Views\KagitTuketimi\_IcFire.cshtml" />
+    <Content Include="Views\KagitTuketimi\_KapakFire.cshtml" />
+    <Content Include="Views\BaskiMakineleriAnaliz\Index.cshtml" />
+    <None Include="Views\Report\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutDevExpress.cshtml" />
+    <Content Include="Views\YokIsParcasi\Create.cshtml" />
+    <Content Include="Views\YokIsParcasi\Delete.cshtml" />
+    <Content Include="Views\YokIsParcasi\Details.cshtml" />
+    <Content Include="Views\YokIsParcasi\Edit.cshtml" />
+    <Content Include="Views\YokIsParcasi\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutPartialGercek.cshtml" />
+    <Content Include="Views\Report\TeslimatRaporu.cshtml" />
+    <Content Include="Views\Report\_TeslimatRaporuPartial.cshtml" />
+    <Content Include="Views\Report\preTeslimatRaporu.cshtml" />
+    <Content Include="Views\StokHarekets\Create.cshtml" />
+    <Content Include="Views\StokHarekets\Delete.cshtml" />
+    <Content Include="Views\StokHarekets\Details.cshtml" />
+    <Content Include="Views\StokHarekets\Edit.cshtml" />
+    <Content Include="Views\StokHarekets\Index.cshtml" />
+    <Content Include="Views\Report\_IcKagitTuketimiRaporuPartial.cshtml" />
+    <Content Include="Views\Report\IcKagitTuketimiRaporu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Views\Base\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\MyResources.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MyResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\IKBSServis\" />
+    <WCFMetadataStorage Include="Service References\YetkiServis\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\IsEmriRaporu.resx">
+      <DependentUpon>IsEmriRaporu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IcKagitTuketimi.resx">
+      <DependentUpon>IcKagitTuketimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\subBaskiBilgileriIc.resx">
+      <DependentUpon>subBaskiBilgileriIc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\subBaskiBilgileriKapak.resx">
+      <DependentUpon>subBaskiBilgileriKapak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\subFilmMaliyeti.resx">
+      <DependentUpon>subFilmMaliyeti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SubIsEmriBaskiMakineleri.resx">
+      <DependentUpon>SubIsEmriBaskiMakineleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\subIsEmriLaminasyonlari.resx">
+      <DependentUpon>subIsEmriLaminasyonlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\subKagitMaliyeti.resx">
+      <DependentUpon>subKagitMaliyeti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\subKalipMaliyeti.resx">
+      <DependentUpon>subKalipMaliyeti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Teslimat Raporu.resx">
+      <DependentUpon>Teslimat Raporu.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13717</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:13717/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseCdnSupport="False" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

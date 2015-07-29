@@ -1,0 +1,82 @@
+﻿
+@model IEnumerable<KendoMatbaa.Models.uspUretimYetkilendirmeArama_Result>
+@{
+    Layout = null;
+}
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IsNo)*@
+            İş No
+        </th>
+        
+        <th>
+            @*@Html.DisplayNameFor(model => model.TarihSayi)*@
+            İş Adı
+        </th>
+        <th>
+            Üretim Aşaması
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Adi)*@
+            Üretime Başlama
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.TeslimTarihi)*@
+            Üretim Bitişi
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Aciklama)*@
+            Açıklama
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.BirimAdi)*@
+            Personel
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.CinsAdi)*@
+            Kabul Tarihi
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.IsNo)*@
+                @Html.ActionLink(item.IsNo,"TabView","IsEmri",new { IsEmriId = item.IsEmriId, index = 0 },null)
+                @*return RedirectToAction("TabView", "IsEmri", new { IsEmriId = isEmriKalipMalzemeGiderleri.IsEmriId, index = 5 }).Success("Kalıp malzeme giderleri bilgisi ekleme işlemi başarılı");*@
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AltUretimAsamalariAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UretimeBaslama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UretimiSonlandirma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonelAdiSoyadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KabulTarihi)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id=item.IsEmriId }) |
+                    @Html.ActionLink("Detay", "Details", new { id=item.IsEmriId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id=item.IsEmriId })
+                </td>*@
+        </tr>
+    }
+
+</table>

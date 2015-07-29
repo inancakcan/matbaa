@@ -1,0 +1,120 @@
+﻿@*@model IEnumerable<KendoMatbaa.Models.MenuModel>*@
+
+
+
+@using System.Data
+@using Kendo.Mvc.UI.Fluent
+@using KendoMatbaa.App_Start
+@using KendoMatbaa.Models
+@using KendoMatbaa.YetkiServis
+
+
+
+@{
+    List<KendoMatbaa.Models.MenuModel> menuList = ViewBag.Menu;
+}
+
+
+
+
+@*@functions{
+    public void addChildren(MenuItemBuilder builder, Menus item, IEnumerable<Menus> items)
+    {
+        var children = items.Where(m => m.ParentMenuID == item.MenuID);
+        if (children != null)
+        {
+            builder.Items(menuItems =>
+                {
+                    foreach (var child in children)
+                    {
+                        var menuItem = menuItems.Add().Text(child.MenuName);
+                        addChildren(menuItem, child, BuildMenu());
+                    }
+                });
+
+        }
+    }
+}
+
+@(Html.Kendo().Menu()
+    .Name("menu")
+    .Items(menu =>
+    {
+        foreach (var item in Model.Where(m => m.ParentMenuID == null))
+        {
+            var builder = menu.Add().Text(item.MenuName);
+            addChildren(builder, item, Model);
+        }
+    }))*@
+
+
+
+
+
+
+@functions{
+
+    //public static Guid _projectUN = Guid.Parse("e668ef17-2794-4f08-ab0e-4073c8bb2b1b");
+
+    //public MenuDataSet KullaniciMenusuDon()
+    //{
+    //    if (UserManager.User != null)
+    //    {
+    //        using (YetkiServisSoapClient client = new YetkiServisSoapClient())
+    //        {
+    //            MenuDataSet dsMenu = client.KullaniciYetkiliMenulerGetir(UserManager.User.KullaniciUN, _projectUN);
+    //            return dsMenu;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        return null;
+    //    }
+    //}
+
+
+
+    public void addChildren(MenuItemBuilder builder, MenuModel item, IEnumerable<MenuModel> items)
+    {
+        var children = items.Where(m => m.ParentUN == item.MenuUN);
+        if (children != null)
+        {
+            builder.Items(menuItems =>
+                {
+                    foreach (var child in children)
+                    {
+                        var menuItem = menuItems.Add().Text(child.MenuAdi).Url(item.MenuUrl);
+                        //var menuItem = menuItems.Add().Text(child.MenuAdi).Url("http://yahoo.com");
+                        addChildren(menuItem, child, items);
+                    }
+                });
+
+        }
+    }
+      
+
+}
+
+
+
+@(Html.Kendo().Menu()
+    .Name("menu")
+    .Items(menu =>
+    {
+        foreach (var item in menuList.Where(m => m.ParentUN == Guid.Empty))
+        {
+            var builder = menu.Add().Text(item.MenuAdi).Url(item.MenuUrl);
+            //addChildren(builder, item, BuildMenu());
+            addChildren(builder, item, menuList);
+        }
+        
+    }))
+
+
+
+
+
+
+
+
+

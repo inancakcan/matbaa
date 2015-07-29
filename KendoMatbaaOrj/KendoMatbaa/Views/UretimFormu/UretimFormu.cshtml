@@ -1,0 +1,223 @@
+﻿@using KendoMatbaa.Models
+@model KendoMatbaa.Models.spAltUretimAsamasiAltUretimAsamasiIdden_Result
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Üretim Formu";
+}
+
+<h2>Üretim Takip Formu</h2>
+<hr />
+<h4>Baskı Öncesi Hazırlık</h4>
+
+
+
+@*Alt Uretim Asamalari Id	Alt Uretim Asamalari Adi	Uretim Asamalari Id
+    1	MizanpajIc	1
+    2	MizanpajKapak	1
+    3	TasarimIc	1
+    4	TasarimKapak	1
+    6	MontajIc	1
+    7	MontajKapak	1
+    8	HazirIc	1
+    9	HazirKapak	1
+    10	IcBaski	2
+    11	KapakBaski	2
+    12	HarmanMakineCekim	3
+    13	HarmanElleCekim	3
+    14	KapakTakmaMakine	3
+    15	KapakTakmaElle	3
+    16	TelDikis	3
+    17	KirimMakine	3
+    18	KirimElle	3*@
+
+
+
+
+
+@{
+
+    //Response.Write(Model.IsEmriId);
+
+    using (matbaaEntities ent = new matbaaEntities())
+    {
+        <table cellpadding="10" border="1" style="width: 100%;">
+            <tr>
+                <th></th>
+                <th>İç</th>
+                <th>Kapak</th>
+                <th style="horiz-align: center">Tasarım Onayı</th>
+            </tr>
+            <tr>
+                <td style="font-weight: bold">Mizanpaj</td>
+                <td>
+                    @if (ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 1).Count() > 0)
+                    {
+                        @ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 1).FirstOrDefault().PersonelAdiSoyadi
+                    }
+                    else
+                    {
+                        @Html.Raw("Girilmemiş")
+                    }
+                </td>
+                <td>
+                    @if(ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 2).Count()>0)
+                    {
+                        @ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 2).FirstOrDefault().PersonelAdiSoyadi
+                    }
+                    else
+                    {
+                        @Html.Raw("Girilmemiş")
+                    }
+                </td>
+                <td colspan="5" rowspan="4"></td>
+            </tr>
+
+            <tr>
+                <td style="font-weight: bold">Tasarım</td>
+                <td>
+                    @(ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 3).FirstOrDefault() != null ? ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 3).FirstOrDefault().PersonelAdiSoyadi : "Girilmemiş")
+                </td>
+                <td>
+                    @(ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 4).FirstOrDefault() != null ? ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 4).FirstOrDefault().PersonelAdiSoyadi : "Girilmemiş")
+                </td>
+
+            </tr>
+
+            <tr>
+                <td style="font-weight: bold">Montaj</td>
+                <td>
+                    @(ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 5).FirstOrDefault() != null ? ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 5).FirstOrDefault().PersonelAdiSoyadi : "Girilmemiş")
+                </td>
+                <td>
+                    @(ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 6).FirstOrDefault() != null ? ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 6).FirstOrDefault().PersonelAdiSoyadi : "Girilmemiş")
+                </td>
+
+            </tr>
+
+            <tr>
+                <td style="font-weight: bold">Hazır</td>
+                <td>
+                    @(ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 7).FirstOrDefault() != null ? ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 7).FirstOrDefault().PersonelAdiSoyadi : "Girilmemiş")
+                </td>
+                <td>
+                    @(ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 8).FirstOrDefault() != null ? ent.spAltUretimAsamasiAltUretimAsamasiIdden(Model.IsEmriId, 8).FirstOrDefault().PersonelAdiSoyadi : "Girilmemiş")
+                </td>
+
+            </tr>
+            <tr>
+                <td style="font-weight: bold">Baskı öncesi notu</td>
+                <td colspan="7">
+                    @*@Html.Action("BaskiOncesiHazirlikNotunuDon", "Partial")*@
+                    @Html.Action("_HerhangiBirUretimNotunuDon", "Partial", new { AsamaId = 1 })
+                </td>
+            </tr>
+
+        </table>
+    
+
+    <hr />
+    <h4>Baskı</h4>
+
+    <table border="1" style="text-align: center; width: 100%;">
+        @*<tr>
+            <th colspan="2" style="text-align: center">İç Baskısı</th>
+        </tr>*@
+        <tr>
+            <td rowspan="2" style="font-weight: bold">
+                Baskıyı yapanlar
+            </td>
+            <td>
+                <span style="font-weight: bold">İç Baskısı</span> 
+                @Html.Action("_IcBaskiyiYapanlariDon", "Partial")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span style="font-weight: bold">Kapak Baskısı</span> 
+                @Html.Action("_KapakBaskisiniYapanlariDon", "Partial")
+            </td>
+        </tr>
+        <tr>
+            <td style="font-weight: bold;">Baskı Notu</td>
+            <td colspan="4" style="text-align: left;">
+                @*@Html.Action("BaskiOncesiHazirlikNotunuDon", "Partial")*@
+                @Html.Action("_HerhangiBirUretimNotunuDon", "Partial", new { AsamaId = 2 })
+            </td>
+        </tr>
+    </table>
+    
+    
+     <hr />
+    <h4>Mücellithane</h4>
+    
+    
+    <table border="1" style="text-align: center; width: 100%;">
+        <tr>
+            <td rowspan="1" style="font-weight: bold">
+                Baskı Öncesi Aşama
+            </td>
+            <td colspan="2" style="text-align: center">
+                <span>
+                    Program No:@Html.Action("_MucellithaneProgramNoPaketBilgisiDon", "Partial",new {Param=1})
+                </span>
+                
+                <br/>
+                Tabaka Kesimini Yapan
+                <br />
+                @Html.Action("_TabakaKesiminiYapanlariDon", "Partial")
+            </td>
+        </tr>
+        
+
+        <tr>
+            <td rowspan="3">
+                <span style="font-weight: bold">Baskı Sonrası Aşama</span> 
+            </td>
+            <td style="text-align: left;" colspan="2">
+                @Html.Action("_MucellithaneBaskiSonrasiAsama", "Partial")
+            
+            </td>
+        </tr>
+        
+
+        <tr>
+            <td style="text-align: left;" > 
+                İş Kesimi Program No:
+            </td>
+            <td>
+                @Html.Action("_MucellithaneProgramNoPaketBilgisiDon", "Partial", new { Param = 2 })
+            </td>
+            
+        </tr>
+        <tr>
+            <td style="text-align: left;" >
+                Paket Bilgileri:
+            </td>
+            <td>
+                @Html.Action("_MucellithaneProgramNoPaketBilgisiDon", "Partial", new { Param = 3 })
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight: bold">Mücellithane Notu</td>
+            <td colspan="7" style="text-align: left;">
+                @*@Html.Action("BaskiOncesiHazirlikNotunuDon", "Partial")*@
+                @Html.Action("_HerhangiBirUretimNotunuDon", "Partial", new { AsamaId = 3 })
+            </td>
+        </tr>
+
+    </table>
+    
+    
+     <hr />
+    <h4>Teslimat Raporu</h4>
+    @Html.Action("_TeslimatRaporu", "Partial", new { AsamaId = 3 })
+    
+    
+}    
+    
+
+
+
+}
+

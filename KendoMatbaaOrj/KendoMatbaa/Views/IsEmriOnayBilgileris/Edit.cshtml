@@ -1,0 +1,130 @@
+﻿@model KendoMatbaa.Models.IsEmriOnayBilgileri
+
+@{
+    Layout = "~/Views/Shared/_LayoutPartial.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Düzenleme";
+}
+
+<h2>Düzenleme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>İş Emri Onay Bilgileri</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriID, "IsEmriID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IsEmriID", String.Empty)
+                @Html.ValidationMessageFor(model => model.IsEmriID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Otokopi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Otokopi)
+                @Html.ValidationMessageFor(model => model.Otokopi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Aciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Aciklama)
+                @Html.ValidationMessageFor(model => model.Aciklama)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Onayalindi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Onayalindi)
+                @Html.ValidationMessageFor(model => model.Onayalindi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Reddedildi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Reddedildi)
+                @Html.ValidationMessageFor(model => model.Reddedildi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RedNedeni, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RedNedeni)
+                @Html.ValidationMessageFor(model => model.RedNedeni)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AdetAciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AdetAciklama)
+                @Html.ValidationMessageFor(model => model.AdetAciklama)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsTamamlandi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsTamamlandi)
+                @Html.ValidationMessageFor(model => model.IsTamamlandi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OnayGeriAlindi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OnayGeriAlindi)
+                @Html.ValidationMessageFor(model => model.OnayGeriAlindi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KismiTamam, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KismiTamam)
+                @Html.ValidationMessageFor(model => model.KismiTamam)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YarimKaldi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YarimKaldi)
+                @Html.ValidationMessageFor(model => model.YarimKaldi)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.IsEmriBaskiBilgileriId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Silindi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Silindi)
+                @Html.ValidationMessageFor(model => model.Silindi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<KendoMatbaa.Models.UretimNotlari>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TasarimaOnayVeren)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaskiOncesiHazirlikNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaskiNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MucellithaneNotu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsKesimiProgramNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaketBilgileri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TasarimaOnayVeren)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaskiOncesiHazirlikNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaskiNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MucellithaneNotu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsKesimiProgramNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaketBilgileri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.UretimNotlariId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.UretimNotlariId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.UretimNotlariId })
+        </td>
+    </tr>
+}
+
+</table>

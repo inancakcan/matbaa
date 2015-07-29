@@ -1,0 +1,108 @@
+﻿@model KendoMatbaa.Models.IsEmri
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>IsEmri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TarihSayi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TarihSayi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personel)
+        </dd>
+        
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.IlgiliEPosta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IlgiliEPosta)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KabulTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KabulTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimTarihi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Silindi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Birim.BirimAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Birim.BirimAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.IsEmriId }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

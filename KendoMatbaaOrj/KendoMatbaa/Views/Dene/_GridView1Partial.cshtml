@@ -1,0 +1,28 @@
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridView1";
+        settings.CallbackRouteValues = new { Controller = "Dene", Action = "GridView1Partial" };
+
+
+        settings.EnableRowsCache = true;
+        settings.KeyFieldName = "IsEmriId";
+
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.Columns.Add("IsEmriId");
+        settings.Columns.Add("IsNo");
+        settings.Columns.Add("TarihSayi");
+        settings.Columns.Add("Adi");
+        settings.Columns.Add("KabulTarihi");
+        settings.Columns.Add("TeslimTarihi");
+        settings.Columns.Add("Aciklama");
+        settings.Columns.Add("IKBSBirim");
+    });
+}
+@*@grid.Bind(Model).GetHtml()*@
+@grid.BindToLINQ(typeof(KendoMatbaa.Models.IsEmri),"IsEmri").GetHtml()

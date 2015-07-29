@@ -1,0 +1,68 @@
+﻿@model KendoUIMatbaa.Models.IsEmriViewModel
+
+<div class="form-horizontal">
+    @Html.HiddenFor(model => model.IsEmriId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.IsNo, new { @class = "control-label col-md-2" })
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsNo)
+            @Html.ValidationMessageFor(model => model.IsNo)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TarihSayi, new { @class = "control-label col-md-2" })
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TarihSayi)
+            @Html.ValidationMessageFor(model => model.TarihSayi)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Adi, new { @class = "control-label col-md-2" })
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Adi)
+            @Html.ValidationMessageFor(model => model.Adi)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Personel, new { @class = "control-label col-md-2" })
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Personel)
+            @Html.ValidationMessageFor(model => model.Personel)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Telefon, new { @class = "control-label col-md-2" })
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefon)
+            @Html.ValidationMessageFor(model => model.Telefon)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.KabulTarihi, new { @class = "control-label col-md-2" })
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KabulTarihi)
+            @Html.ValidationMessageFor(model => model.KabulTarihi)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TeslimTarihi, new { @class = "control-label col-md-2" })
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TeslimTarihi)
+            @Html.ValidationMessageFor(model => model.TeslimTarihi)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BirimId, new { @class = "control-label col-md-2" })
+        <div class="editor-field">
+            @(Html.EditorFor(m => m.BirimId))
+        </div>
+    </div>
+</div>

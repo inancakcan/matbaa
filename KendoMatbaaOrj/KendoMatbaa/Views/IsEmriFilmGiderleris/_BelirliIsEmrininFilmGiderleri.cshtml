@@ -1,0 +1,137 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriFilmGiderleri>
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+
+@(Html.Kendo().Window()
+    .Name("windowFilm")
+    .Title("Film Ekleme")
+           .LoadContentFrom("Create", "IsEmriFilmGiderleris",new { SeciliIsEmriId = Request["IsEmriId"] })
+    .Draggable()
+    .Resizable()
+    .Width(800)
+    .Visible(false)
+    .Modal(true)
+    .Iframe(false)
+    .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+                                //.Events(events => events
+                                //        .Close("onClose")
+                                //    )
+)
+
+
+
+
+
+
+<table class="accordion-inner"  >
+    <tr>
+        <td><span id="btnFilmEkle" class="k-button">Film eklemek için tıklayın...</span></td>
+        <td style="visibility: hidden">
+            @using (Html.BeginForm("FilmYok", "IsEmriFilmGiderleris", new { IsEmriId = Request["IsEmriId"] }, FormMethod.Post))
+            {
+
+                <input type="submit" value="Film Yok" />
+            }
+        </td>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+<script>
+    function onClose() {
+        alert("merhaba");
+    }
+    $(document).ready(function () {
+        $("#btnFilmEkle").bind("click", function () {
+            $("#windowFilm").data("kendoWindow").open();
+        });
+    });
+</script>
+
+
+
+
+
+@*<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IcFilm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kapakfilm)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IcFilm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kapakfilm)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Silindi)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.IsEmriFilmGiderleriId }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.IsEmriFilmGiderleriId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.IsEmriFilmGiderleriId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+
+
+<script>
+    function onClose() {
+        alert("merhaba");
+    }
+
+    $(document).ready(function () {
+
+    });
+</script>
+
+
+
+

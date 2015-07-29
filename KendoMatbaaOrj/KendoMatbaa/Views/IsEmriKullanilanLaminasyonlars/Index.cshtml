@@ -1,0 +1,39 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriKullanilanLaminasyonlar>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.KullanilanLaminasyonlarId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.KullanilanLaminasyonlarId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.KullanilanLaminasyonlarId })
+        </td>
+    </tr>
+}
+
+</table>

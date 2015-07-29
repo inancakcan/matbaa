@@ -1,0 +1,27 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriYokIsParcasi>  
+@{
+    Layout = "~/Views/Shared/_LayoutPartialGercek.cshtml";
+}
+
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>
+                <p class="lead">İş Emrinin içermediği iş parçaları</p>
+            </h1>
+        </div>
+        </div>
+
+
+
+
+        @(Html.Kendo().MultiSelect()
+          .Name("OlmayanIsParcalariMultiSelect")
+          .Placeholder("Olmayan iş parçalarını seçiniz ...")
+          .DataValueField("Value")
+          .DataTextField("Text")
+          .BindTo((System.Collections.IEnumerable)ViewData["OlmayanIsParcalari"])
+          .Value((System.Collections.IEnumerable)ViewData["selectedValues"])
+
+        )

@@ -1,0 +1,147 @@
+﻿@model KendoMatbaa.Models.IsEmri
+
+
+
+
+
+@{
+    ViewBag.Title = "Yeni iş emri oluşturma";
+}
+
+<h2>Yeni iş emri oluşturma</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>İş Emri Temel Bilgiler</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsNo, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.IsNo)*@
+                @Html.TextBoxFor(model => model.IsNo, new { @Value = @ViewBag.OtomatikAlinmisIsNo, @class = "k-textbox", disabled = "disabled" })
+                @Html.ValidationMessageFor(model => model.IsNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TarihSayi, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TarihSayi)
+                @Html.ValidationMessageFor(model => model.TarihSayi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adi, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adi)
+                @Html.ValidationMessageFor(model => model.Adi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Personel, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Personel)
+                @Html.ValidationMessageFor(model => model.Personel)</div>
+        </div>
+        
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.IlgiliEPosta, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IlgiliEPosta)
+                @Html.ValidationMessageFor(model => model.IlgiliEPosta)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Telefon, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Telefon)
+                @Html.ValidationMessageFor(model => model.Telefon)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KabulTarihi, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.Kendo().DatePickerFor(model => model.KabulTarihi).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" })
+                @*@Html.Kendo().DatePickerFor(model => model.KabulTarihi).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" })*@
+                @*@Html.EditorFor(model => model.KabulTarihi)*@
+                @Html.ValidationMessageFor(model => model.KabulTarihi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TeslimTarihi, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.Kendo().DatePickerFor(model => model.TeslimTarihi).Format("dd.MM.yyyy").ParseFormats(new string[] { "dd.MM.yyyy" })
+                @*@Html.EditorFor(model => model.TeslimTarihi)*@
+                @Html.ValidationMessageFor(model => model.TeslimTarihi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Aciklama, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Aciklama)
+                @Html.ValidationMessageFor(model => model.Aciklama)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirimId, "BirimId", new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.DropDownList("BirimId", String.Empty)
+                @Html.ValidationMessageFor(model => model.BirimId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Silindi, new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Silindi)
+                @Html.ValidationMessageFor(model => model.Silindi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Yeni Kayıt Oluştur" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+      kendo.culture("tr-TR"); //your culture
+        $.validator.addMethod('date',
+           function (value, element) {
+               return this.optional(element) || kendo.parseDate(value);
+           });
+    });
+</script>
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")"></script>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

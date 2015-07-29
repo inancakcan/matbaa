@@ -1,0 +1,72 @@
+﻿@model KendoMatbaa.Models.BaskiEbatlari
+
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutMenusuzFooterDaYok.cshtml";
+    //Layout = "";
+}
+
+
+
+@{
+    ViewBag.Title = "Oluşturma";
+}
+
+<h2>Oluştur</h2>
+
+@{
+    Html.EnableClientValidation(false);
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Baskı Boyutları</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BaskiMakineleriId,"Baskı Makinesi", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.DropDownList("BaskiMakineleriId", String.Empty)
+                @Html.ValidationMessageFor(model => model.BaskiMakineleriId)
+            </div>
+        </div>
+
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Boyut, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Boyut)
+                @Html.ValidationMessageFor(model => model.Boyut)
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirimFiyat,"Birim Fiyat", htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BirimFiyat)
+                @Html.ValidationMessageFor(model => model.BirimFiyat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Liste", "Index")
+</div>*@

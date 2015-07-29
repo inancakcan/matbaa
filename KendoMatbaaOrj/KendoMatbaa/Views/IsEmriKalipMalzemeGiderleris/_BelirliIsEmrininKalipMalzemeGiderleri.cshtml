@@ -1,0 +1,119 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriKalipMalzemeGiderleri>
+
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+
+@(Html.Kendo().Window()
+    .Name("windowKalip")
+    .Title("Kalıp Malzeme Ekleme")
+               .LoadContentFrom("Create", "IsEmriKalipMalzemeGiderleris", new { SeciliIsEmriId = Request["IsEmriId"] })
+    .Draggable()
+    .Resizable()
+    .Width(800)
+    .Visible(false)
+    .Modal(true)
+    .Iframe(false)
+    .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+        //.Events(events => events
+        //    .Close("onClose")
+        //    )
+)
+
+<span id="btnKalipEkle" class="k-button">Kalıp eklemek için tıklayın...</span>
+
+<script>
+       $(document).ready(function () {
+           $("#btnKalipEkle").bind("click", function () {
+            $("#windowKalip").data("kendoWindow").open();
+        });
+    });
+</script>
+
+
+<br /><br />
+
+
+@*<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>*@
+<table class="table">
+    <tr>
+       
+        <th>
+            @*@Html.DisplayNameFor(model => model.Ic)*@
+            İç
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Dis)*@
+            Kapak
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.KullanilanKalipSayisi)*@
+            Kalıp sayısı
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.IsEmri.IsNo)*@
+            İş No
+        </th>
+        <th>
+            Kalıp
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Ic)*@
+                @if(item.Ic.Value == true){
+                        <span style="color:green"><b>Evet</b> </span>
+                }
+                else
+                {
+                    <span style="color:red"><b>Hayır</b></span>
+                }
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Dis)*@
+                @if (item.Dis.Value == true)
+                {
+                    <span style="color:green"><b>Evet</b> </span>
+                }
+                else
+                {
+                    <span style="color:red"><b>Hayır</b></span>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KullanilanKalipSayisi)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Silindi)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.IsEmriKalipMalzemeGiderleriId }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.IsEmriKalipMalzemeGiderleriId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.IsEmriKalipMalzemeGiderleriId })
+            </td>
+        </tr>
+    }
+
+</table>

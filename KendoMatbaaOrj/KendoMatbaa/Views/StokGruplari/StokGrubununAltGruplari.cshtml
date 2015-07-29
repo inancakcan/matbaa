@@ -1,0 +1,83 @@
+﻿@using KendoMatbaa.App_Start
+@model IEnumerable<KendoMatbaa.Models.AltGruplar>
+
+@{
+    //ViewBag.Title = "StokGrubununAltGruplari";
+    ViewBag.Title = ViewBag.StokGrupAdi;
+}
+<br />
+<h2>@ViewBag.StokGrupAdi ALT STOK GRUPLARI</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AltGrupAdi)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.KritikSeviye)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Otokopi)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.BirimFiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SarfMi)
+        </th>
+        <th>
+            GüncelStok
+        </th>
+
+        @*<th>
+            @Html.DisplayNameFor(model => model.StokGruplari.StokGrupAdi)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltGrupAdi)
+        </td>
+        
+        
+        
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.KritikSeviye)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Otokopi)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.BirimFiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SarfMi)
+        </td>
+        <td>
+            @{
+                  Query q = new Query();
+                  @Html.Raw(q.GuncelStokSayisi(item.AltGruplarId))
+            }
+            @*@Html.DisplayFor(modelItem => item.GuncelStokSayisi)*@
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.StokGruplari.StokGrupAdi)
+        </td>*@
+        <td>
+            @*@Html.ActionLink("Düzenle", "Edit", new { id=item.AltGruplarId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.AltGruplarId }) |*@
+            @Html.ActionLink("Stok Girişleri", "AltGtupStokGirisleri", new { id = item.AltGruplarId }) |
+            @Html.ActionLink("Stok Çıkışları", "AltGtupStokCikislari", new { id = item.AltGruplarId })
+        </td>
+    </tr>
+}
+
+</table>

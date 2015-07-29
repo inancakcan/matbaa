@@ -1,0 +1,84 @@
+﻿@model KendoMatbaa.Models.AltGruplar
+
+@{
+    ViewBag.Title = "Yeni Stok Kalemi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Stok Kalemi</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Yeni Stok Kalemi</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.StokGruplariId, "StokGruplariId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StokGruplariId", String.Empty)
+                @Html.ValidationMessageFor(model => model.StokGruplariId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AltGrupAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AltGrupAdi)
+                @Html.ValidationMessageFor(model => model.AltGrupAdi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KritikSeviye, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KritikSeviye)
+                @Html.ValidationMessageFor(model => model.KritikSeviye)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Otokopi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Otokopi)
+                @Html.ValidationMessageFor(model => model.Otokopi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirimFiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BirimFiyat)
+                @Html.ValidationMessageFor(model => model.BirimFiyat)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SarfMi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SarfMi)
+                @Html.ValidationMessageFor(model => model.SarfMi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FizikselBirimId, "FizikselBirimId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FizikselBirimId", String.Empty)
+                @Html.ValidationMessageFor(model => model.FizikselBirimId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Stok Kalemleri Listesi", "Index")
+</div>

@@ -1,0 +1,58 @@
+﻿@model  IEnumerable<KendoMatbaa.Models.spStokCikan_Result>
+
+
+@*@{
+        Layout = "";
+    }*@
+<h2><span style="color:blue;">Stok Çıkışı</span></h2>
+<br />
+<h4>@ViewBag.AltGrupAdi</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miktar)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Birim)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.BirimFiyat)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in @Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Miktar)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Birim)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.BirimFiyat)
+            </td>
+
+            <td>
+                @*@Html.ActionLink("Düzenle", "Edit", new { id = item.AltGruplarId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.AltGruplarId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.AltGruplarId })*@
+            </td>
+        </tr>
+    }
+
+</table>
+

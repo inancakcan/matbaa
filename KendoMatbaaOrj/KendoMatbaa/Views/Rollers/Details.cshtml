@@ -1,0 +1,42 @@
+﻿@model KendoMatbaa.Models.Roller
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Roller</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RolAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RolAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RolAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RolAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personel.PersonelAdiSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personel.PersonelAdiSoyadi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.RollerId }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

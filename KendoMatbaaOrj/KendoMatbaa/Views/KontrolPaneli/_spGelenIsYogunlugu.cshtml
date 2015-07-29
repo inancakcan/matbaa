@@ -1,0 +1,62 @@
+﻿@model IEnumerable<KendoMatbaa.Models.GelenIsYogunlugu>
+
+@{
+    Layout = null;
+}
+
+@{
+    ViewBag.Title = "Gelen İş Yoğunluğu";
+}
+
+<h2>Gelen İş Yoğunluğu</h2>
+
+
+
+<div class="chart-wrapper" style="width:500px;">
+    @(Html.Kendo().Chart<KendoMatbaa.Models.ZamanaGoreGelenIsYogunluguModel>()
+      .Name("ZamanaGoreIsYogunluguChart")
+      .Legend(legend => legend.Position(ChartLegendPosition.Bottom))
+      .DataSource(dataSource => dataSource
+                      .Read(read => read.Action("_spGelenIsYogunlugu", "KontrolPaneli")) // Specify the action method and controller name
+      )
+              .Series(series =>
+              {
+                  //series.Bar(d => d.C_1);
+                  //series.Bar(d => d.C_2);
+                  //series.Bar(d => d.C_3);
+                  //series.Bar(d => d.C_4);
+                  series.Bar(Model => Model.C_1).Name("4 ay önce").Tooltip(Tooltip=>Tooltip.Visible(true));
+                  series.Bar(Model => Model.C_2).Name("3 ay önce").Tooltip(Tooltip=>Tooltip.Visible(true));
+                  series.Bar(Model => Model.C_3).Name("2 ay önce").Tooltip(Tooltip=>Tooltip.Visible(true));
+                  series.Bar(Model => Model.C_4).Name("1 ay önce").Tooltip(Tooltip=>Tooltip.Visible(true));
+                        //.Name("Zaman Göre İş Yoğunluğu").Labels(labels => labels.Position(ChartBarLabelsPosition.InsideEnd));
+                  
+                  
+              })
+          //.CategoryAxis(axis => axis
+          //         .Categories(model => model.C_1).Labels(labels => labels.Font("8px sans-serif")))
+          //         .Tooltip(tooltip => tooltip.Visible(true))
+
+          )
+    </div>
+
+
+
+    @*<div class="chart-wrapper" style="width:500px;">
+        @(Html.Kendo().Chart<KendoMatbaa.Models.ZamanaGoreGelenIsYogunluguModel>()
+      .Name("ZamanaGoreIsYogunluguChart")
+      .Legend(legend => legend.Position(ChartLegendPosition.Bottom))
+      .DataSource(dataSource => dataSource
+                      .Read(read => read.Action("_spGelenIsYogunlugu", "KontrolPaneli")) // Specify the action method and controller name
+      )
+              .Series(series =>
+              {
+                  series.Bar(d => d.C_1)
+                        .Name("Zaman Göre İş Yoğunluğu").Labels(labels => labels.Position(ChartBarLabelsPosition.InsideEnd));
+
+              })
+                .CategoryAxis(axis => axis
+                         .Categories(model => model.C_1).Labels(labels => labels.Font("8px sans-serif")))
+                         .Tooltip(tooltip => tooltip.Visible(true))
+
+        )*@

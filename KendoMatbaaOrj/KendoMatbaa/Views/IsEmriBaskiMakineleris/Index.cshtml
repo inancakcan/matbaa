@@ -1,0 +1,69 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriBaskiMakineleri>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IcBaskiMiktari)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KapakBaskiMiktari)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakineninKullanildigiYer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaskiEbatlari.Boyut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaskiEbatlari1.Boyut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaskiMakineleri.MakineAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IcBaskiMiktari)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KapakBaskiMiktari)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakineninKullanildigiYer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaskiEbatlari.Boyut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaskiEbatlari1.Boyut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BaskiMakineleri.MakineAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.IsEmriBaskiMakineleriId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.IsEmriBaskiMakineleriId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.IsEmriBaskiMakineleriId })
+        </td>
+    </tr>
+}
+
+</table>

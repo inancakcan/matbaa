@@ -1,0 +1,42 @@
+﻿@model KendoMatbaa.Models.BaskiEbatlari
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Baskı Boyutları</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Boyut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Boyut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirimFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirimFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaskiMakineleri.MakineAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaskiMakineleri.MakineAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.BaskiEbatlariId }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

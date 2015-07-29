@@ -1,0 +1,17 @@
+﻿@model bool
+@if (Model == true)
+{
+    <div style="color: green;">
+        <b>
+            @Html.Encode("Evet")
+        </b>
+    </div>
+}
+@if (Model == false)
+{
+    <div style="color: red;">
+        <b>
+            @Html.Encode("Hayır")
+        </b>
+    </div>
+}

@@ -1,0 +1,105 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmri>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IsNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TarihSayi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KabulTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TeslimTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IlgiliEPosta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birim.BirimAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BitmisIsBoyutlari.BitmisIsBoyutuAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IKBSBirim.Adi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TarihSayi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KabulTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TeslimTarihi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silindi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IlgiliEPosta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birim.BirimAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BitmisIsBoyutlari.BitmisIsBoyutuAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IKBSBirim.Adi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IsEmriId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IsEmriId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IsEmriId })
+        </td>
+    </tr>
+}
+
+</table>

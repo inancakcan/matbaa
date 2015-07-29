@@ -1,0 +1,56 @@
+﻿@model KendoMatbaa.Models.IsEmriUploadDosyalari
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>IsEmriUploadDosyalari</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DosyaAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DosyaAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DosyaAciklamasi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DosyaAciklamasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DosyaKonumu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DosyaKonumu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>

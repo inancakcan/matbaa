@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="62821a30-ef01-46fa-83e0-6b4e7fc53fbe" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ikbs.tse.org.tr/webservisler/ikbs.asmx" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ikbs.wsdl" MetadataType="Wsdl" ID="69cde62c-7882-43b4-9859-04aaa5b22a78" SourceId="1" SourceUrl="http://ikbs.tse.org.tr/webservisler/ikbs.asmx?wsdl" />
+    <MetadataFile FileName="TetkikciNaceDataSet.xsd" MetadataType="Schema" ID="56e0d2d6-6a1c-49e4-b8a3-b7ad60f80ec5" SourceId="1" SourceUrl="http://ikbs.tse.org.tr/webservisler/ikbs.asmx?schema=TetkikciNaceDataSet" />
+    <MetadataFile FileName="PersonelVekaletDataSet.xsd" MetadataType="Schema" ID="38916808-e2a2-431c-a2c7-cf3c11b50989" SourceId="1" SourceUrl="http://ikbs.tse.org.tr/webservisler/ikbs.asmx?schema=PersonelVekaletDataSet" />
+    <MetadataFile FileName="TetkikciKategoriDataSet.xsd" MetadataType="Schema" ID="0e507f11-1ba9-4298-ad9b-a239efd86c0a" SourceId="1" SourceUrl="http://ikbs.tse.org.tr/webservisler/ikbs.asmx?schema=TetkikciKategoriDataSet" />
+    <MetadataFile FileName="ikbs.disco" MetadataType="Disco" ID="ee769b18-6235-4502-9f40-19a92ad754c0" SourceId="1" SourceUrl="http://ikbs.tse.org.tr/webservisler/ikbs.asmx?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

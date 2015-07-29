@@ -1,0 +1,42 @@
+﻿@model KendoMatbaa.Models.KritikSeviye
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KritikSeviye</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KritikStok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KritikStok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuncelStok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuncelStok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltGruplar.AltGrupAdi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.KritikSeviyeId }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

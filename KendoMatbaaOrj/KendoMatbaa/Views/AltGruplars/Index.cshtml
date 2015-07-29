@@ -1,0 +1,114 @@
+﻿@using KendoMatbaa.App_Start
+@model IEnumerable<KendoMatbaa.Models.AltGruplar>
+
+@{
+    ViewBag.Title = "Stok Kalemleri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Stok Kalemleri</h2>
+
+<p>
+    @Html.ActionLink("Yeni Stok Kalemi", "Create")
+</p>
+
+
+
+
+<p style="padding:0 1em 1em; padding-top: 0.7em;background-color:gainsboro;">
+    Aşağıdaki kutucuğa arama için biliyosanız stok kalemi adından bildiğiniz bir parça yazıp, 'Ara' butonuna tıklayabilirsiniz.
+</p>
+
+
+@using (Html.BeginForm())
+{<p>
+        Stok Kalemi Adından Ara: @Html.TextBox("SearchString")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AltGrupAdi)*@
+            Stok Kalemi
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.KritikSeviye)*@
+            Kritik Seviye
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Otokopi)
+        </th>*@
+
+        <th style="background-color: lightcoral">
+            Güncel Stok
+        </th>
+        <th >
+            @*@Html.DisplayNameFor(model => model.BirimFiyat)*@
+            Birim Fiyat
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.SarfMi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FizikselBirim.Nicelik)
+        </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.StokGruplari.StokGrupAdi)*@
+            Ana Stok Grubu
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltGrupAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KritikSeviye)
+        </td>
+        
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Otokopi)
+        </td>*@
+
+
+        <td style="background-color: lightcoral">
+            @{
+    Query q = new Query();
+    @Html.Raw(q.GuncelStokSayisi(item.AltGruplarId))
+            }
+
+        </td>
+
+
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.BirimFiyat)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.SarfMi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FizikselBirim.Nicelik)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.StokGruplari.StokGrupAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.AltGruplarId }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.AltGruplarId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.AltGruplarId }) |
+
+            @*@Html.ActionLink("Yeni Stok Hareket Ekle", "CreateSpecific", "StokHarekets", new { AltGruplarId = item.AltGruplarId },null)*@
+            @Html.ActionLink("Yeni Stok Hareket Ekle", "Create", "StokHarekets", new { SeciliAltGruplarId = item.AltGruplarId }, null)
+        </td>
+    </tr>
+}
+
+</table>

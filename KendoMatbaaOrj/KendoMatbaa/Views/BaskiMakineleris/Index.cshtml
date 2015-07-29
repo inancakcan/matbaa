@@ -1,0 +1,32 @@
+﻿@model IEnumerable<KendoMatbaa.Models.BaskiMakineleri>
+
+@{
+    ViewBag.Title = "Baskı Makineleri";
+}
+
+<h2>Baskı Makineleri</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MakineAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakineAdi)
+        </td><td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.BaskiMakineleriId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.BaskiMakineleriId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.BaskiMakineleriId })
+        </td>
+    </tr>
+}
+
+</table>

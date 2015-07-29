@@ -1,0 +1,58 @@
+﻿@model KendoMatbaa.Models.TeslimatRaporu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TeslimatRaporu</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimAlan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimAlan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeslimatMiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeslimatMiktari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personel.PersonelAdiSoyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personel.PersonelAdiSoyadi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.TeslimatRaporuId }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

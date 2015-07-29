@@ -1,0 +1,198 @@
+﻿@using KendoMatbaa.App_Start
+@using KendoMatbaa.Models
+@model KendoMatbaa.Models.IsEmriTeknikBilgiler
+
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Düzenleme";
+}
+
+<h2>Düzenleme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    //Bu partial view burada çalışır
+    @*<div id="myPartialView">
+            @Ajax.ActionLink("Click here for the Partial View", "_DevamEtmekteOlanIsler","IsEmri",
+            new AjaxOptions
+            {
+                UpdateTargetId = "myPartialView",
+                InsertionMode = InsertionMode.InsertAfter,
+                HttpMethod = "Get"
+            })
+        </div>*@
+
+
+
+
+
+
+
+    <div class="form-horizontal">
+
+        @{
+    Query q = new Query();
+    bool kapakVarMi = q.IsEmriOlmayanIsParcasiniIceriyorMu(1, Model.IsEmriId);//KApak
+    if (kapakVarMi)
+    {
+        <input type="hidden" id="kapakVarMiHdn" value="yok" />
+    }
+
+        }
+
+        <h4>Teknik Bilgiler</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriId, "İş Emri Id", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IsEmriId", null, new { @disabled = false })
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KesimBoyutlariId, "Baskı Boyutu", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownList("KesimBoyutlariId", String.Empty)
+                @Html.ValidationMessageFor(model => model.KesimBoyutlariId)
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BitmisIsBoyutlariId, "Bitmiş İş Boyutu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BitmisIsBoyutlariId", "Bitmiş iş boyutunu seçiniz...")
+                @Html.ValidationMessageFor(model => model.BitmisIsBoyutlariId)
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="control-label col-md-2">Yeni bitmiş iş boyutu</div>
+
+            <div class="col-md-8">
+                @(Html.Kendo().PanelBar()
+                      .Name("PanelBitmisIsBoyutu")
+                      .Items(items =>
+                      {
+                          items.Add()
+                              .Text("Yeni bitmiş iş boyutu eklemek için tıklayınız")
+                              .Selected(true)
+                              //.Expanded(true)
+                              //.LoadContentFrom("OnayBekleyenIsler", "KontrolPaneli");
+                              .LoadContentFrom("Create", "BitmisIsBoyutlaris");
+                      })
+                )
+                @Html.ActionLink("Bitmiş iş boyutlarını düzenle","Index","BitmisIsBoyutlaris")
+
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adedi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adedi)
+                @Html.ValidationMessageFor(model => model.Adedi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Cilt, "Cilt", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Cilt", String.Empty)
+                @Html.ValidationMessageFor(model => model.Cilt)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SayfaSayisi, "Sayfa Sayısı", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SayfaSayisi)
+                @Html.ValidationMessageFor(model => model.SayfaSayisi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IcBaskiRenk, "İç Baskı Rengi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IcBaskiRenk)
+                @Html.ValidationMessageFor(model => model.IcBaskiRenk)
+            </div>
+        </div>
+
+        <div class="form-group" id="divKapak">
+            @Html.LabelFor(model => model.KapakBaskiRenk, "Kapak Baskı Rengi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KapakBaskiRenk)
+                @Html.ValidationMessageFor(model => model.KapakBaskiRenk)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.IsEmriTeknikBilgilerId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsCinsiId, "İşin Cinsi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IsCinsiId", String.Empty)
+                @Html.ValidationMessageFor(model => model.IsCinsiId)
+            </div>
+        </div>
+
+        <div class="form-group" id="divSilindiTeknik">
+            @Html.LabelFor(model => model.Silindi, "Silindi", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Silindi)
+                @Html.ValidationMessageFor(model => model.Silindi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //var valkapakVArMiHdn = $('#kapakVarMiHdn').val();
+
+        $('#Silindi').val(false);
+        $('#divSilindiTeknik').hide();
+        if ($('#kapakVarMiHdn').val() == "yok") {
+            $('#divKapak').hide();
+        }
+        else {
+            $('#divKapak').show();
+        }
+    });
+</script>
+
+
+@*<div>
+        @Html.ActionLink("Liste", "Index")
+    </div>*@

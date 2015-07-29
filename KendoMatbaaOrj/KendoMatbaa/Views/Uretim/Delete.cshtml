@@ -1,0 +1,75 @@
+﻿@model KendoMatbaa.Models.Uretim
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>Üretim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UretimeBaslama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UretimeBaslama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UretimiSonlandirma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UretimiSonlandirma)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.AltUretimAsamalari.AltUretimAsamalariAdi)*@
+            Üretim Aşaması
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltUretimAsamalari.AltUretimAsamalariAdi)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.IsEmri.IsNo)*@
+            İş No
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Personel1.PersonelAdiSoyadi)*@
+            Personel
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personel1.PersonelAdiSoyadi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3ad0f8e66fc746789bf1769b219d939b" Name="Diagram1" ZoomLevel="118">
+        <EntityTypeShape EntityType="matbaaModel.AktiviteAdlari" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.AktiviteSahipleri" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.AltGruplarSilmeTarihce" Width="1.5" PointX="8.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.AltUretimAsamalari" Width="1.5" PointX="9" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.AsamaAdlari" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.AsamaAyrinti" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.AsamaTarihce" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.Birim" Width="1.5" PointX="0.75" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.CiltTipleri" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.IsAsamasi" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.IsDurumAdlari" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriOtokopi" Width="1.5" PointX="8.25" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.KagitGramajlari" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.KullanilanKagitlar" Width="1.5" PointX="5.25" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.Maliyet" Width="1.5" PointX="5.25" PointY="56.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.OtokopiRenk" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.StokGruplari" Width="1.5" PointX="3.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.StokGruplariSilmeTarihce" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.StokHareketSilmeTarihce" Width="1.5" PointX="5.25" PointY="68.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.TabakaKesimleri" Width="1.5" PointX="6" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.TicariKagitBoyutlari" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.Uretim" Width="1.5" PointX="11.25" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.UretimAsamalari" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.UretimNotlari" Width="1.5" PointX="5.25" PointY="78.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="matbaaModel.UretimYetkilendirme" Width="1.5" PointX="11.25" PointY="26.125" IsExpanded="true" />
+        <AssociationConnector Association="matbaaModel.FK_AktiviteSahipleri_AktiviteAdlari_AktiviteAdlariId" ManuallyRouted="false" />
+        <AssociationConnector Association="matbaaModel.FK_Uretim_AltUretimAsamalari_AltUretimAsamalariId" ManuallyRouted="false" />
+        <AssociationConnector Association="matbaaModel.FK_UretimYetkilendirme_AltUretimAsamalari_AltUretimAsamalariId" ManuallyRouted="false" />
+        <AssociationConnector Association="matbaaModel.FK_AsamaAyrinti_AsamaAdlari_AsamaAdlariId" ManuallyRouted="false" />
+        <AssociationConnector Association="matbaaModel.FK_AsamaAyrinti_AsamaTarihce_AsamaTarihceId" ManuallyRouted="false" />
+        <AssociationConnector Association="matbaaModel.FK_IsAsamasi_IsDurumAdlari_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="matbaaModel.FK_StokGruplariSilmeTarihce_StokGruplari" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="matbaaModel.KritikSeviye" Width="1.5" PointX="8.25" PointY="46.125" />
+        <EntityTypeShape EntityType="matbaaModel.MucellithaneProgramNoPaketBilgileri" Width="1.5" PointX="6" PointY="44.25" />
+        <EntityTypeShape EntityType="matbaaModel.TeslimatRaporu" Width="1.5" PointX="14.25" PointY="26.875" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriBaskiMakineleri" Width="1.5" PointX="13.5" PointY="35.625" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriOnayBilgileri" Width="1.5" PointX="5.25" PointY="32.5" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriKullanilanLaminasyonlar" Width="1.5" PointX="11.25" PointY="29.25" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriFilmGiderleri" Width="1.5" PointX="14.25" PointY="23.25" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriKalipMalzemeGiderleri" Width="1.5" PointX="11.25" PointY="32.125" />
+        <EntityTypeShape EntityType="matbaaModel.Roller" Width="1.5" PointX="11.25" PointY="17" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriUploadDosyalari" Width="1.5" PointX="5.25" PointY="29.5" />
+        <EntityTypeShape EntityType="matbaaModel.vUretimTam" Width="1.5" PointX="10.375" PointY="6.75" />
+        <EntityTypeShape EntityType="matbaaModel.IsCinsi" Width="1.5" PointX="10.375" PointY="0.875" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriEski" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="matbaaModel.IKBSBirim" Width="1.5" PointX="0.75" PointY="25" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriKullanilacakKagit" Width="1.5" PointX="16.5" PointY="27.875" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriKullanilacakKagit_TabakaKesimleri_TabakaKesimleriId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriKullanilacakKagit_TabakaKesimleri_TabakaKesimleriId_KapakTabaka" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriYokIsParcasi" Width="1.5" PointX="2.625" PointY="25.625" />
+        <EntityTypeShape EntityType="matbaaModel.YokIsParcasi" Width="1.5" PointX="5.875" PointY="25.625" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriYokIsParcasi_YokIsParcasi_Id" />
+        <EntityTypeShape EntityType="matbaaModel.BitmisIsBoyutlari" Width="1.5" PointX="11.25" PointY="20.5" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmri" Width="1.5" PointX="3" PointY="29.125" />
+        <AssociationConnector Association="matbaaModel.FK_tblIsEmri_birim_BirimId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmri_IKBSBirim_BirimUN" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriBaskiBilgileri_IsEmri" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriBaskiBilgileri_IsEmri1" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriBaskiMakineleri_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriFilmGiderleri_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriKalipMalzemeGiderleri_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriKullanilacakKagit_IsEmri" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriKullanilanLaminasyonlar_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriOnayBilgileri_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriOtokopi_IsEmri" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriUploadDosyalari_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriYokIsParcasi_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_KullanilanKagitlar_IsEmri" />
+        <AssociationConnector Association="matbaaModel.FK_Maliyet_IsEmri" />
+        <AssociationConnector Association="matbaaModel.FK_Maliyet_IsEmri1" />
+        <AssociationConnector Association="matbaaModel.FK_MucellithaneProgramNoPaketBilgileri_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_StokHareketSilmeTarihce_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_TeslimatRaporu_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_Uretim_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_UretimNotlari_IsEmri_IsEmriId" />
+        <AssociationConnector Association="matbaaModel.FK_UretimYetkilendirme_IsEmri_IsEmriId" />
+        <EntityTypeShape EntityType="matbaaModel.IsEmriTeknikBilgiler" Width="2" PointX="13.5" PointY="18.25" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriTeknikBilgiler_BitmisIsBoyutlari_Id" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriTeknikBilgiler_CiltTipleri_CiltTipleriId" />
+        <AssociationConnector Association="matbaaModel.FK_tblIsEmriTeknikBilgiler_IsCinsi_ID" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriTeknikBilgiler_IsEmri" />
+        <EntityTypeShape EntityType="matbaaModel.BaskiEbatlari" Width="1.5" PointX="8.25" PointY="27" />
+        <EntityTypeShape EntityType="matbaaModel.BaskiMakineleri" Width="1.5" PointX="3" PointY="38" />
+        <AssociationConnector Association="matbaaModel.FK_BaskiEbatlari_BaskiMakineleri_BaskiMakineleriId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriBaskiMakineleri_BaskiEbatlari_BaskiEbatlariId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriBaskiMakineleri_KapakBaskiEbatlari_BaskiEbatlariId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriKullanilacakKagit_BaskiEbatlari_BaskiEbatlariId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriKullanilacakKagit_BaskiEbatlari_BaskiEbatlariId_Kapak" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriTeknikBilgiler_BaskiEbatlari_BaskiEbatlariId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriBaskiMakineleri_BaskiMakineleri_BaskiMakineleriId" />
+        <EntityTypeShape EntityType="matbaaModel.Personel" Width="1.5" PointX="9" PointY="31.875" />
+        <AssociationConnector Association="matbaaModel.FK_Roller_Personel_PersonelUN" />
+        <AssociationConnector Association="matbaaModel.FK_TeslimatRaporu_Personel_PersonelUN" />
+        <AssociationConnector Association="matbaaModel.FK_Uretim_Personel_PersonelUN" />
+        <AssociationConnector Association="matbaaModel.FK_UretimYetkilendirme_Personel_PersonelUN" />
+        <EntityTypeShape EntityType="matbaaModel.vKagitTuketimi" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="matbaaModel.FizikselBirim" Width="1.5" PointX="0.75" PointY="31.25" />
+        <EntityTypeShape EntityType="matbaaModel.StokHareket" PointX="8.25" PointY="19.125" Width="1.5" />
+        <EntityTypeShape EntityType="matbaaModel.AltGruplar" Width="1.5" PointX="6" PointY="17.125" />
+        <AssociationConnector Association="matbaaModel.FK_AltGruplar_FizikselBirim_FizikselBirimId" />
+        <AssociationConnector Association="matbaaModel.FK_AltGruplar_StokGruplari_Id" />
+        <AssociationConnector Association="matbaaModel.FK_AltGruplarSilmeTarihce_AltGruplar_AltGruplarId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriFilmGiderleri_AltGruplar_AltGruplarId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriKalipMalzemeGiderleri_AltGruplar_AltGruplarId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriKullanilanLaminasyonlar_AltGruplar_AltGruplarId" />
+        <AssociationConnector Association="matbaaModel.FK_IsEmriOtokopi_AltGruplar_AltGruplarId" />
+        <AssociationConnector Association="matbaaModel.FK_KritikSeviye_AltGruplar_AltGruplarId" />
+        <AssociationConnector Association="matbaaModel.FK_KullanilanKagitlar_AltGruplar_ID" />
+        <AssociationConnector Association="matbaaModel.FK_StokHareket_AltGruplar_AltGruplarId" />
+        <AssociationConnector Association="matbaaModel.FK_tblIsEmriKullanilacakKagit_AltGruplar_ID" />
+        <AssociationConnector Association="matbaaModel.FK_tblIsEmriKullanilacakKagitKapakCins_AltGruplar_ID" />
+        <EntityTypeShape EntityType="matbaaModel.StokGiris" Width="1.5" PointX="14.25" PointY="30.25" />
+        <AssociationConnector Association="matbaaModel.FK_StokGiris_AltGruplar_AltGruplarId" />
+        <AssociationConnector Association="matbaaModel.FK_StokGiris_FizikselBirim_FizikselBirimId" />
+        <AssociationConnector Association="matbaaModel.FK_StokGiris_Personel_PersonelUN" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

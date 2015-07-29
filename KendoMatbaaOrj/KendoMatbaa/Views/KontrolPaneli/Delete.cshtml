@@ -1,0 +1,48 @@
+﻿@model KendoMatbaa.Models.KritikSeviye
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>KritikSeviye</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KritikStok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KritikStok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GuncelStok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GuncelStok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltGruplar.AltGrupAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>

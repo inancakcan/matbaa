@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "preTeslimatRaporu";
+}
+
+<h2>Teslimat raporunun üreteceği liste için başlangıç ve titiş tarihlerini giriniz</h2>
+Başlangıç Tarihi&nbsp;&nbsp;
+
+@Html.Kendo().DatePicker().Name("clnBasTar")
+&nbsp;&nbsp;&nbsp;&nbsp;
+Bitiş Tarihi
+&nbsp;&nbsp;
+@Html.Kendo().DatePicker().Name("clnSonTar")
+
+@Html.ActionLink("Teslimat raporunu oluştur", "TeslimatRaporu", "Report", new { BasTar = DateTime.Today, SonTar = DateTime.Today }, new { target = "_blank" })
+@*@Html.ActionLink("İş emrinin kopyasını oluştur", "TeslimatRaporu", "Report", new { BasTar = DateTime.Today, SonTar = DateTime.Today }, new { target = "_blank" })*@
+@*<input type="submit" value="Teslimat raporunu oluştur"/>*@

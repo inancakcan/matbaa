@@ -1,0 +1,84 @@
+﻿@model KendoMatbaa.Models.UretimNotlari
+
+@{
+    ViewBag.Title = "Oluşturma";
+}
+
+<h2>Oluştur</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>UretimNotlari</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TasarimaOnayVeren, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TasarimaOnayVeren)
+                @Html.ValidationMessageFor(model => model.TasarimaOnayVeren)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BaskiOncesiHazirlikNotu, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BaskiOncesiHazirlikNotu)
+                @Html.ValidationMessageFor(model => model.BaskiOncesiHazirlikNotu)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BaskiNotu, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BaskiNotu)
+                @Html.ValidationMessageFor(model => model.BaskiNotu)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MucellithaneNotu, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MucellithaneNotu)
+                @Html.ValidationMessageFor(model => model.MucellithaneNotu)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsKesimiProgramNo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IsKesimiProgramNo)
+                @Html.ValidationMessageFor(model => model.IsKesimiProgramNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PaketBilgileri, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PaketBilgileri)
+                @Html.ValidationMessageFor(model => model.PaketBilgileri)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriId, "IsEmriId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IsEmriId", String.Empty)
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Yeni Kayıt Oluştur" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>

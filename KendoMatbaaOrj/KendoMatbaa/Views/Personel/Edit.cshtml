@@ -1,0 +1,62 @@
+﻿@model KendoMatbaa.Models.Personel
+
+@{
+    ViewBag.Title = "Düzenleme";
+}
+
+<h2>Düzenleme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Personel</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.PersonelUN)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PersonelAdiSoyadi, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PersonelAdiSoyadi)
+                @Html.ValidationMessageFor(model => model.PersonelAdiSoyadi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SicilNo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SicilNo)
+                @Html.ValidationMessageFor(model => model.SicilNo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Admin, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Admin)
+                @Html.ValidationMessageFor(model => model.Admin)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.EPosta, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EPosta)
+                @Html.ValidationMessageFor(model => model.EPosta)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>

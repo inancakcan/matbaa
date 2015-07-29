@@ -1,0 +1,100 @@
+﻿@model IEnumerable<KendoMatbaa.Models.IsEmriBaskiMakineleri>
+
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+
+@(Html.Kendo().Window()
+    .Name("windowBaski")
+    .Title("Baskı Bilgisi Ekleme")
+               .LoadContentFrom("Create", "IsEmriBaskiMakineleris", new { SeciliIsEmriId = Request["IsEmriId"] })
+    .Draggable()
+    .Resizable()
+    .Width(800)
+    .Visible(false)
+    .Modal(true)
+    .Iframe(false)
+    .Actions(actions => actions.Pin().Minimize().Maximize().Close())
+)
+
+<span id="btnBaskiEkle" class="k-button">Baskı bilgisi eklemek için tıklayın...</span>
+
+<script>
+       $(document).ready(function () {
+           $("#btnBaskiEkle").bind("click", function () {
+               $("#windowBaski").data("kendoWindow").open();
+        });
+    });
+</script>
+<h2>Liste</h2>
+
+@*<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IcBaskiMiktari)*@
+            İç B. Miktarı
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.KapakBaskiMiktari)*@
+            Kapak B. Miktarı
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.MakineninKullanildigiYer)*@
+            Kullanım Yeri
+        </th>
+        <th>
+            İ.B.Boyutu
+        </th>
+        <th>
+            K.B.Boyutu
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.BaskiMakineleri.MakineAdi)*@
+            Makine
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.IsEmri.IsNo)*@
+            İş No
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IcBaskiMiktari)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KapakBaskiMiktari)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakineninKullanildigiYer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaskiEbatlari.Boyut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaskiEbatlari1.Boyut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaskiMakineleri.MakineAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsEmri.IsNo)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.IsEmriBaskiMakineleriId }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.IsEmriBaskiMakineleriId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.IsEmriBaskiMakineleriId })
+            </td>
+        </tr>
+    }
+
+</table>
+

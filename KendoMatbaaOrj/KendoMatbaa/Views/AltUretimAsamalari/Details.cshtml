@@ -1,0 +1,34 @@
+﻿@model KendoMatbaa.Models.AltUretimAsamalari
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AltUretimAsamalari</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AltUretimAsamalariAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AltUretimAsamalariAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UretimAsamalariId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UretimAsamalariId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.AltUretimAsamalariId }) |
+    @Html.ActionLink("Liste", "Index")
+</p>

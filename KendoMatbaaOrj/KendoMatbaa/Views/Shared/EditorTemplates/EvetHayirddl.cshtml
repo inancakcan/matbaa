@@ -1,0 +1,13 @@
+﻿@model  bool?
+
+@Html.DropDownListFor(m => m, new SelectList(
+        new[]
+        {
+            new { Value = "", Text = "Girilmemiş" },
+            new { Value = "true", Text = "Evet" },
+            new { Value = "false", Text = "Hayır" },
+        },
+        "Value",
+        "Text",
+        Model
+    ))

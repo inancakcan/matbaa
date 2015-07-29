@@ -1,0 +1,187 @@
+﻿@using KendoMatbaa.App_Start
+@model KendoMatbaa.Models.IsEmriKullanilacakKagit
+
+
+@{
+    Layout = "~/Views/Shared/Tab.cshtml";
+}
+
+
+
+@{
+    ViewBag.Title = "Oluşturma";
+}
+
+<h2>Oluştur</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Kağıt</h4>
+        <hr/>
+
+
+
+
+
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @{
+    Query q = new Query();
+    bool kapakVarMi = q.IsEmriOlmayanIsParcasiniIceriyorMu(1, Convert.ToInt32(ViewBag.SeciliIsEmriId));//KApak
+    if (kapakVarMi)
+    {
+        <input type="hidden" id="kapakVarMiKagitHdn" value="yok" />
+    }
+
+            }
+
+            @Html.LabelFor(model => model.IsEmriID, "İş No", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownList("IsEmriID", String.Empty)
+                @Html.ValidationMessageFor(model => model.IsEmriID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IcKagitCins, "İç Kağıt", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IcKagitCins", String.Empty)
+                @Html.ValidationMessageFor(model => model.IcKagitCins)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IcKagitNet, "İç Kağıt Net", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IcKagitNet)
+                @Html.ValidationMessageFor(model => model.IcKagitNet)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IcKagitFire, "İç Kağıt Fire", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IcKagitFire)
+                @Html.ValidationMessageFor(model => model.IcKagitFire)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IcBaskiBoyutu, "İç Baskı Boyutu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IcBaskiBoyutu", String.Empty)
+                @Html.ValidationMessageFor(model => model.IcBaskiBoyutu)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IcTabaka, "İç Tabaka", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IcTabaka", String.Empty)
+                @Html.ValidationMessageFor(model => model.IcTabaka)
+            </div>
+        </div>
+
+        <div class="form-group" id="divkapakCins">
+            @Html.LabelFor(model => model.KapakCins, "Kapak Cins", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("KapakCins", String.Empty)
+                @Html.ValidationMessageFor(model => model.KapakCins)
+            </div>
+        </div>
+
+        <div class="form-group" id="divkapakBaskiBoyutu">
+            @Html.LabelFor(model => model.KapakBaskiBoyutu, "Kapak Baskı Boyutu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("KapakBaskiBoyutu", String.Empty)
+                @Html.ValidationMessageFor(model => model.KapakBaskiBoyutu)
+            </div>
+        </div>
+
+        <div class="form-group" id="divkapakNet">
+            @Html.LabelFor(model => model.KapakNet, "Kapak Net", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KapakNet)
+                @Html.ValidationMessageFor(model => model.KapakNet)
+            </div>
+        </div>
+
+        <div class="form-group" id="divkapakTabaka">
+            @Html.LabelFor(model => model.KapakTabaka, "Kapak Tabaka", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("KapakTabaka", String.Empty)
+                @Html.ValidationMessageFor(model => model.KapakTabaka)
+            </div>
+        </div>
+
+        <div class="form-group" id="divkapakFire">
+            @Html.LabelFor(model => model.KapakFire, "Kapak Kağıt Fire", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KapakFire)
+                @Html.ValidationMessageFor(model => model.KapakFire)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Otokopi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Otokopi)
+                @Html.ValidationMessageFor(model => model.Otokopi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Silindi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Silindi)
+                @Html.ValidationMessageFor(model => model.Silindi)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Yeni Kayıt Oluştur" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //var valkapakVArMiHdn = $('#kapakVarMiHdn').val();
+        if ($('#kapakVarMiKagitHdn').val() == "yok") {
+            $('#divkapakCins').hide();
+            $('#divkapakBaskiBoyutu').hide();
+            $('#divkapakNet').hide();
+            $('#divkapakTabaka').hide();
+            $('#divkapakFire').hide();
+            
+
+        }
+        else {
+            $('#divkapakCins').show();
+            $('#divkapakBaskiBoyutu').show();
+            $('#divkapakNet').show();
+            $('#divkapakTabaka').show();
+            $('#divkapakFire').show();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+@*<div>
+    @Html.ActionLink("Liste", "Index")
+</div>*@

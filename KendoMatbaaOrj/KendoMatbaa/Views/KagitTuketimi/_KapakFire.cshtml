@@ -1,0 +1,22 @@
+﻿
+<hr />
+<h4>Kapak Fire Kağıt Tüketimi</h4>
+
+
+<div class="chart-wrapper" style="width: 900px;height: 700px">
+    @(Html.Kendo().Chart<KendoMatbaa.Models.spKapakFireTuketimiAnaliz_Result>()
+      .Name("KapakFireKagitTuketimChart")
+      .Legend(legend => legend.Position(ChartLegendPosition.Bottom))
+      .DataSource(dataSource => dataSource
+                              .Read(read => read.Action("KapakFireKagitTuketimiAnalizOku", "KagitTuketimi")) // Specify the action method and controller name
+      )
+              .Series(series =>
+              {
+                  series.Bar(d => d.KapakFireTuketimi)
+                        .Name("Kapak Fire Kağıt Tüketimleri").Labels(labels => labels.Position(ChartBarLabelsPosition.InsideEnd));
+              })
+                .CategoryAxis(axis => axis
+                         .Categories(model => model.AltGrupAdi).Labels(labels => labels.Font("9px sans-serif")))
+                         .Tooltip(tooltip => tooltip.Visible(true))
+    )
+</div>

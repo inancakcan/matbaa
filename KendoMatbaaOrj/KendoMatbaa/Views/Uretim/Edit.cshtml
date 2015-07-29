@@ -1,0 +1,81 @@
+﻿@model KendoMatbaa.Models.Uretim
+
+
+
+
+@{
+    ViewBag.Title = "Düzenleme";
+    Layout = "~/Views/Shared/_LayoutjQueryValYok.cshtml";
+}
+
+<h2>Düzenleme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Üretim</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.UretimId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsEmriId, "İş No", new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownList("IsEmriId", "İş No Seçiniz")
+                @Html.ValidationMessageFor(model => model.IsEmriId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AltUretimAsamalariId, "Üretim Aşaması", new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownList("AltUretimAsamalariId", "Üretim Aşamasını Seçiniz")
+                @Html.ValidationMessageFor(model => model.AltUretimAsamalariId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tarih, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.Tarih)
+                @Html.ValidationMessageFor(model => model.Tarih)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Personel, "Personel", new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.DropDownList("Personel", String.Empty)
+                @Html.ValidationMessageFor(model => model.Personel)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UretimeBaslama,"Üretim Başlangıcı", new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.UretimeBaslama)
+                @Html.ValidationMessageFor(model => model.UretimeBaslama)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UretimiSonlandirma, "Üretim Bitişi", new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.UretimiSonlandirma)
+                @Html.ValidationMessageFor(model => model.UretimiSonlandirma)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Liste", "Index")
+</div>

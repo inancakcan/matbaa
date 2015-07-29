@@ -1,0 +1,23 @@
+﻿@Html.DropDownList("", new SelectList(new[] {
+new { Value = "not set", Text = "Girilmemiş" },
+new { Value = "true", Text = "Evet" },
+new { Value = "false", Text = "Hayır" },
+        },
+        "Value",
+        "Text",
+
+        Model
+    ))
+
+
+@*@model bool?
+@using System.Web.Mvc
+
+@{
+    var selectList = new List<SelectListItem>();
+    selectList.Add(new SelectListItem { Text = "", Value = "" });
+    selectList.Add(new SelectListItem { Text = "Yes", Value = "true", Selected = Model.HasValue && Model.Value });
+    selectList.Add(new SelectListItem { Text = "No", Value = "false", Selected = Model.HasValue && !Model.Value });
+}
+
+@Html.DropDownListFor(model => model, selectList)*@

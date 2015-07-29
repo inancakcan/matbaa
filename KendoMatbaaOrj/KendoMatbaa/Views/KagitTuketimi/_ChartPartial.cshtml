@@ -1,0 +1,14 @@
+<div style="width: 100%">
+    @Html.DevExpress().Chart(settings =>
+{
+    settings.Name = "Chart";
+    settings.Width = 1500;
+    settings.Height = 500;
+    settings.AutoLayout = true;
+    settings.EnableCallbackAnimation = true;
+    Series chartSeries = new Series("Series", DevExpress.XtraCharts.ViewType.Bar);
+    chartSeries.ArgumentDataMember = "KulanilanIcKagitCinsi";
+    chartSeries.ValueDataMembers[0] = "IcKagitNet";
+    settings.Series.Add(chartSeries);
+}).Bind(Model).GetHtml()
+</div>

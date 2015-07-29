@@ -1,0 +1,57 @@
+﻿@model IEnumerable<KendoMatbaa.Models.Personel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+<p>
+    @Html.ActionLink("Yeni", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonelAdiSoyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SicilNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EPosta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonelAdiSoyadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SicilNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EPosta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silindi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.PersonelUN }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.PersonelUN }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.PersonelUN })
+        </td>
+    </tr>
+}
+
+</table>

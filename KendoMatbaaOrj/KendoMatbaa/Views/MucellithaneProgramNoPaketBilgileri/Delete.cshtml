@@ -1,0 +1,56 @@
+﻿@model KendoMatbaa.Models.MucellithaneProgramNoPaketBilgileri
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>MucellithaneProgramNoPaketBilgileri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProgramNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProgramNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsKesimiProgramNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsKesimiProgramNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaketBilgileri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaketBilgileri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>

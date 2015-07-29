@@ -1,0 +1,176 @@
+﻿@*@model IEnumerable<KendoMatbaa.Models.StokHareket>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Miktar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hareket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Silindi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsEmriId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miktar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tarih)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hareket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Silindi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsEmriId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StokHareketId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StokHareketId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StokHareketId })
+        </td>
+    </tr>
+}
+
+</table>*@
+
+
+
+@model IEnumerable<KendoMatbaa.Models.StokHareket>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste</h2>
+
+
+
+<p style="padding:0 1em 1em; padding-top: 0.7em;background-color:gainsboro;">
+    Aşağıdaki kutucuğa arama için biliyosanız İşin adından,İş numarasından ya da İş Emri Id'den bildiğiniz bir parçasını yazıp, 'Ara' butonuna tıklayabilirsiniz.
+</p>
+
+
+@*@using (Html.BeginForm("IsEmri_Read","IsEmri",FormMethod.Post))*@
+@using (Html.BeginForm("Index", "StokHarekets"))
+{
+    <p>
+        İş Emri Ara: @Html.TextBox("searchString")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+
+
+
+<p>
+    @Html.ActionLink("Yeni stok hareketi", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Miktar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tarih)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hareket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yon)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Silindi)
+            </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.IsEmriId)*@
+            İş Emri Id
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.AltGruplar.AltGrupAdi)*@
+            Alt Grup Adı
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Miktar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tarih)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hareket)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yon)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Silindi)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.IsEmriId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AltGruplar.AltGrupAdi)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.StokHareketId }) |
+                @Html.ActionLink("Detaylar", "Details", new { id = item.StokHareketId }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.StokHareketId })
+            </td>
+        </tr>
+    }
+
+</table>

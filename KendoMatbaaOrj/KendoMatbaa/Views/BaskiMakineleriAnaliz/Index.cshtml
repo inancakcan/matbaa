@@ -1,0 +1,48 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Baskı Makineleri Analiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Baskı Makineleri Analiz</h2>
+<hr/>
+<h4>İç Baskı Makineleri</h4>
+
+
+<div class="chart-wrapper" style="width: 900px;height: 500px">
+    @(Html.Kendo().Chart<KendoMatbaa.Models.spIcBaskiMakineleriAnaliz_Result>()
+      .Name("IcBaskiMakineleriChart")
+      .Legend(legend => legend.Position(ChartLegendPosition.Bottom))
+      .DataSource(dataSource => dataSource
+                      .Read(read => read.Action("IcBaskiMakineAnalizOku", "BaskiMakineleriAnaliz")) // Specify the action method and controller name
+      )
+              .Series(series =>
+              {
+                  series.Bar(d => d.IcBaskiSayisi)
+                        .Name("İç Baskı Makineleri Analiz").Labels(labels => labels.Position(ChartBarLabelsPosition.InsideEnd));
+              })
+                .CategoryAxis(axis => axis
+                         .Categories(model => model.MakineAdi).Labels(labels => labels.Font("9px sans-serif")))
+                         .Tooltip(tooltip => tooltip.Visible(true))
+    )
+</div>
+<hr />
+<h4>Kapak Baskı Makineleri</h4>
+<div class="chart-wrapper" style="width: 900px;height: 500px">
+    @(Html.Kendo().Chart<KendoMatbaa.Models.spKapakBaskiMakineleriAnaliz_Result>()
+      .Name("KapakBaskiMakineleriChart")
+      .Legend(legend => legend.Position(ChartLegendPosition.Bottom))
+      .DataSource(dataSource => dataSource
+                      .Read(read => read.Action("KapakBaskiMakineAnalizOku", "BaskiMakineleriAnaliz")) // Specify the action method and controller name
+      )
+              .Series(series =>
+              {
+                  series.Bar(d => d.KapakBaskiSayisi)
+                        .Name("Kapak Baskı Makineleri Analiz").Labels(labels => labels.Position(ChartBarLabelsPosition.InsideEnd));
+              })
+                .CategoryAxis(axis => axis
+                         .Categories(model => model.MakineAdi).Labels(labels => labels.Font("9px sans-serif")))
+                         .Tooltip(tooltip => tooltip.Visible(true))
+    )
+</div>

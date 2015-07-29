@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d8aa41ec-04b6-458d-b320-b93b9be26a7b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://yetki.tse.org.tr/yetkiservis.asmx" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="yetkiservis.disco" MetadataType="Disco" ID="7e8f44c8-67dd-45e1-ba7b-b4169babd369" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?disco" />
+    <MetadataFile FileName="GlobalLogDataSet.xsd" MetadataType="Schema" ID="d165a1da-c6e5-4a79-9dc7-f4940927c993" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?schema=GlobalLogDataSet" />
+    <MetadataFile FileName="KullaniciOturumDataSet.xsd" MetadataType="Schema" ID="260e01bc-bea7-4238-9676-2dcf26b83ebe" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?schema=KullaniciOturumDataSet" />
+    <MetadataFile FileName="BirimDataSet.xsd" MetadataType="Schema" ID="666833cd-c089-43a9-b069-34d1375a63b9" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?schema=BirimDataSet" />
+    <MetadataFile FileName="KullaniciDataSet.xsd" MetadataType="Schema" ID="807e5531-8d0f-45b0-9a65-b1e5ac2d919f" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?schema=KullaniciDataSet" />
+    <MetadataFile FileName="MenuDataSet.xsd" MetadataType="Schema" ID="cc115b5d-a943-4c94-8bee-63b06878a86a" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?schema=MenuDataSet" />
+    <MetadataFile FileName="AuthenticationTicketDataSet.xsd" MetadataType="Schema" ID="228399d9-d4c0-45b3-ba5f-f199465512c8" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?schema=AuthenticationTicketDataSet" />
+    <MetadataFile FileName="KullaniciRolDataSet.xsd" MetadataType="Schema" ID="9822a6f9-168b-40a5-9900-6c010ac114da" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?schema=KullaniciRolDataSet" />
+    <MetadataFile FileName="ProjeDataSet.xsd" MetadataType="Schema" ID="5a0ffa64-da87-473c-990a-69d423d3046a" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?schema=ProjeDataSet" />
+    <MetadataFile FileName="YetkiDataSet.xsd" MetadataType="Schema" ID="1bcdb67e-ebb2-43c8-8101-98d2990575f8" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?schema=YetkiDataSet" />
+    <MetadataFile FileName="yetkiservis.wsdl" MetadataType="Wsdl" ID="524d06c7-d4dd-43d1-8e5b-6ed015982f44" SourceId="1" SourceUrl="https://yetki.tse.org.tr/yetkiservis.asmx?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

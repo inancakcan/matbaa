@@ -1,0 +1,9 @@
+@model DevExpress.DashboardWeb.Mvc.DashboardSourceModel
+@Html.DevExpress().DashboardViewer(settings => {
+	settings.Name = "KagitTuketimiDashboardViewer";
+    settings.FullscreenMode = true;
+    settings.RedrawOnResize = true;
+    settings.AllowExportDashboard = true;
+	settings.CallbackRouteValues = new { Controller = "KagitTuketimiDashBoard", Action = "KagitTuketimiDashboardViewerPartial" };
+	settings.ExportRouteValues = new { Controller = "KagitTuketimiDashBoard", Action = "KagitTuketimiDashboardViewerPartialExport" };
+}).BindToSource(Model).GetHtml()

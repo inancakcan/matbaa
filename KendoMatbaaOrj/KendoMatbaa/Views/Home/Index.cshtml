@@ -1,0 +1,69 @@
+﻿@*@model System.Collections.IEnumerable*@
+@model KendoMatbaa.Models.IsEmri
+
+
+
+
+@{
+    ViewBag.Title = "Home Page";
+    //Layout = "~/Views/Shared/_LayoutDevExpress.cshtml";
+    //Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>TSE Matbaası İş Takip Uygulaması</h1>
+    <p class="lead">TSE Matbaası bünyesinde yürütülen işlerin aşamalarını bu uygulama aracılığı ile izleyebilirsiniz.</p>
+    <p>
+        <a href="http://BIDB-057/matbaa/IsEmris/Index" class="btn btn-primary btn-large" title="İş emirlerini liste halinde görmek için tıklayınız..">İş Emirleri &raquo; </a>
+    </p>
+</div>
+
+
+
+
+
+    <div class="row">
+        <h3>Küçük Kontrol Paneli</h3>
+        <br />
+
+        @(Html.Kendo().PanelBar()
+          .Name("IntroPanelBar")
+          .Items(items =>
+          {
+              items.Add()
+                  .Text("Onay Bekleyen İşler")
+                  .Selected(true)
+                  //.Expanded(true)
+                  .LoadContentFrom("OnayBekleyenIsler", "KontrolPaneli");
+            @*.Content(@<text>
+                    <p style="padding:0 1em; padding-top: 0.7em">
+                        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that enables a clean
+                        separation of concerns and gives you full control over markup for enjoyable, agile development.
+                    <a href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more…</a></p>
+                </text>);*@
+              items.Add()
+                  .Text("Devam Etmekte Olan İşler")
+                  .LoadContentFrom("_DevamEtmekteOlanIsler", "IsEmri");
+                @*.Content(@<text>
+                        <p style="padding:0 1em; padding-top: 0.7em">
+                            NuGet is a free Visual Studio extension that makes it easy to add, remove, and update
+                            libraries and tools in Visual Studio projects.
+                        <a href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more…</a></p>
+                    </text>);*@
+              items.Add()
+                  .Text("Son 30 gün içinde Bitirilen İşler")
+                  .LoadContentFrom("_vGecenOtuzGunIcindeBitirilenIslerListe", "KontrolPaneli");
+                @*.Content(@<text>
+                        <p style="padding:0 1em; padding-top: 0.7em">
+                            You can easily find a web hosting company that offers the right
+                            mix of features and price for your applications.
+                        <a href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more…</a></p>
+                    </text>);*@
+          })
+        )
+    </div>
+
+
+
+
+

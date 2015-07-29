@@ -1,0 +1,80 @@
+﻿@model KendoMatbaa.Models.IsEmriBaskiMakineleri
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Kayıt Silinecek!</h2>
+
+<h3>Bu kaydı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>IsEmriBaskiMakineleri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IcBaskiMiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IcBaskiMiktari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KapakBaskiMiktari)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KapakBaskiMiktari)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakineninKullanildigiYer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakineninKullanildigiYer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaskiEbatlari.Boyut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaskiEbatlari.Boyut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaskiEbatlari1.Boyut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaskiEbatlari1.Boyut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BaskiMakineleri.MakineAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BaskiMakineleri.MakineAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsEmri.IsNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsEmri.IsNo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Liste", "Index")
+        </div>
+    }
+</div>
